@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T10:18:05.548996+00:00",
+  "title": "Design System: DirectChange",
+  "extensions": {
+    "colorMeta": {
+      "marigold-rate": {
+        "role": "primary",
+        "displayName": "Marigold Rate",
+        "tonalRamp": [
+          "oklch(15% 0.075 51)",
+          "oklch(25% 0.102 51)",
+          "oklch(38% 0.131 51)",
+          "oklch(50% 0.155 51)",
+          "oklch(62% 0.151 51)",
+          "oklch(74% 0.127 51)",
+          "oklch(86% 0.100 51)",
+          "oklch(95% 0.075 51)"
+        ]
+      },
+      "roasted-ink": {
+        "role": "primary",
+        "displayName": "Roasted Ink",
+        "tonalRamp": [
+          "oklch(15% 0.023 58)",
+          "oklch(25% 0.031 58)",
+          "oklch(38% 0.040 58)",
+          "oklch(50% 0.048 58)",
+          "oklch(62% 0.046 58)",
+          "oklch(74% 0.039 58)",
+          "oklch(86% 0.031 58)",
+          "oklch(95% 0.023 58)"
+        ]
+      },
+      "cream": {
+        "role": "primary",
+        "displayName": "Cream",
+        "tonalRamp": [
+          "oklch(15% 0.008 76)",
+          "oklch(25% 0.011 76)",
+          "oklch(38% 0.014 76)",
+          "oklch(50% 0.016 76)",
+          "oklch(62% 0.016 76)",
+          "oklch(74% 0.013 76)",
+          "oklch(86% 0.010 76)",
+          "oklch(95% 0.008 76)"
+        ]
+      },
+      "ember-dark": {
+        "role": "primary",
+        "displayName": "Ember Dark",
+        "tonalRamp": [
+          "oklch(15% 0.067 43)",
+          "oklch(25% 0.091 43)",
+          "oklch(38% 0.117 43)",
+          "oklch(50% 0.137 43)",
+          "oklch(62% 0.134 43)",
+          "oklch(74% 0.113 43)",
+          "oklch(86% 0.088 43)",
+          "oklch(95% 0.067 43)"
+        ]
+      },
+      "ember": {
+        "role": "primary",
+        "displayName": "Ember",
+        "tonalRamp": [
+          "oklch(15% 0.072 46)",
+          "oklch(25% 0.098 46)",
+          "oklch(38% 0.126 46)",
+          "oklch(50% 0.149 46)",
+          "oklch(62% 0.145 46)",
+          "oklch(74% 0.122 46)",
+          "oklch(86% 0.096 46)",
+          "oklch(95% 0.072 46)"
+        ]
+      },
+      "symbol-highlight": {
+        "role": "primary",
+        "displayName": "Symbol Highlight",
+        "tonalRamp": [
+          "oklch(15% 0.058 75)",
+          "oklch(25% 0.078 75)",
+          "oklch(38% 0.101 75)",
+          "oklch(50% 0.119 75)",
+          "oklch(62% 0.116 75)",
+          "oklch(74% 0.098 75)",
+          "oklch(86% 0.076 75)",
+          "oklch(95% 0.058 75)"
+        ]
+      },
+      "surface-white": {
+        "role": "neutral",
+        "displayName": "Surface White",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(25% 0.000 90)",
+          "oklch(38% 0.000 90)",
+          "oklch(50% 0.000 90)",
+          "oklch(62% 0.000 90)",
+          "oklch(74% 0.000 90)",
+          "oklch(86% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "cream-paper": {
+        "role": "neutral",
+        "displayName": "Cream Paper",
+        "tonalRamp": [
+          "oklch(15% 0.005 77)",
+          "oklch(25% 0.007 77)",
+          "oklch(38% 0.009 77)",
+          "oklch(50% 0.010 77)",
+          "oklch(62% 0.010 77)",
+          "oklch(74% 0.008 77)",
+          "oklch(86% 0.006 77)",
+          "oklch(95% 0.005 77)"
+        ]
+      },
+      "toffee-soft": {
+        "role": "neutral",
+        "displayName": "Toffee Soft",
+        "tonalRamp": [
+          "oklch(15% 0.026 60)",
+          "oklch(25% 0.036 60)",
+          "oklch(38% 0.046 60)",
+          "oklch(50% 0.054 60)",
+          "oklch(62% 0.053 60)",
+          "oklch(74% 0.044 60)",
+          "oklch(86% 0.035 60)",
+          "oklch(95% 0.026 60)"
+        ]
+      },
+      "biscuit-line": {
+        "role": "neutral",
+        "displayName": "Biscuit Line",
+        "tonalRamp": [
+          "oklch(15% 0.019 73)",
+          "oklch(25% 0.026 73)",
+          "oklch(38% 0.033 73)",
+          "oklch(50% 0.039 73)",
+          "oklch(62% 0.038 73)",
+          "oklch(74% 0.032 73)",
+          "oklch(86% 0.025 73)",
+          "oklch(95% 0.019 73)"
+        ]
+      },
+      "field-edge": {
+        "role": "neutral",
+        "displayName": "Field Edge",
+        "tonalRamp": [
+          "oklch(15% 0.039 63)",
+          "oklch(25% 0.053 63)",
+          "oklch(38% 0.068 63)",
+          "oklch(50% 0.080 63)",
+          "oklch(62% 0.078 63)",
+          "oklch(74% 0.066 63)",
+          "oklch(86% 0.052 63)",
+          "oklch(95% 0.039 63)"
+        ]
+      },
+      "pill-ink": {
+        "role": "pill",
+        "displayName": "Pill Ink",
+        "tonalRamp": [
+          "oklch(15% 0.048 51)",
+          "oklch(25% 0.065 51)",
+          "oklch(38% 0.083 51)",
+          "oklch(50% 0.098 51)",
+          "oklch(62% 0.095 51)",
+          "oklch(74% 0.080 51)",
+          "oklch(86% 0.063 51)",
+          "oklch(95% 0.048 51)"
+        ]
+      },
+      "pill-bottom": {
+        "role": "pill",
+        "displayName": "Pill Bottom",
+        "tonalRamp": [
+          "oklch(15% 0.022 75)",
+          "oklch(25% 0.030 75)",
+          "oklch(38% 0.038 75)",
+          "oklch(50% 0.045 75)",
+          "oklch(62% 0.044 75)",
+          "oklch(74% 0.037 75)",
+          "oklch(86% 0.029 75)",
+          "oklch(95% 0.022 75)"
+        ]
+      },
+      "pill-ring": {
+        "role": "pill",
+        "displayName": "Pill Ring",
+        "tonalRamp": [
+          "oklch(15% 0.043 72)",
+          "oklch(25% 0.058 72)",
+          "oklch(38% 0.075 72)",
+          "oklch(50% 0.088 72)",
+          "oklch(62% 0.086 72)",
+          "oklch(74% 0.072 72)",
+          "oklch(86% 0.057 72)",
+          "oklch(95% 0.043 72)"
+        ]
+      },
+      "night-paper": {
+        "role": "night",
+        "displayName": "Night Paper",
+        "tonalRamp": [
+          "oklch(15% 0.010 63)",
+          "oklch(25% 0.013 63)",
+          "oklch(38% 0.017 63)",
+          "oklch(50% 0.020 63)",
+          "oklch(62% 0.020 63)",
+          "oklch(74% 0.016 63)",
+          "oklch(86% 0.013 63)",
+          "oklch(95% 0.010 63)"
+        ]
+      },
+      "night-surface": {
+        "role": "night",
+        "displayName": "Night Surface",
+        "tonalRamp": [
+          "oklch(15% 0.013 61)",
+          "oklch(25% 0.018 61)",
+          "oklch(38% 0.023 61)",
+          "oklch(50% 0.027 61)",
+          "oklch(62% 0.026 61)",
+          "oklch(74% 0.022 61)",
+          "oklch(86% 0.017 61)",
+          "oklch(95% 0.013 61)"
+        ]
+      },
+      "night-ink": {
+        "role": "night",
+        "displayName": "Night Ink",
+        "tonalRamp": [
+          "oklch(15% 0.019 72)",
+          "oklch(25% 0.026 72)",
+          "oklch(38% 0.034 72)",
+          "oklch(50% 0.040 72)",
+          "oklch(62% 0.039 72)",
+          "oklch(74% 0.032 72)",
+          "oklch(86% 0.025 72)",
+          "oklch(95% 0.019 72)"
+        ]
+      },
+      "night-soft": {
+        "role": "night",
+        "displayName": "Night Soft",
+        "tonalRamp": [
+          "oklch(15% 0.033 64)",
+          "oklch(25% 0.044 64)",
+          "oklch(38% 0.057 64)",
+          "oklch(50% 0.067 64)",
+          "oklch(62% 0.065 64)",
+          "oklch(74% 0.055 64)",
+          "oklch(86% 0.043 64)",
+          "oklch(95% 0.033 64)"
+        ]
+      },
+      "night-line": {
+        "role": "night",
+        "displayName": "Night Line",
+        "tonalRamp": [
+          "oklch(15% 0.018 62)",
+          "oklch(25% 0.025 62)",
+          "oklch(38% 0.032 62)",
+          "oklch(50% 0.038 62)",
+          "oklch(62% 0.037 62)",
+          "oklch(74% 0.031 62)",
+          "oklch(86% 0.024 62)",
+          "oklch(95% 0.018 62)"
+        ]
+      },
+      "night-edge": {
+        "role": "night",
+        "displayName": "Night Edge",
+        "tonalRamp": [
+          "oklch(15% 0.030 59)",
+          "oklch(25% 0.041 59)",
+          "oklch(38% 0.053 59)",
+          "oklch(50% 0.062 59)",
+          "oklch(62% 0.061 59)",
+          "oklch(74% 0.051 59)",
+          "oklch(86% 0.040 59)",
+          "oklch(95% 0.030 59)"
+        ]
+      },
+      "marigold-night": {
+        "role": "night",
+        "displayName": "Marigold Night",
+        "tonalRamp": [
+          "oklch(15% 0.073 59)",
+          "oklch(25% 0.099 59)",
+          "oklch(38% 0.127 59)",
+          "oklch(50% 0.150 59)",
+          "oklch(62% 0.146 59)",
+          "oklch(74% 0.123 59)",
+          "oklch(86% 0.096 59)",
+          "oklch(95% 0.073 59)"
+        ]
+      },
+      "night-pill-ink": {
+        "role": "night",
+        "displayName": "Night Pill Ink",
+        "tonalRamp": [
+          "oklch(15% 0.033 74)",
+          "oklch(25% 0.044 74)",
+          "oklch(38% 0.057 74)",
+          "oklch(50% 0.067 74)",
+          "oklch(62% 0.066 74)",
+          "oklch(74% 0.055 74)",
+          "oklch(86% 0.043 74)",
+          "oklch(95% 0.033 74)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The converted-price headline in the hero only."
+      },
+      "headline-hero": {
+        "displayName": "Headline Hero",
+        "purpose": "The sentence under the giant price."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Fact and step titles."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Step numbers in Marigold Rate."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Website reading text."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Paragraph under a headline."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Website buttons."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Popup converter amounts and results."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Popup labels; never uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lifted-frame",
+        "value": "0 18px 50px rgba(110,55,10,.16)",
+        "purpose": "Screenshots on the website (dark: rgba(0,0,0,.45))."
+      },
+      {
+        "name": "cream-lift-hero",
+        "value": "0 10px 30px rgba(90,40,5,.25)",
+        "purpose": "The hero price tag on orange."
+      },
+      {
+        "name": "cream-lift-button",
+        "value": "0 6px 18px rgba(90,40,5,.25)",
+        "purpose": "The cream button on orange."
+      },
+      {
+        "name": "pill-ring",
+        "value": "inset 0 0 0 1px #f2c287, 0 1px 2px rgba(122,59,12,.12)",
+        "purpose": "Price tag at rest."
+      },
+      {
+        "name": "pill-ring-hover",
+        "value": "inset 0 0 0 1px #e9a55c, 0 3px 8px rgba(122,59,12,.18)",
+        "purpose": "Price tag on hover."
+      },
+      {
+        "name": "hover-card",
+        "value": "0 10px 30px rgba(90,45,10,.22), inset 0 3px 0 #f0913a",
+        "purpose": "Badge rate card with an orange top edge (dark: rgba(0,0,0,.5), #ff9a3d)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "lift",
+        "value": "transform .15s",
+        "purpose": "Buttons rise 2px, price tags 1px, on hover; off with reduced motion."
+      },
+      {
+        "name": "price-swap",
+        "value": "opacity .3s, transform .3s cubic-bezier(.2,.7,.2,1)",
+        "purpose": "Hero price cross-fade every 3s."
+      },
+      {
+        "name": "marquee",
+        "value": "scroll 80s linear infinite",
+        "purpose": "Currency chip rows; paused on hover, by the pause button, static with reduced motion."
+      },
+      {
+        "name": "switch",
+        "value": "background .2s, transform .2s",
+        "purpose": "Popup switch track and knob."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "820px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Cream Button",
+      "kind": "button",
+      "refersTo": "button-cream",
+      "description": "Primary action, on the orange band.",
+      "html": "<div class=\"ds-band\"><a class=\"ds-btn-cream\" href=\"#\">Install it free</a></div>",
+      "css": ".ds-band { background: #e0701c; padding: 24px; } .ds-btn-cream { display: inline-flex; align-items: center; height: 54px; padding: 0 28px; border-radius: 999px; font: 700 17px/1 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; color: #3b220d; background: #fff7ec; text-decoration: none; box-shadow: 0 6px 18px rgba(90,40,5,.25); transition: transform .15s; } .ds-btn-cream:hover { transform: translateY(-2px); } .ds-btn-cream:focus-visible { outline: 3px solid #3b220d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on orange: ink text, 2px ink border.",
+      "html": "<div class=\"ds-band\"><a class=\"ds-btn-line\" href=\"#\">View the source</a></div>",
+      "css": ".ds-band { background: #e0701c; padding: 24px; } .ds-btn-line { display: inline-flex; align-items: center; height: 54px; padding: 0 28px; border-radius: 999px; font: 700 17px/1 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; color: #3b220d; border: 2px solid #3b220d; text-decoration: none; transition: transform .15s; } .ds-btn-line:hover { transform: translateY(-2px); } .ds-btn-line:focus-visible { outline: 3px solid #3b220d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Price Tag",
+      "kind": "custom",
+      "refersTo": "price-tag",
+      "description": "The converted price in a rounded tag led by the app mark, as the badge draws it.",
+      "html": "<p class=\"ds-host\">¥24,000 <span class=\"ds-pill\"><svg class=\"ds-mark\" viewBox=\"0 0 128 128\" role=\"img\" aria-label=\"≈\"><rect x=\"4\" y=\"4\" width=\"120\" height=\"120\" rx=\"30\" fill=\"#e0701c\"/><path d=\"M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0\" fill=\"none\" stroke=\"#fff7ec\" stroke-width=\"13\" stroke-linecap=\"round\"/></svg>€137</span></p>",
+      "css": ".ds-host { font: 17px/1.6 system-ui, sans-serif; color: #3b220d; } .ds-pill { display: inline-flex; align-items: center; gap: .3em; padding: .12em .55em .12em .12em; border-radius: .42em; white-space: nowrap; font: 600 .82em/1.5 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; color: #7a3b0c; background: linear-gradient(#fff7ec, #ffe8c9); box-shadow: inset 0 0 0 1px #f2c287, 0 1px 2px rgba(122,59,12,.12); transition: transform .15s, box-shadow .15s; } .ds-pill:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px #e9a55c, 0 3px 8px rgba(122,59,12,.18); } .ds-mark { display: block; flex: none; width: 1.2em; height: 1.2em; }"
+    },
+    {
+      "name": "Hero Price",
+      "kind": "custom",
+      "refersTo": "price-tag-hero",
+      "description": "The giant converted price that heads the orange hero band.",
+      "html": "<div class=\"ds-band\"><p class=\"ds-big\"><span>¥24,000</span><span class=\"ds-pill-hero\"><svg class=\"ds-mark\" viewBox=\"0 0 128 128\" role=\"img\" aria-label=\"≈\"><rect x=\"4\" y=\"4\" width=\"120\" height=\"120\" rx=\"30\" fill=\"#e0701c\"/><path d=\"M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0\" fill=\"none\" stroke=\"#fff7ec\" stroke-width=\"13\" stroke-linecap=\"round\"/></svg><span>€137</span></span></p></div>",
+      "css": ".ds-band { background: #e0701c; color: #3b220d; padding: 24px; } .ds-big { display: flex; flex-wrap: wrap; align-items: center; gap: .16em .28em; margin: 0; font: 800 64px/1 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; letter-spacing: -.045em; } .ds-pill-hero { display: inline-flex; align-items: center; gap: .14em; padding: .1em .3em .1em .1em; border-radius: .3em; background: #fff7ec; color: #3b220d; box-shadow: 0 10px 30px rgba(90,40,5,.25); } .ds-mark { display: block; flex: none; width: .74em; height: .74em; }"
+    },
+    {
+      "name": "Currency Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "A source price and its price tag, in the marquee rows.",
+      "html": "<span class=\"ds-chip\">₹4,999<span class=\"ds-pill\"><svg class=\"ds-mark\" viewBox=\"0 0 128 128\" role=\"img\" aria-label=\"≈\"><rect x=\"4\" y=\"4\" width=\"120\" height=\"120\" rx=\"30\" fill=\"#e0701c\"/><path d=\"M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0\" fill=\"none\" stroke=\"#fff7ec\" stroke-width=\"13\" stroke-linecap=\"round\"/></svg>€47</span></span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 14px; white-space: nowrap; font: 700 17px/1.6 system-ui, sans-serif; color: #3b220d; background: #fffaf3; border: 1px solid #f1dcc2; } .ds-pill { display: inline-flex; align-items: center; gap: .3em; padding: .12em .55em .12em .12em; border-radius: .42em; font: 600 .8em/1.5 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; color: #7a3b0c; background: linear-gradient(#fff7ec, #ffe8c9); box-shadow: inset 0 0 0 1px #f2c287; } .ds-mark { display: block; flex: none; width: 1.2em; height: 1.2em; }"
+    },
+    {
+      "name": "Fact",
+      "kind": "custom",
+      "description": "A rule-topped fact: bare icon and title in Ember Dark, toffee text. No card.",
+      "html": "<div class=\"ds-fact\"><h3><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z\"/></svg>Live rates</h3><p>Near real-time rates for 150+ currencies, refreshed every 10 minutes.</p></div>",
+      "css": ".ds-fact { max-width: 320px; padding: 26px 0; border-top: 1.5px solid #f1dcc2; font: 17px/1.6 system-ui, sans-serif; } .ds-fact h3 { display: flex; align-items: center; gap: 10px; margin: 0; font: 700 21px/1.15 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; letter-spacing: -.02em; color: #a8430d; } .ds-fact svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; } .ds-fact p { margin: 8px 0 0; color: #7a5a40; }"
+    },
+    {
+      "name": "Popup Field",
+      "kind": "input",
+      "refersTo": "input-popup",
+      "description": "Popup select/input with the Field Edge border.",
+      "html": "<select class=\"ds-field\"><option>EUR · Euro</option></select>",
+      "css": ".ds-field { width: 240px; padding: 8px 10px; border: 1px solid #a8784c; border-radius: 10px; font: 14px/1.4 system-ui, sans-serif; color: #3b220d; background: #fff; } .ds-field:focus-visible { outline: 2px solid #c2540f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Switch",
+      "kind": "input",
+      "description": "Popup on/off switch; fills with Marigold Rate when on.",
+      "html": "<input type=\"checkbox\" class=\"ds-switch\" checked aria-label=\"Show conversions\">",
+      "css": ".ds-switch { appearance: none; width: 40px; height: 23px; margin: 0; border-radius: 99px; background: #7a5a40; position: relative; cursor: pointer; transition: background .2s; } .ds-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 17px; height: 17px; border-radius: 50%; background: #fff; transition: transform .2s; } .ds-switch:checked { background: #e0701c; } .ds-switch:checked::after { transform: translateX(17px); } .ds-switch:focus-visible { outline: 2px solid #c2540f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Brand and links in ink on the orange band.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\">DirectChange</a><div class=\"ds-links\"><a href=\"#\">Features</a><a href=\"#\">How it works</a><a href=\"#\">GitHub</a></div></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; background: #e0701c; color: #3b220d; } .ds-nav a { color: inherit; text-decoration: none; } .ds-brand { font: 700 20px/1 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; } .ds-links { display: flex; gap: 26px; font: 600 15px/1 system-ui, sans-serif; } .ds-links a:hover { text-decoration: underline; } .ds-nav a:focus-visible { outline: 3px solid #3b220d; outline-offset: 3px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Orange Drench",
+    "overview": "The brand orange is no longer an accent; it is the ground. The website opens and closes on solid orange bands, the popup opens on a flat orange header, and the privacy page carries an orange top edge. On the orange, everything is dark roasted ink, and the one cream object is the price tag: on the landing page a single converted price (\"¥24,000 ≈ €137\") set enormous is the headline itself. Between the orange edges, the page sits on plain white (night paper in dark mode) and breathes: rules and text instead of boxes.\n\nThe register is simple and close to standard. One warm family (orange, cream, roasted brown, toffee), the system rounded face for headings and figures, the system sans for reading, no web fonts. The signature is the price tag: a cream rounded tag led by the app mark (an orange square holding two cream ≈ waves), shared exactly across website, store art and inline badge.\n\nThe inline badge appears on pages DirectChange doesn't own, so it stays small and polite (0.82em of the host text, 1px hover lift). The website is where the orange gets to drench.",
+    "keyCharacteristics": [
+      "Orange as a ground at the edges of every surface, never as mid-page panels.",
+      "Dark ink on orange, always; cream is the only object color on orange.",
+      "White (or night paper) between the bands, structured by 1.5px rules and type, not same-size cards.",
+      "The price tag led by the app mark, identical on every surface; the ≈ is the mark's SVG waves, never a glyph.",
+      "Capsules for actions, rounded rectangles for information, circles only for round things.",
+      "Rounded type for headings, figures and buttons; system sans for reading."
+    ],
+    "rules": [
+      {
+        "name": "The Ink On Orange Rule",
+        "body": "Text, outlines, rules and focus rings on Marigold Rate are Roasted Ink. Never white: white on this orange is 3.2:1.",
+        "section": "colors"
+      },
+      {
+        "name": "The Orange At The Edges Rule",
+        "body": "Marigold Rate is a ground for the opening and closing of a surface (top band, closing band, popup header, top border). Content between sits on white or night paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dark Accent Text Rule",
+        "body": "Orange-family text on a light ground is Ember Dark (#a8430d), or Marigold Night in dark mode. Marigold Rate appears as text only at display size (the 64px step numerals).",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Every color is a warm orange, cream or brown. No blue, no neutral grey, including disabled and secondary states.",
+        "section": "colors"
+      },
+      {
+        "name": "The Rounded Numbers Rule",
+        "body": "Prices, amounts and currency symbols are always set in the rounded face.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Giant Price Rule",
+        "body": "The display size belongs to the converted price. Sentences never take the display size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rules Not Cards Rule",
+        "body": "Below the hero, group content with 1.5px top rules and type, not same-size bordered cards. Chips and language tags are the only boxed items on the page.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Shape Means Role Rule",
+        "body": "Capsule = action, rounded rectangle = information, circle = only things that are genuinely round.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Concentric Corner Rule",
+        "body": "A frame around the mark takes the mark's corner radius plus the inset (badge: 1.2em mark, .12em inset, .42em corner; hero: .74em mark, .1em inset, .3em corner).",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do put Roasted Ink (#3b220d) on every orange ground, including focus rings and rules (see The Ink On Orange Rule).",
+      "Do keep orange at the edges of a surface and white or night paper between (see The Orange At The Edges Rule).",
+      "Do use Ember Dark (#a8430d) for accent text on light grounds and Marigold Night (#ff9a3d) in dark mode.",
+      "Do show converted values in a price tag led by the app mark, with corners concentric to the mark, and set every figure in the rounded face.",
+      "Do use capsules only for actions, rounded rectangles for information, circles only for round things.",
+      "Do group content below the hero with 1.5px rules and type; reserve shadows for screenshots and cream objects on orange.",
+      "Do define both the light and night value for each new surface, and honor `prefers-reduced-motion` and right-to-left layouts."
+    ],
+    "donts": [
+      "Don't put white text on Marigold Rate; it fails contrast (3.2:1).",
+      "Don't set the ≈ as a text glyph; it is the mark's SVG waves.",
+      "Don't put the orange mark on an orange ground.",
+      "Don't introduce grey, blue or any cool hue, including for disabled states.",
+      "Don't build sections out of rows of same-size bordered cards.",
+      "Don't let the inline badge grow beyond 0.82em of the host text or add motion beyond its 1px hover lift.",
+      "Don't add web fonts; the system rounded and sans stacks are the type system."
+    ]
+  }
+}
