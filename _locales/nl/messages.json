@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatisch (browser)"
+  },
+  "converter": {
+    "message": "Snelle omrekening"
+  },
+  "amount": {
+    "message": "Bedrag"
+  },
+  "swapCurrencies": {
+    "message": "Valuta's omwisselen"
   }
 }

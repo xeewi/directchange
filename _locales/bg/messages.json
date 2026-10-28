@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Автоматично (браузър)"
+  },
+  "converter": {
+    "message": "Бърз конвертор"
+  },
+  "amount": {
+    "message": "Сума"
+  },
+  "swapCurrencies": {
+    "message": "Размяна на валутите"
   }
 }

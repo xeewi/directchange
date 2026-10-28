@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "자동(브라우저)"
+  },
+  "converter": {
+    "message": "빠른 환산"
+  },
+  "amount": {
+    "message": "금액"
+  },
+  "swapCurrencies": {
+    "message": "통화 바꾸기"
   }
 }

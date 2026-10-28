@@ -99,10 +99,10 @@ function findPrices(text, local = null, known = null) {
 
 const convert = (amount, from, to, rates) => amount / rates[from] * rates[to]; // rates are USD-based
 
-function formatMoney(amount, currency, locale) {
+function formatMoney(amount, currency, locale, currencyDisplay = 'symbol') {
   const digits = Math.abs(amount) >= 100 ? 0 : 2;
   return new Intl.NumberFormat(locale, {
-    style: 'currency', currency, minimumFractionDigits: digits, maximumFractionDigits: digits,
+    style: 'currency', currency, currencyDisplay, minimumFractionDigits: digits, maximumFractionDigits: digits,
   }).format(amount);
 }
 

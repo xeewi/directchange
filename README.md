@@ -36,6 +36,8 @@ and when it was fetched.
   `14 000 bahts`, `Rs 900`… even prices split across several HTML tags.
 - **Knows where the site is.** A plain `$` on a `.ca` site is Canadian dollars, `¥` on a `.cn` site is
   yuan, `kr` on a `.no` site is Norwegian krone. See [how it decides](#which-currency-is-).
+- **Quick converter** in the popup: type a budget (say 1,000 €) and see it in the currency of the site
+  you're on, handy for setting price filters.
 - **Dynamic pages.** Infinite scroll, filters and single-page apps are converted as content appears.
 - **36 languages**, following your browser by default or chosen in the popup. Right-to-left
   languages (Arabic, Hebrew, Persian) are supported.

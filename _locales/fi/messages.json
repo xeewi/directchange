@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automaattinen (selain)"
+  },
+  "converter": {
+    "message": "Pikamuunnin"
+  },
+  "amount": {
+    "message": "Summa"
+  },
+  "swapCurrencies": {
+    "message": "Vaihda valuutat"
   }
 }

@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automaticky (prehliadač)"
+  },
+  "converter": {
+    "message": "Rýchly prepočet"
+  },
+  "amount": {
+    "message": "Suma"
+  },
+  "swapCurrencies": {
+    "message": "Vymeniť meny"
   }
 }

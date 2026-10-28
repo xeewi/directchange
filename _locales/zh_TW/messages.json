@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "自動（瀏覽器）"
+  },
+  "converter": {
+    "message": "快速換算"
+  },
+  "amount": {
+    "message": "金額"
+  },
+  "swapCurrencies": {
+    "message": "交換貨幣"
   }
 }

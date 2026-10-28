@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatycznie (przeglądarka)"
+  },
+  "converter": {
+    "message": "Szybki przelicznik"
+  },
+  "amount": {
+    "message": "Kwota"
+  },
+  "swapCurrencies": {
+    "message": "Zamień waluty"
   }
 }

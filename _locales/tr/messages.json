@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Otomatik (tarayıcı)"
+  },
+  "converter": {
+    "message": "Hızlı çevirici"
+  },
+  "amount": {
+    "message": "Tutar"
+  },
+  "swapCurrencies": {
+    "message": "Para birimlerini değiştir"
   }
 }

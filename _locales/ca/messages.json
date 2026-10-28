@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automàtic (navegador)"
+  },
+  "converter": {
+    "message": "Conversor ràpid"
+  },
+  "amount": {
+    "message": "Import"
+  },
+  "swapCurrencies": {
+    "message": "Intercanvia les monedes"
   }
 }

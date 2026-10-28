@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatisk (browser)"
+  },
+  "converter": {
+    "message": "Hurtig omregner"
+  },
+  "amount": {
+    "message": "Beløb"
+  },
+  "swapCurrencies": {
+    "message": "Byt valutaer"
   }
 }

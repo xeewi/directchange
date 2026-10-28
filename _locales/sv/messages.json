@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatiskt (webbläsare)"
+  },
+  "converter": {
+    "message": "Snabbomräknare"
+  },
+  "amount": {
+    "message": "Belopp"
+  },
+  "swapCurrencies": {
+    "message": "Byt valutor"
   }
 }

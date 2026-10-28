@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatica (browser)"
+  },
+  "converter": {
+    "message": "Convertitore rapido"
+  },
+  "amount": {
+    "message": "Importo"
+  },
+  "swapCurrencies": {
+    "message": "Inverti valute"
   }
 }

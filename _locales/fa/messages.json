@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "خودکار (مرورگر)"
+  },
+  "converter": {
+    "message": "مبدل سریع"
+  },
+  "amount": {
+    "message": "مبلغ"
+  },
+  "swapCurrencies": {
+    "message": "جابه‌جایی ارزها"
   }
 }

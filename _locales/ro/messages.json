@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automat (browser)"
+  },
+  "converter": {
+    "message": "Convertor rapid"
+  },
+  "amount": {
+    "message": "Sumă"
+  },
+  "swapCurrencies": {
+    "message": "Inversează monedele"
   }
 }

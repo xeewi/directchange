@@ -69,6 +69,8 @@ function declaredCurrency() {
   return '';
 }
 
+const siteCurrency = () => localCurrency({ host: location.hostname, lang: document.documentElement.lang, declared: declaredCurrency() });
+
 const skipped = el => { for (; el; el = el.parentElement) if (SKIP.has(el.tagName.toUpperCase()) || el.isContentEditable) return true; return false; };
 const prices = text => findPrices(text, local, known).filter(p => p.currency !== settings.target);
 
@@ -127,11 +129,13 @@ async function start() {
   if (r?.error) return console.warn('DirectChange:', r.error);
   ({ rates, time: ratesTime, source: ratesSource } = r);
   known = new Set(Object.keys(rates));
-  local = localCurrency({ host: location.hostname, lang: document.documentElement.lang, declared: declaredCurrency() });
+  local = siteCurrency();
   if (!rates[settings.target]) return;
   scan(document.body);
   observer.observe(document.body, { childList: true, subtree: true });
 }
 
+// The popup's converter asks which currency this site uses.
+chrome.runtime.onMessage.addListener((msg, _s, reply) => { if (msg === 'local') reply(siteCurrency()); });
 chrome.storage.onChanged.addListener((_c, area) => { if (area === 'sync') start(); });
 start();

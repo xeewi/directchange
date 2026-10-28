@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatikus (böngésző)"
+  },
+  "converter": {
+    "message": "Gyors átváltó"
+  },
+  "amount": {
+    "message": "Összeg"
+  },
+  "swapCurrencies": {
+    "message": "Pénznemek felcserélése"
   }
 }

@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "تلقائي (المتصفح)"
+  },
+  "converter": {
+    "message": "محوّل سريع"
+  },
+  "amount": {
+    "message": "المبلغ"
+  },
+  "swapCurrencies": {
+    "message": "تبديل العملتين"
   }
 }

@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "อัตโนมัติ (เบราว์เซอร์)"
+  },
+  "converter": {
+    "message": "แปลงค่าเงินด่วน"
+  },
+  "amount": {
+    "message": "จำนวนเงิน"
+  },
+  "swapCurrencies": {
+    "message": "สลับสกุลเงิน"
   }
 }

@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "自動（ブラウザ）"
+  },
+  "converter": {
+    "message": "クイック換算"
+  },
+  "amount": {
+    "message": "金額"
+  },
+  "swapCurrencies": {
+    "message": "通貨を入れ替える"
   }
 }

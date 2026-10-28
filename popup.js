@@ -16,6 +16,14 @@ async function translator(lang) {
   };
 }
 
+// Currency of the site in the active tab, as the content script sees it (null on chrome:// pages etc.).
+async function siteCurrency() {
+  try {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    return await chrome.tabs.sendMessage(tab.id, 'local', { frameId: 0 });
+  } catch { return null; }
+}
+
 (async () => {
   const s = await chrome.storage.sync.get({ target: defaultCurrency(), enabled: true, lang: 'auto' });
   const t = await translator(s.lang);
@@ -24,6 +32,9 @@ async function translator(lang) {
   document.documentElement.dir = s.lang === 'auto' ? chrome.i18n.getMessage('@@bidi_dir') : RTL.includes(s.lang) ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   $('enabled').setAttribute('aria-label', t('enable'));
+  $('amount').setAttribute('aria-label', t('amount'));
+  $('swap').title = t('swapCurrencies');
+  $('swap').setAttribute('aria-label', t('swapCurrencies'));
 
   $('lang').add(new Option(t('languageAuto'), 'auto'));
   LANGS.map(l => { // each language in its own name: "English", "Français", "日本語"...
@@ -37,6 +48,24 @@ async function translator(lang) {
   const codes = Object.keys(r.rates ?? { EUR: 1 }).sort();
   for (const c of codes) $('target').add(new Option(`${c} — ${names.of(c)}`, c, false, c === s.target));
   $('enabled').checked = s.enabled;
+
+  // Converter: "my currency -> this site's currency" by default, e.g. a 1000 € budget on a Thai site.
+  const saved = (await chrome.storage.local.get('conv')).conv ?? { amount: '1000', from: s.target };
+  const site = await siteCurrency();
+  for (const sel of ['from', 'to']) for (const c of codes) $(sel).add(Object.assign(new Option(c, c), { title: names.of(c) }));
+  $('amount').value = saved.amount;
+  $('from').value = codes.includes(saved.from) ? saved.from : s.target;
+  $('to').value = site && site !== $('from').value && codes.includes(site) ? site
+    : saved.to ?? ($('from').value === 'USD' ? 'EUR' : 'USD');
+  const update = () => {
+    const n = parseNumber($('amount').value.trim() || 'x');
+    $('result').textContent = r.rates && Number.isFinite(n)
+      ? formatMoney(convert(n, $('from').value, $('to').value, r.rates), $('to').value, loc, 'narrowSymbol') : '—';
+    chrome.storage.local.set({ conv: { amount: $('amount').value, from: $('from').value, to: $('to').value } });
+  };
+  $('amount').oninput = $('from').onchange = $('to').onchange = update;
+  $('swap').onclick = () => { [$('from').value, $('to').value] = [$('to').value, $('from').value]; update(); };
+  update();
   $('info').textContent = r.error ? t('ratesError', r.error)
     : t('ratesInfo', codes.length, new Date(r.time).toLocaleString(loc, { dateStyle: 'short', timeStyle: 'short' }), r.source);
 

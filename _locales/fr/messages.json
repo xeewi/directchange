@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatique (navigateur)"
+  },
+  "converter": {
+    "message": "Convertisseur"
+  },
+  "amount": {
+    "message": "Montant"
+  },
+  "swapCurrencies": {
+    "message": "Inverser les monnaies"
   }
 }

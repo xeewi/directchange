@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatik (pelayar)"
+  },
+  "converter": {
+    "message": "Penukar pantas"
+  },
+  "amount": {
+    "message": "Jumlah"
+  },
+  "swapCurrencies": {
+    "message": "Tukar mata wang"
   }
 }

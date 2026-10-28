@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "স্বয়ংক্রিয় (ব্রাউজার)"
+  },
+  "converter": {
+    "message": "দ্রুত রূপান্তরকারী"
+  },
+  "amount": {
+    "message": "পরিমাণ"
+  },
+  "swapCurrencies": {
+    "message": "মুদ্রা অদলবদল করুন"
   }
 }

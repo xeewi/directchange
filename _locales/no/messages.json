@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Automatisk (nettleser)"
+  },
+  "converter": {
+    "message": "Hurtigomregner"
+  },
+  "amount": {
+    "message": "Beløp"
+  },
+  "swapCurrencies": {
+    "message": "Bytt valutaer"
   }
 }

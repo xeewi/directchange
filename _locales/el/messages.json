@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Αυτόματα (πρόγραμμα περιήγησης)"
+  },
+  "converter": {
+    "message": "Γρήγορος μετατροπέας"
+  },
+  "amount": {
+    "message": "Ποσό"
+  },
+  "swapCurrencies": {
+    "message": "Εναλλαγή νομισμάτων"
   }
 }

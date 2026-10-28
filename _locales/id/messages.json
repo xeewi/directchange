@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Otomatis (browser)"
+  },
+  "converter": {
+    "message": "Konverter cepat"
+  },
+  "amount": {
+    "message": "Jumlah"
+  },
+  "swapCurrencies": {
+    "message": "Tukar mata uang"
   }
 }

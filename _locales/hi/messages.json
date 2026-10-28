@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "स्वचालित (ब्राउज़र)"
+  },
+  "converter": {
+    "message": "त्वरित कनवर्टर"
+  },
+  "amount": {
+    "message": "राशि"
+  },
+  "swapCurrencies": {
+    "message": "मुद्राएँ अदला-बदली करें"
   }
 }

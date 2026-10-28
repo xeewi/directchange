@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "Tự động (trình duyệt)"
+  },
+  "converter": {
+    "message": "Quy đổi nhanh"
+  },
+  "amount": {
+    "message": "Số tiền"
+  },
+  "swapCurrencies": {
+    "message": "Đảo tiền tệ"
   }
 }

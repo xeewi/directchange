@@ -44,5 +44,14 @@
   },
   "languageAuto": {
     "message": "אוטומטי (דפדפן)"
+  },
+  "converter": {
+    "message": "ממיר מהיר"
+  },
+  "amount": {
+    "message": "סכום"
+  },
+  "swapCurrencies": {
+    "message": "החלפת המטבעות"
   }
 }
