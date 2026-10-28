@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DirectChange privacy policy</title>
+<link rel="icon" href="assets/icon-128.png">
+<style>
+  :root { --bg: #fffaf3; --ink: #3b220d; --soft: #8a6446; --line: #f1dcc2; --accent: #d65a17; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #1c130b; --ink: #ffe9cf; --soft: #c9a07a; --line: #3d2a19; --accent: #ff9a3d; }
+  }
+  body { margin: 0; font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+  main { max-width: 700px; margin: 0 auto; padding: 40px 20px 60px; }
+  a { color: var(--accent); }
+  .back { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); font-weight: 700; }
+  .back img { width: 28px; height: 28px; }
+  h1 { font-family: ui-rounded, "SF Pro Rounded", system-ui, sans-serif; font-size: 34px; margin: 36px 0 4px; }
+  h2 { font-size: 20px; margin: 32px 0 6px; }
+  .date { color: var(--soft); margin: 0; }
+  li { margin: 6px 0; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--soft); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./"><img src="assets/icon-128.png" alt="">DirectChange</a>
+  <h1>Privacy policy</h1>
+  <p class="date">Last updated: October 28, 2026</p>
+
+  <h2>In short</h2>
+  <p>DirectChange does not collect, store, sell or share any personal data. There is no account, no analytics and no tracking.</p>
+
+  <h2>What the extension reads</h2>
+  <p>To find prices, DirectChange reads the text of the pages you visit. This happens entirely on your device.
+    Page content, URLs and browsing history are never sent to anyone, including us.</p>
+
+  <h2>Network requests</h2>
+  <p>The only requests DirectChange makes download exchange rates, about every 10 minutes at most:</p>
+  <ul>
+    <li><code>api.coinbase.com</code>, the primary source of rates;</li>
+    <li><code>open.er-api.com</code>, used only if the first one is unavailable.</li>
+  </ul>
+  <p>These requests contain no information about you or the pages you browse. Like any web request, they
+    reveal your IP address to those services, which handle it under their own privacy policies.</p>
+
+  <h2>What is stored</h2>
+  <ul>
+    <li>Your settings (on/off, reference currency, language), in your browser's extension storage. If you
+      use browser sync, your browser syncs them across your devices.</li>
+    <li>The latest exchange rates, cached locally.</li>
+  </ul>
+  <p>Uninstalling the extension deletes all of it.</p>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><b>Access to websites:</b> needed to detect prices on the pages you visit and show their converted value.</li>
+    <li><b>Storage:</b> keeps your settings and the cached rates.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Questions? Open an issue on <a href="https://github.com/xeewi/directchange/issues">GitHub</a>. The source
+    code is public, so you can check all of the above.</p>
+
+  <footer>DirectChange is open source under the MIT License.</footer>
+</main>
+</body>
+</html>
