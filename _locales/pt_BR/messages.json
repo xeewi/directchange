@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Inverter moedas"
+  },
+  "siteCurrency": {
+    "message": "Moeda deste site"
   }
 }

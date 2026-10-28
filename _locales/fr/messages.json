@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Inverser les monnaies"
+  },
+  "siteCurrency": {
+    "message": "Monnaie de ce site"
   }
 }

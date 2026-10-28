@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Prohodit měny"
+  },
+  "siteCurrency": {
+    "message": "Měna tohoto webu"
   }
 }

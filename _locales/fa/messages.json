@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "جابه‌جایی ارزها"
+  },
+  "siteCurrency": {
+    "message": "ارز این سایت"
   }
 }

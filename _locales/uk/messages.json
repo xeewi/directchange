@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Поміняти валюти місцями"
+  },
+  "siteCurrency": {
+    "message": "Валюта цього сайту"
   }
 }

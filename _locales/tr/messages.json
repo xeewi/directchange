@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Para birimlerini değiştir"
+  },
+  "siteCurrency": {
+    "message": "Bu sitenin para birimi"
   }
 }

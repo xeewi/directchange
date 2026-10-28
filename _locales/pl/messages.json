@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Zamień waluty"
+  },
+  "siteCurrency": {
+    "message": "Waluta tej strony"
   }
 }

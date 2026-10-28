@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Đảo tiền tệ"
+  },
+  "siteCurrency": {
+    "message": "Tiền tệ của trang này"
   }
 }

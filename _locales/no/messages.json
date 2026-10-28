@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Bytt valutaer"
+  },
+  "siteCurrency": {
+    "message": "Nettstedets valuta"
   }
 }

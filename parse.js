@@ -97,6 +97,13 @@ function findPrices(text, local = null, known = null) {
   return out;
 }
 
+// Most frequent currency among the prices in `text`, or null if there are none.
+function dominantCurrency(text, local = null, known = null) {
+  const counts = {};
+  for (const p of findPrices(text, local, known)) counts[p.currency] = (counts[p.currency] ?? 0) + 1;
+  return Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+}
+
 const convert = (amount, from, to, rates) => amount / rates[from] * rates[to]; // rates are USD-based
 
 function formatMoney(amount, currency, locale, currencyDisplay = 'symbol') {
@@ -106,4 +113,4 @@ function formatMoney(amount, currency, locale, currencyDisplay = 'symbol') {
   }).format(amount);
 }
 
-if (typeof module !== 'undefined') module.exports = { findPrices, localCurrency, defaultCurrency, toLocale, parseNumber, convert, formatMoney };
+if (typeof module !== 'undefined') module.exports = { findPrices, dominantCurrency, localCurrency, defaultCurrency, toLocale, parseNumber, convert, formatMoney };

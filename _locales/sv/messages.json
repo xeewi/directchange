@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Byt valutor"
+  },
+  "siteCurrency": {
+    "message": "Webbplatsens valuta"
   }
 }

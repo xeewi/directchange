@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Vaihda valuutat"
+  },
+  "siteCurrency": {
+    "message": "Sivuston valuutta"
   }
 }

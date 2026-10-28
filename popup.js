@@ -52,6 +52,15 @@ async function siteCurrency() {
   // Converter: "my currency -> this site's currency" by default, e.g. a 1000 € budget on a Thai site.
   const saved = (await chrome.storage.local.get('conv')).conv ?? { amount: '1000', from: s.target };
   const site = await siteCurrency();
+  if (site && codes.includes(site)) { // highlight it
+    const sym = new Intl.NumberFormat('en', { style: 'currency', currency: site, currencyDisplay: 'narrowSymbol' })
+      .formatToParts(0).find(p => p.type === 'currency').value;
+    $('site-sym').textContent = sym.length > 2 ? sym.slice(0, 1) : sym;
+    const name = names.of(site);
+    $('site-name').textContent = name[0].toLocaleUpperCase(loc) + name.slice(1);
+    $('site-code').textContent = site;
+    $('site').hidden = false;
+  }
   for (const sel of ['from', 'to']) for (const c of codes) $(sel).add(Object.assign(new Option(c, c), { title: names.of(c) }));
   $('amount').value = saved.amount;
   $('from').value = codes.includes(saved.from) ? saved.from : s.target;

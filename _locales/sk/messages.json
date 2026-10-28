@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Vymeniť meny"
+  },
+  "siteCurrency": {
+    "message": "Mena tohto webu"
   }
 }

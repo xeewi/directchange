@@ -24,6 +24,14 @@
   [dir=rtl] .switch:checked::after { transform: translateX(-17px); }
   select + label.field { margin-top: 14px; }
   label.field { display: block; font-size: 12px; color: var(--soft); margin-bottom: 6px; }
+  .site { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 10px 12px; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(245,154,60,.18), rgba(217,96,26,.12)); border: 1px solid rgba(232,120,28,.35); }
+  .site[hidden] { display: none; }
+  .site .sym { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 50%; color: #fff;
+    font: 700 15px/1 ui-rounded, "SF Pro Rounded", system-ui, sans-serif; background: radial-gradient(circle at 35% 30%, #ffc36b, #e8781c); }
+  .site small { display: block; font-size: 11.5px; color: var(--soft); }
+  .site b { display: block; font-size: 15px; }
+  .site .code { margin-inline-start: auto; font-weight: 700; color: var(--accent); }
   .conv { margin-bottom: 16px; padding: 12px; border-radius: 14px; background: var(--field); border: 1px solid var(--line); }
   .conv h2 { margin: 0 0 8px; font-size: 12px; font-weight: 600; color: var(--soft); }
   .conv-row { display: flex; gap: 8px; align-items: center; }
@@ -41,6 +49,7 @@
 </style>
 <header><h1><img src="icons/icon-48.png" alt="" width="24" height="24">DirectChange</h1><p data-i18n="tagline"></p></header>
 <main>
+  <div class="site" id="site" hidden><span class="sym" id="site-sym"></span><div><small data-i18n="siteCurrency"></small><b id="site-name"></b></div><span class="code" id="site-code"></span></div>
   <section class="conv" aria-labelledby="conv-title">
     <h2 id="conv-title" data-i18n="converter"></h2>
     <div class="conv-row"><input id="amount" inputmode="decimal" autocomplete="off" spellcheck="false"><select id="from"></select></div>

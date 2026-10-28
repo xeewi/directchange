@@ -1,6 +1,6 @@
 // node test.js
 const assert = require('assert');
-const { findPrices, localCurrency, defaultCurrency, parseNumber, convert } = require('./parse.js');
+const { findPrices, dominantCurrency, localCurrency, defaultCurrency, parseNumber, convert } = require('./parse.js');
 const one = (t, host, lang, declared) => { const p = findPrices(t, localCurrency({ host, lang, declared })); return p.length && [p[0].amount, p[0].currency]; };
 
 assert.deepStrictEqual(one('Prix : 14 000 bahts'), [14000, 'THB']);
@@ -40,6 +40,11 @@ assert.deepStrictEqual(one('USD 45', 'quigj.ca'), [45, 'USD']);
 assert.strictEqual(defaultCurrency('fr-FR'), 'EUR');
 assert.strictEqual(defaultCurrency('en-CA'), 'CAD');
 assert.strictEqual(defaultCurrency('en'), 'USD');
+// page currency = most frequent among displayed prices
+assert.strictEqual(dominantCurrency('Rooms from ฿1,200 · ฿3,500 · free cancel · US$20 tour'), 'THB');
+assert.strictEqual(dominantCurrency('$10 · $20 · €5', 'CAD'), 'CAD');
+assert.strictEqual(dominantCurrency('no prices here'), null);
+
 // every locale has the same keys/placeholders as English, and the popup lists exactly these folders
 const fs = require('fs');
 const en = JSON.parse(fs.readFileSync('_locales/en/messages.json'));

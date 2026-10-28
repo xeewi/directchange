@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Inversează monedele"
+  },
+  "siteCurrency": {
+    "message": "Moneda acestui site"
   }
 }

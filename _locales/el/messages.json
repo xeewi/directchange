@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Εναλλαγή νομισμάτων"
+  },
+  "siteCurrency": {
+    "message": "Νόμισμα αυτού του ιστότοπου"
   }
 }

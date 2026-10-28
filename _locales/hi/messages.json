@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "मुद्राएँ अदला-बदली करें"
+  },
+  "siteCurrency": {
+    "message": "इस साइट की मुद्रा"
   }
 }

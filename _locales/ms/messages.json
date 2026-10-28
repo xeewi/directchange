@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "Tukar mata wang"
+  },
+  "siteCurrency": {
+    "message": "Mata wang laman ini"
   }
 }

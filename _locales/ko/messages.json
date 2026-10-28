@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "통화 바꾸기"
+  },
+  "siteCurrency": {
+    "message": "이 사이트의 통화"
   }
 }

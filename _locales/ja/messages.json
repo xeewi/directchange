@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "通貨を入れ替える"
+  },
+  "siteCurrency": {
+    "message": "このサイトの通貨"
   }
 }

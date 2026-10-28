@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "החלפת המטבעות"
+  },
+  "siteCurrency": {
+    "message": "המטבע של האתר"
   }
 }

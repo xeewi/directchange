@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "মুদ্রা অদলবদল করুন"
+  },
+  "siteCurrency": {
+    "message": "এই সাইটের মুদ্রা"
   }
 }

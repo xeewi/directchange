@@ -136,6 +136,13 @@ async function start() {
 }
 
 // The popup's converter asks which currency this site uses.
-chrome.runtime.onMessage.addListener((msg, _s, reply) => { if (msg === 'local') reply(siteCurrency()); });
+// Prices shown on the page win; the domain/lang/markup guess is the fallback. Badges live in
+// closed shadow roots, so innerText doesn't see them.
+const ISO = new Set(Intl.supportedValuesOf('currency'));
+chrome.runtime.onMessage.addListener((msg, _s, reply) => {
+  if (msg !== 'local') return;
+  const guess = siteCurrency();
+  reply(dominantCurrency((document.body?.innerText ?? '').slice(0, 300000), guess, ISO) ?? guess);
+});
 chrome.storage.onChanged.addListener((_c, area) => { if (area === 'sync') start(); });
 start();

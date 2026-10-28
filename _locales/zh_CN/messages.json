@@ -53,5 +53,8 @@
   },
   "swapCurrencies": {
     "message": "交换货币"
+  },
+  "siteCurrency": {
+    "message": "此网站的货币"
   }
 }
