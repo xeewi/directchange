@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Zobrazí každú cenu vo vašej mene podľa dnešného kurzu."
+  },
+  "tagline": {
+    "message": "Všetky ceny vo vašej mene."
+  },
+  "showConversions": {
+    "message": "Zobraziť prepočty"
+  },
+  "enable": {
+    "message": "Zapnúť"
+  },
+  "referenceCurrency": {
+    "message": "Moja referenčná mena"
+  },
+  "loading": {
+    "message": "Načítavajú sa kurzy…"
+  },
+  "ratesError": {
+    "message": "Kurzy nie sú dostupné: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "Mien: $COUNT$ · kurzy z $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Jazyk"
+  },
+  "languageAuto": {
+    "message": "Automaticky (prehliadač)"
+  }
+}

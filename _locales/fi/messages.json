@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Näyttää jokaisen hinnan omassa valuutassasi päivän kurssilla."
+  },
+  "tagline": {
+    "message": "Kaikki hinnat omassa valuutassasi."
+  },
+  "showConversions": {
+    "message": "Näytä muunnokset"
+  },
+  "enable": {
+    "message": "Ota käyttöön"
+  },
+  "referenceCurrency": {
+    "message": "Viitevaluuttani"
+  },
+  "loading": {
+    "message": "Ladataan kursseja…"
+  },
+  "ratesError": {
+    "message": "Kurssit eivät ole saatavilla: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ valuuttaa · kurssit $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Kieli"
+  },
+  "languageAuto": {
+    "message": "Automaattinen (selain)"
+  }
+}

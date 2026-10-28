@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Memaparkan setiap harga dalam mata wang anda, pada kadar pertukaran hari ini."
+  },
+  "tagline": {
+    "message": "Semua harga, dalam mata wang anda."
+  },
+  "showConversions": {
+    "message": "Tunjukkan penukaran"
+  },
+  "enable": {
+    "message": "Dayakan"
+  },
+  "referenceCurrency": {
+    "message": "Mata wang rujukan saya"
+  },
+  "loading": {
+    "message": "Memuatkan kadar…"
+  },
+  "ratesError": {
+    "message": "Kadar tidak tersedia: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ mata wang · kadar pada $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Bahasa"
+  },
+  "languageAuto": {
+    "message": "Automatik (pelayar)"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Afișează fiecare preț în moneda ta, la cursul zilei."
+  },
+  "tagline": {
+    "message": "Toate prețurile, în moneda ta."
+  },
+  "showConversions": {
+    "message": "Afișează conversiile"
+  },
+  "enable": {
+    "message": "Activează"
+  },
+  "referenceCurrency": {
+    "message": "Moneda mea de referință"
+  },
+  "loading": {
+    "message": "Se încarcă cursurile…"
+  },
+  "ratesError": {
+    "message": "Cursuri indisponibile: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ monede · cursuri din $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Limbă"
+  },
+  "languageAuto": {
+    "message": "Automat (browser)"
+  }
+}

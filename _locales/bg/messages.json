@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Показва всяка цена във вашата валута по днешния курс."
+  },
+  "tagline": {
+    "message": "Всички цени във вашата валута."
+  },
+  "showConversions": {
+    "message": "Показване на превалутирането"
+  },
+  "enable": {
+    "message": "Включване"
+  },
+  "referenceCurrency": {
+    "message": "Моята референтна валута"
+  },
+  "loading": {
+    "message": "Зареждане на курсовете…"
+  },
+  "ratesError": {
+    "message": "Курсовете не са налични: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ валути · курсове от $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Език"
+  },
+  "languageAuto": {
+    "message": "Автоматично (браузър)"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "按今日汇率，将每个价格换算成你的货币显示。"
+  },
+  "tagline": {
+    "message": "所有价格，都用你的货币显示。"
+  },
+  "showConversions": {
+    "message": "显示换算"
+  },
+  "enable": {
+    "message": "启用"
+  },
+  "referenceCurrency": {
+    "message": "我的参考货币"
+  },
+  "loading": {
+    "message": "正在加载汇率…"
+  },
+  "ratesError": {
+    "message": "汇率不可用：$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ 种货币 · $DATE$ 的汇率（$SOURCE$）",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "语言"
+  },
+  "languageAuto": {
+    "message": "自动（浏览器）"
+  }
+}

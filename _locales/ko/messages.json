@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "모든 가격을 오늘 환율로 내 통화로 보여줍니다."
+  },
+  "tagline": {
+    "message": "모든 가격을 내 통화로."
+  },
+  "showConversions": {
+    "message": "환산 표시"
+  },
+  "enable": {
+    "message": "사용"
+  },
+  "referenceCurrency": {
+    "message": "기준 통화"
+  },
+  "loading": {
+    "message": "환율을 불러오는 중…"
+  },
+  "ratesError": {
+    "message": "환율을 사용할 수 없음: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "통화 $COUNT$개 · $DATE$ 기준 환율 ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "언어"
+  },
+  "languageAuto": {
+    "message": "자동(브라우저)"
+  }
+}

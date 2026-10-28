@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "هر قیمت را با نرخ امروز به ارز شما نشان می‌دهد."
+  },
+  "tagline": {
+    "message": "همهٔ قیمت‌ها، به ارز شما."
+  },
+  "showConversions": {
+    "message": "نمایش تبدیل‌ها"
+  },
+  "enable": {
+    "message": "فعال‌سازی"
+  },
+  "referenceCurrency": {
+    "message": "ارز مرجع من"
+  },
+  "loading": {
+    "message": "در حال بارگیری نرخ‌ها…"
+  },
+  "ratesError": {
+    "message": "نرخ‌ها در دسترس نیست: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ ارز · نرخ‌های $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "زبان"
+  },
+  "languageAuto": {
+    "message": "خودکار (مرورگر)"
+  }
+}

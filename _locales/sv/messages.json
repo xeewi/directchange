@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Visar varje pris i din egen valuta till dagens kurs."
+  },
+  "tagline": {
+    "message": "Alla priser i din valuta."
+  },
+  "showConversions": {
+    "message": "Visa omräkningar"
+  },
+  "enable": {
+    "message": "Aktivera"
+  },
+  "referenceCurrency": {
+    "message": "Min referensvaluta"
+  },
+  "loading": {
+    "message": "Läser in kurser…"
+  },
+  "ratesError": {
+    "message": "Kurser otillgängliga: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ valutor · kurser från $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Språk"
+  },
+  "languageAuto": {
+    "message": "Automatiskt (webbläsare)"
+  }
+}

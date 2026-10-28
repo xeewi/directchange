@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "すべての価格を、今日のレートであなたの通貨に換算して表示します。"
+  },
+  "tagline": {
+    "message": "すべての価格を、あなたの通貨で。"
+  },
+  "showConversions": {
+    "message": "換算を表示"
+  },
+  "enable": {
+    "message": "有効にする"
+  },
+  "referenceCurrency": {
+    "message": "基準通貨"
+  },
+  "loading": {
+    "message": "レートを読み込み中…"
+  },
+  "ratesError": {
+    "message": "レートを取得できません: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ 通貨 · $DATE$ のレート ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "言語"
+  },
+  "languageAuto": {
+    "message": "自動（ブラウザ）"
+  }
+}

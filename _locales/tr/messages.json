@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Her fiyatı günün kuruyla kendi para biriminizde gösterir."
+  },
+  "tagline": {
+    "message": "Tüm fiyatlar, kendi para biriminizde."
+  },
+  "showConversions": {
+    "message": "Dönüşümleri göster"
+  },
+  "enable": {
+    "message": "Etkinleştir"
+  },
+  "referenceCurrency": {
+    "message": "Referans para birimim"
+  },
+  "loading": {
+    "message": "Kurlar yükleniyor…"
+  },
+  "ratesError": {
+    "message": "Kurlar kullanılamıyor: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ para birimi · $DATE$ tarihli kurlar ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Dil"
+  },
+  "languageAuto": {
+    "message": "Otomatik (tarayıcı)"
+  }
+}

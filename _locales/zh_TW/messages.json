@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "依今日匯率，將每個價格換算成你的貨幣顯示。"
+  },
+  "tagline": {
+    "message": "所有價格，都以你的貨幣顯示。"
+  },
+  "showConversions": {
+    "message": "顯示換算"
+  },
+  "enable": {
+    "message": "啟用"
+  },
+  "referenceCurrency": {
+    "message": "我的參考貨幣"
+  },
+  "loading": {
+    "message": "正在載入匯率…"
+  },
+  "ratesError": {
+    "message": "無法取得匯率：$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ 種貨幣 · $DATE$ 的匯率（$SOURCE$）",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "語言"
+  },
+  "languageAuto": {
+    "message": "自動（瀏覽器）"
+  }
+}

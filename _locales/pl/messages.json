@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Pokazuje każdą cenę w Twojej walucie, po dzisiejszym kursie."
+  },
+  "tagline": {
+    "message": "Wszystkie ceny w Twojej walucie."
+  },
+  "showConversions": {
+    "message": "Pokaż przeliczenia"
+  },
+  "enable": {
+    "message": "Włącz"
+  },
+  "referenceCurrency": {
+    "message": "Moja waluta referencyjna"
+  },
+  "loading": {
+    "message": "Wczytywanie kursów…"
+  },
+  "ratesError": {
+    "message": "Kursy niedostępne: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "Waluty: $COUNT$ · kursy z $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Język"
+  },
+  "languageAuto": {
+    "message": "Automatycznie (przeglądarka)"
+  }
+}

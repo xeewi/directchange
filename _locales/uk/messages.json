@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Показує кожну ціну у вашій валюті за сьогоднішнім курсом."
+  },
+  "tagline": {
+    "message": "Усі ціни — у вашій валюті."
+  },
+  "showConversions": {
+    "message": "Показувати перерахунок"
+  },
+  "enable": {
+    "message": "Увімкнути"
+  },
+  "referenceCurrency": {
+    "message": "Моя основна валюта"
+  },
+  "loading": {
+    "message": "Завантаження курсів…"
+  },
+  "ratesError": {
+    "message": "Курси недоступні: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "Валют: $COUNT$ · курси від $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Мова"
+  },
+  "languageAuto": {
+    "message": "Автоматично (браузер)"
+  }
+}

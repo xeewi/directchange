@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Показывает каждую цену в вашей валюте по сегодняшнему курсу."
+  },
+  "tagline": {
+    "message": "Все цены — в вашей валюте."
+  },
+  "showConversions": {
+    "message": "Показывать пересчёт"
+  },
+  "enable": {
+    "message": "Включить"
+  },
+  "referenceCurrency": {
+    "message": "Моя основная валюта"
+  },
+  "loading": {
+    "message": "Загрузка курсов…"
+  },
+  "ratesError": {
+    "message": "Курсы недоступны: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "Валют: $COUNT$ · курсы от $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Язык"
+  },
+  "languageAuto": {
+    "message": "Автоматически (браузер)"
+  }
+}

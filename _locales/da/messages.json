@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Viser hver pris i din egen valuta til dagens kurs."
+  },
+  "tagline": {
+    "message": "Alle priser i din valuta."
+  },
+  "showConversions": {
+    "message": "Vis omregninger"
+  },
+  "enable": {
+    "message": "Aktivér"
+  },
+  "referenceCurrency": {
+    "message": "Min referencevaluta"
+  },
+  "loading": {
+    "message": "Indlæser kurser…"
+  },
+  "ratesError": {
+    "message": "Kurser utilgængelige: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ valutaer · kurser fra $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Sprog"
+  },
+  "languageAuto": {
+    "message": "Automatisk (browser)"
+  }
+}

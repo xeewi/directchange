@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Toont elke prijs in je eigen valuta, tegen de actuele dagkoers."
+  },
+  "tagline": {
+    "message": "Alle prijzen, in jouw valuta."
+  },
+  "showConversions": {
+    "message": "Omrekeningen tonen"
+  },
+  "enable": {
+    "message": "Inschakelen"
+  },
+  "referenceCurrency": {
+    "message": "Mijn referentievaluta"
+  },
+  "loading": {
+    "message": "Koersen laden…"
+  },
+  "ratesError": {
+    "message": "Koersen niet beschikbaar: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ valuta's · koersen van $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Taal"
+  },
+  "languageAuto": {
+    "message": "Automatisch (browser)"
+  }
+}

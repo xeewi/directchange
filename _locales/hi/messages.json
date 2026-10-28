@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "हर कीमत को आज की दर पर आपकी मुद्रा में दिखाता है।"
+  },
+  "tagline": {
+    "message": "सभी कीमतें, आपकी मुद्रा में।"
+  },
+  "showConversions": {
+    "message": "रूपांतरण दिखाएँ"
+  },
+  "enable": {
+    "message": "चालू करें"
+  },
+  "referenceCurrency": {
+    "message": "मेरी संदर्भ मुद्रा"
+  },
+  "loading": {
+    "message": "दरें लोड हो रही हैं…"
+  },
+  "ratesError": {
+    "message": "दरें उपलब्ध नहीं: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ मुद्राएँ · $DATE$ की दरें ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "भाषा"
+  },
+  "languageAuto": {
+    "message": "स्वचालित (ब्राउज़र)"
+  }
+}

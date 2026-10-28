@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Hiển thị mọi mức giá bằng tiền tệ của bạn, theo tỷ giá hôm nay."
+  },
+  "tagline": {
+    "message": "Mọi mức giá, bằng tiền tệ của bạn."
+  },
+  "showConversions": {
+    "message": "Hiển thị quy đổi"
+  },
+  "enable": {
+    "message": "Bật"
+  },
+  "referenceCurrency": {
+    "message": "Tiền tệ tham chiếu của tôi"
+  },
+  "loading": {
+    "message": "Đang tải tỷ giá…"
+  },
+  "ratesError": {
+    "message": "Không có tỷ giá: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ loại tiền tệ · tỷ giá lúc $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Ngôn ngữ"
+  },
+  "languageAuto": {
+    "message": "Tự động (trình duyệt)"
+  }
+}

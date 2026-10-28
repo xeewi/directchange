@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "আজকের হারে প্রতিটি দাম আপনার মুদ্রায় দেখায়।"
+  },
+  "tagline": {
+    "message": "সব দাম, আপনার মুদ্রায়।"
+  },
+  "showConversions": {
+    "message": "রূপান্তর দেখান"
+  },
+  "enable": {
+    "message": "চালু করুন"
+  },
+  "referenceCurrency": {
+    "message": "আমার রেফারেন্স মুদ্রা"
+  },
+  "loading": {
+    "message": "হার লোড হচ্ছে…"
+  },
+  "ratesError": {
+    "message": "হার পাওয়া যাচ্ছে না: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$টি মুদ্রা · $DATE$ এর হার ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "ভাষা"
+  },
+  "languageAuto": {
+    "message": "স্বয়ংক্রিয় (ব্রাউজার)"
+  }
+}

@@ -1,6 +1,7 @@
 const $ = id => document.getElementById(id);
 // = folders in _locales/ (test.js checks they match)
-const LANGS = ['de', 'en', 'es', 'fr', 'it', 'pt_BR'];
+const LANGS = ['ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi', 'fr', 'he', 'hi', 'hu', 'id', 'it',
+  'ja', 'ko', 'ms', 'nl', 'no', 'pl', 'pt_BR', 'pt_PT', 'ro', 'ru', 'sk', 'sv', 'th', 'tr', 'uk', 'vi', 'zh_CN', 'zh_TW'];
 const RTL = ['ar', 'he', 'fa'];
 
 // chrome.i18n always follows the browser, so a chosen language loads its messages.json directly.

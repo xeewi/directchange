@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Mostra cada preço na tua moeda, à taxa de câmbio do dia."
+  },
+  "tagline": {
+    "message": "Todos os preços, na tua moeda."
+  },
+  "showConversions": {
+    "message": "Mostrar conversões"
+  },
+  "enable": {
+    "message": "Ativar"
+  },
+  "referenceCurrency": {
+    "message": "A minha moeda de referência"
+  },
+  "loading": {
+    "message": "A carregar taxas…"
+  },
+  "ratesError": {
+    "message": "Taxas indisponíveis: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ moedas · taxas de $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Idioma"
+  },
+  "languageAuto": {
+    "message": "Automático (navegador)"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "מציג כל מחיר במטבע שלך, לפי שער היום."
+  },
+  "tagline": {
+    "message": "כל המחירים, במטבע שלך."
+  },
+  "showConversions": {
+    "message": "הצגת המרות"
+  },
+  "enable": {
+    "message": "הפעלה"
+  },
+  "referenceCurrency": {
+    "message": "מטבע הייחוס שלי"
+  },
+  "loading": {
+    "message": "טוען שערים…"
+  },
+  "ratesError": {
+    "message": "השערים אינם זמינים: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ מטבעות · שערים מ-$DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "שפה"
+  },
+  "languageAuto": {
+    "message": "אוטומטי (דפדפן)"
+  }
+}

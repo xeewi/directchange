@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Minden árat a saját pénznemedben mutat, a napi árfolyamon."
+  },
+  "tagline": {
+    "message": "Minden ár a saját pénznemedben."
+  },
+  "showConversions": {
+    "message": "Átváltások megjelenítése"
+  },
+  "enable": {
+    "message": "Bekapcsolás"
+  },
+  "referenceCurrency": {
+    "message": "Saját referencia-pénznem"
+  },
+  "loading": {
+    "message": "Árfolyamok betöltése…"
+  },
+  "ratesError": {
+    "message": "Az árfolyamok nem érhetők el: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ pénznem · árfolyamok: $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Nyelv"
+  },
+  "languageAuto": {
+    "message": "Automatikus (böngésző)"
+  }
+}

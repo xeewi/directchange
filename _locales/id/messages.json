@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Menampilkan setiap harga dalam mata uang Anda, dengan kurs hari ini."
+  },
+  "tagline": {
+    "message": "Semua harga, dalam mata uang Anda."
+  },
+  "showConversions": {
+    "message": "Tampilkan konversi"
+  },
+  "enable": {
+    "message": "Aktifkan"
+  },
+  "referenceCurrency": {
+    "message": "Mata uang acuan saya"
+  },
+  "loading": {
+    "message": "Memuat kurs…"
+  },
+  "ratesError": {
+    "message": "Kurs tidak tersedia: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ mata uang · kurs per $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Bahasa"
+  },
+  "languageAuto": {
+    "message": "Otomatis (browser)"
+  }
+}
