@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8">
+<!-- Chrome Web Store images. Rendered by store/build.sh: render.html?k=<asset>&l=<lang> -->
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
+  body { font-family: ui-rounded, "SF Pro Rounded", system-ui, sans-serif; color: #3b220d;
+    background: radial-gradient(circle at 15% 0%, #fff3e2, #fffaf3 55%); }
+  .accent { color: #e0701c; }
+  .stage { height: 100%; display: flex; flex-direction: column; align-items: center; padding: 44px 60px 0; }
+  .stage h1 { font-size: 46px; letter-spacing: -.02em; text-align: center; }
+  .stage p { font-size: 21px; color: #8a6446; margin-top: 10px; text-align: center; }
+  .shot { margin-top: 34px; width: 1060px; border-radius: 16px 16px 0 0; overflow: hidden; flex: 1;
+    box-shadow: 0 18px 50px rgba(110,55,10,.18); border: 1px solid #f1dcc2; border-bottom: 0; }
+  .shot img { width: 100%; display: block; }
+  .split { height: 100%; display: flex; align-items: center; gap: 70px; padding: 0 100px; }
+  .split .text { flex: 1; } .split h1 { font-size: 50px; letter-spacing: -.02em; line-height: 1.1; }
+  .split p { font-size: 22px; color: #8a6446; margin-top: 18px; line-height: 1.5; }
+  .split img.popup { height: 700px; border-radius: 18px; box-shadow: 0 18px 50px rgba(110,55,10,.22); }
+  .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; }
+  .pill { display: inline-flex; align-items: center; gap: .3em; padding: .12em .55em .12em .12em; border-radius: .42em;
+    font-weight: 600; font-size: .8em; color: #7a3b0c; background: linear-gradient(#fff7ec, #ffe8c9);
+    box-shadow: inset 0 0 0 1px #f2c287; }
+  .example { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
+  .orange { background: #e0701c; color: #3b220d; }
+  .orange .pill { color: #7a3b0c; }
+</style>
+<body><div id="app"></div>
+<script>
+const q = new URLSearchParams(location.search), k = q.get('k'), l = q.get('l') || 'en';
+const T = {
+  en: { s1: ['Every foreign price, <span class="accent">in your currency</span>', 'Live conversions appear right next to prices, on any website.'],
+        s2: ['Hover for the <span class="accent">exact rate</span>', 'See the original amount, the rate used and when it was updated.'],
+        s3: ['A quick converter, <span class="accent">one click away</span>', 'DirectChange spots the site\'s currency, converts any amount and lets you pick your own from 150+ currencies.'],
+        tag: 'Every price, in your currency.', free: 'Free · No account · No tracking' },
+  fr: { s1: ['Chaque prix étranger, <span class="accent">dans votre devise</span>', 'La conversion s\'affiche à côté des prix, sur tous les sites.'],
+        s2: ['Survolez pour voir <span class="accent">le taux exact</span>', 'Montant d\'origine, taux utilisé et date de mise à jour.'],
+        s3: ['Un convertisseur, <span class="accent">à portée de clic</span>', 'DirectChange repère la devise du site, convertit n\'importe quel montant et propose plus de 150 devises.'],
+        tag: 'Tous les prix, dans votre devise.', free: 'Gratuit · Sans compte · Sans pistage' },
+}[l];
+const A = '../docs/assets/', icon = `<img src="icon-light-128.png"`;
+const ex = s => `<span class="example" style="font-size:${s}px">¥24,000 <span class="pill"><svg class="mark" style="width:1.2em;height:1.2em;display:block;flex:none" viewBox="0 0 128 128" role="img" aria-label="≈"><rect x="4" y="4" width="120" height="120" rx="30" fill="#e0701c"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#fff7ec" stroke-width="13" stroke-linecap="round"/></svg>€137</span></span>`;
+const stage = ([h, p], img, crop) => `<div class="stage"><h1>${h}</h1><p>${p}</p><div class="shot"><img src="${A}${img}" style="${crop || ''}"></div></div>`;
+document.getElementById('app').outerHTML = {
+  s1: stage(T.s1, 'demo.png'),
+  s2: stage(T.s2, 'demo-hover.png'),
+  s3: `<div class="split"><div class="text"><h1>${T.s3[0]}</h1><p>${T.s3[1]}</p></div><img class="popup" src="${A}popup.png"></div>`,
+  small: `<div class="orange" style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+    <div class="brand" style="font-size:34px">${icon} width="64" style="filter:drop-shadow(0 4px 10px rgba(90,40,5,.25))">DirectChange</div>
+    <div style="font-size:18px;font-weight:600">${T.tag}</div>${ex(24)}</div>`,
+  marquee: `<div class="orange" style="height:100%;display:flex;align-items:center;padding-left:90px;gap:60px;overflow:hidden">
+    <div style="flex:0 0 520px"><div class="brand" style="font-size:52px">${icon} width="96" style="filter:drop-shadow(0 6px 14px rgba(90,40,5,.25))">DirectChange</div>
+    <div style="font-size:30px;font-weight:600;margin-top:22px">${T.tag}</div>
+    <div style="margin-top:22px">${ex(34)}</div><div style="font-size:18px;margin-top:24px;opacity:.9">${T.free}</div></div>
+    <img src="${A}demo.png" style="width:900px;border-radius:16px;box-shadow:0 20px 60px rgba(80,30,0,.35);transform:translateY(60px)"></div>`,
+}[k];
+</script>

@@ -1,0 +1,129 @@
+<!doctype html><meta charset="utf-8">
+<!-- Stop-motion promo, 1920x1080 @ 24 fps. video.html?f=<frame> renders one frame; see build.sh -->
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body { position: relative; font-family: ui-rounded, "SF Pro Rounded", system-ui, sans-serif; color: #3b220d;
+    background: #c8a06e radial-gradient(circle at 50% 40%, #d8b384, #b98d5a 90%); }
+  body::before { content: ""; position: absolute; inset: 0; opacity: .35; mix-blend-mode: multiply;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .o { position: absolute; left: 0; top: 0; white-space: nowrap; filter: drop-shadow(5px 8px 4px rgba(60, 30, 5, .35)); }
+  .paper { background: #fffcf5; border-radius: 6px; }
+  .letter { font-weight: 900; font-size: 150px; line-height: 1; padding: 6px 18px 14px; border-radius: 10px; }
+  .tag { width: 440px; padding: 26px 30px 26px 80px; font-size: 72px; font-weight: 800; border-radius: 12px 40px 40px 12px; }
+  .tag::before { content: ""; position: absolute; left: 30px; top: 50%; width: 26px; height: 26px; margin-top: -13px; border-radius: 50%;
+    background: #c8a06e; box-shadow: inset 2px 2px 3px rgba(0,0,0,.3); }
+  .pill { display: flex; align-items: center; gap: 14px; padding: 8px 28px 8px 8px; border-radius: 22px; font-size: 56px; font-weight: 800;
+    color: #7a3b0c; background: linear-gradient(#fff7ec, #ffd9a8); border: 3px solid #f2b05f; }
+  .q { width: 110px; height: 110px; border-radius: 50%; display: grid; place-items: center; font-size: 80px; font-weight: 900; color: #fff; background: #d94a2b; }
+  .cap { font-family: "Marker Felt", "Chalkboard SE", ui-rounded, sans-serif; font-size: 72px; padding: 16px 40px; background: #fffcf5;
+    border-radius: 4px; transform-origin: center; }
+  .cap b { color: #e0701c; font-weight: inherit; }
+  .photo { padding: 18px 18px 60px; background: #fffcf5; }
+  .photo img { display: block; }
+  .sticker { width: 130px; height: 130px; border-radius: 50%; display: grid; place-items: center; font-size: 70px; font-weight: 900; color: #fff; }
+  .flicker { position: absolute; inset: 0; background: #000; pointer-events: none; }
+</style>
+<body>
+<script>
+// Timeline below is written in 'story seconds'; SPEED compresses it. Paper jitter (boil) changes every 2 frames, motion is smooth.
+const FPS = 24, SPEED = 1.6, f = +new URLSearchParams(location.search).get('f') || 0, t = f / FPS * SPEED, boil = Math.floor(f / 2);
+const rnd = s => { s = Math.sin(s * 12.9898) * 43758.5453; return s - Math.floor(s); };
+const clamp = p => Math.max(0, Math.min(1, p));
+const back = p => { const c = 1.70158; return 1 + (c + 1) * (p - 1) ** 3 + c * (p - 1) ** 2; };
+const out = p => 1 - (1 - p) ** 3;
+const prog = (t0, dur, ease = out) => ease(clamp((t - t0) / dur));
+const lerp = (a, b, p) => a + (b - a) * p;
+const A = '../../docs/assets/';
+let html = '', uid = 0;
+
+// Put an element centered on (x, y). Every element trembles a little each frame, like hand-placed paper.
+function put(inner, cls, x, y, r = 0, s = 1, extra = '') {
+  const id = ++uid, k = boil * 131 + id * 17;
+  const jx = (rnd(k) - .5) * 3, jy = (rnd(k + 1) - .5) * 3, jr = (rnd(k + 2) - .5) * .8;
+  if (s <= 0.01) return;
+  html += `<div class="o ${cls}" style="transform:translate(${x + jx}px,${y + jy}px) translate(-50%,-50%) rotate(${r + jr}deg) scale(${s});${extra}">${inner}</div>`;
+}
+// Enter from `from`, rest at `at`, leave to `to`. Returns [x, y].
+function path(at, from, to, tIn, tOut, dIn = .6, dOut = .6) {
+  const pi = prog(tIn, dIn), po = prog(tOut, dOut, p => p * p);
+  return [lerp(lerp(from[0], at[0], pi), to[0], po), lerp(lerp(from[1], at[1], pi), to[1], po)];
+}
+const pop = (t0, d = .4) => prog(t0, d, back);
+
+// 1. "Shopping abroad?" — letters drop in, then fly up
+const title = 'Shopping abroad?', colors = ['#fffcf5', '#ffd9a8', '#f59a3c', '#fffcf5'];
+[...title].forEach((ch, i) => {
+  if (ch === ' ') return;
+  const x = 960 + (i - (title.length - 1) / 2) * 104, rest = (rnd(i + 3) - .5) * 14;
+  const [px, py] = path([x, 480], [x, -200], [x, -300], .3 + i * .08, 3.5 + i * .04, .5, .5);
+  put(ch, 'paper letter', px, py, rest, 1, `background:${colors[i % 4]};color:${i % 4 === 2 ? '#fff' : '#3b220d'}`);
+});
+
+// 2–3. Price tags, question marks, then the coin hops on each one and converts it
+const tags = [['¥24,000', '€137', 450, 320], ['$129', '€116', 1270, 320], ['£35', '€41.85', 450, 590], ['₩59,000', '€39.76', 1270, 590]];
+const hop = [11.3, 12.3, 13.3, 14.3];
+tags.forEach(([price, eur, x, y], i) => {
+  const side = i % 2 ? 2400 : -500, leave = 17 + i * .12;
+  const [tx, ty] = path([x - 120, y], [side, y], [2600, y], 4.2 + i * .35, leave, .7, .7);
+  put(price, 'paper tag', tx, ty, i % 2 ? 2 : -2);
+  // question mark: pops in, then flies away when the coin lands
+  const qs = pop(6 + i * .2) , qa = prog(hop[i], .6, p => p * p);
+  put('?', 'q', tx + 110 + qa * 300, ty - 90 - qa * 700, 12 + qa * 200 + Math.sin(t * 6 + i) * 6, qs);
+  // converted pill
+  put(`<svg viewBox="0 0 128 128" width="68" height="68" style="display:block;flex:none"><rect x="4" y="4" width="120" height="120" rx="30" fill="#e0701c"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#fff7ec" stroke-width="13" stroke-linecap="round"/></svg>${eur}`, 'pill', tx + 380, ty, -3 + i, pop(hop[i] + .05));
+});
+// the extension icon rolls in and hops from tag to tag
+const stops = [[-200, 160], ...tags.map(([, , x, y]) => [x - 10, y - 90]), [2200, 140]];
+const times = [10.4, ...hop, 15.4];
+const k = times.findIndex(b => t < b);
+let cx = -300, cy = 160, spin = 0;
+if (k > 0) {
+  const p = clamp((t - (times[k] - .6)) / .6);
+  cx = lerp(stops[k - 1][0], stops[k][0], p); cy = lerp(stops[k - 1][1], stops[k][1], p) - Math.sin(Math.PI * p) * 160; spin = p * 360;
+}
+if (t > 10.3 && t < 15.6) put(`<img src="${A}icon-128.png" width="150">`, '', cx, cy, spin);
+
+// captions for scenes 2 and 3
+let [x1, y1] = path([960, 860], [960, 1400], [-1200, 860], 7, 10.2);
+put('How much is that, <b>really?</b>', 'cap', x1, y1, -1.5);
+[x1, y1] = path([960, 860], [960, 1400], [3100, 860], 15.3, 17);
+put('<b>DirectChange</b> converts it. Instantly.', 'cap', x1, y1, 1.2);
+
+// 4. Real screenshot as a printed photo, a marker circle around the first conversion
+[x1, y1] = path([960, 450], [960, 1700], [-1300, 450], 17.8, 23);
+put(`<img src="${A}demo.png" width="1180">`, 'photo', x1, y1, -2);
+const ring = pop(20.2, .3);
+if (t < 23) put('<svg width="210" height="90"><ellipse cx="105" cy="45" rx="95" ry="36" fill="none" stroke="#e0701c" stroke-width="9" stroke-linecap="round" stroke-dasharray="560" stroke-dashoffset="' + (1 - prog(20.2, .5, p => p)) * 560 + '"/></svg>', '', 492, 436, -4, ring || .01, 'filter:none');
+[x1, y1] = path([960, 985], [960, 1400], [-1200, 985], 19, 23);
+put('Right next to every price, <b>on any website.</b>', 'cap', x1, y1, 1);
+
+// 5. The popup, with currency stickers
+[x1, y1] = path([1430, 540], [1430, -800], [1430, 1800], 23.6, 28, .7);
+put(`<img src="${A}popup.png" width="440">`, 'photo', x1, y1, 2.5, 1, 'padding:14px 14px 40px');
+[x1, y1] = path([640, 300], [-800, 300], [640, 1800], 24.2, 28);
+put('A quick converter,<br><b>one click away.</b>', 'cap', x1, y1, -2, 1, 'text-align:center;white-space:normal');
+const syms = ['€', '$', '£', '¥', '₩', '₺', '฿', '₹'], hues = ['#e0701c', '#2f8f83', '#6366d6', '#d94a2b', '#4f9a3a', '#c4466e', '#8a6446', '#f59a3c'];
+syms.forEach((s, i) => {
+  const x = 180 + (i % 4) * 230 + (i > 3 ? 120 : 0), y = 610 + (i > 3 ? 210 : 0);
+  const [sx, sy] = path([x, y], [x, y], [x, 1800], 0, 28 + i * .05);
+  put(s, 'sticker', sx, sy, (rnd(i) - .5) * 30, pop(25 + i * .15), `background:${hues[i]}`);
+});
+[x1, y1] = path([640, 1000], [640, 1400], [640, 1900], 26.6, 28);
+put('<b>150+</b> currencies', 'cap', x1, y1, 2, 1, 'font-size:56px');
+
+// 6. End card
+put(`<img src="${A}icon-128.png" width="220">`, '', 960, 330, 0, pop(28.8, .5));
+const name = 'DirectChange';
+[...name].forEach((ch, i) => {
+  const x = 960 + (i - (name.length - 1) / 2) * 92;
+  const [lx, ly] = path([x, 560], [x, -200], [x, 560], 29.2 + i * .06, 99, .45);
+  put(ch, 'paper letter', lx, ly, (rnd(i + 40) - .5) * 10, 1, `font-size:120px;padding:4px 12px 10px;${i < 6 ? '' : 'background:#f59a3c;color:#fff'}`);
+});
+put('Every price, <b>in your currency.</b>', 'cap', 960, 730, -1, pop(30.4));
+put('Free · No account · No tracking', 'cap', 960, 850, 1.5, pop(31), 'font-size:48px;background:#3b220d;color:#fffcf5');
+put('directchange.xeewi.cool', '', 960, 960, 0, pop(31.6), 'font:700 44px ui-rounded,system-ui;color:#3b220d;filter:none');
+
+html += `<div class="flicker" style="opacity:${rnd(boil + 999) * .04}"></div>`;
+document.body.insertAdjacentHTML('beforeend', html);
+</script>

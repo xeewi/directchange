@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wanderlist · Your trip wishlist</title>
+<!-- Demo page for the site screenshots (docs/assets/demo*.png): open it with the extension loaded. -->
+<style>
+  * { box-sizing: border-box; }
+  html { scrollbar-width: none; }
+  body { margin: 0; background: #f4f5f7; color: #1d1d1f; font: 16px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { display: flex; align-items: baseline; gap: 14px; padding: 22px 40px; background: #fff; border-bottom: 1px solid #e3e5e8; }
+  header b { font-size: 20px; color: #0d6b57; letter-spacing: -.01em; }
+  header span { font-size: 14px; color: #6b6f76; }
+  main { padding: 34px 40px 50px; }
+  h1 { margin: 0 0 22px; font-size: 26px; letter-spacing: -.01em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .img { height: 150px; background: var(--g); }
+  .b { padding: 16px 16px 18px; }
+  h2 { margin: 0; font-size: 16.5px; font-weight: 600; }
+  .sub { margin-top: 4px; font-size: 14px; color: #6b6f76; }
+  .price { margin-top: 12px; font-size: 18px; font-weight: 700; }
+  .price small { font-size: 14px; font-weight: 400; color: #6b6f76; }
+</style>
+</head>
+<body>
+<header><b>wanderlist</b><span>Saved for 2027 · 6 places</span></header>
+<main>
+  <h1>Your trip wishlist</h1>
+  <div class="grid">
+    <article class="card"><div class="img" style="--g:linear-gradient(135deg,#7dd0c6,#2b8c97)"></div><div class="b"><h2>Ryokan with private onsen, Kyoto</h2><div class="sub">2 guests · dinner included</div><div class="price">¥24,000 <small>/ night</small></div></div></article>
+    <article class="card"><div class="img" style="--g:linear-gradient(135deg,#fdd08f,#e8883a)"></div><div class="b"><h2>Broadway show, New York</h2><div class="sub">Orchestra seats · Saturday</div><div class="price">$129 <small>/ ticket</small></div></div></article>
+    <article class="card"><div class="img" style="--g:linear-gradient(135deg,#b6c2ff,#5c66d6)"></div><div class="b"><h2>Thames river cruise, London</h2><div class="sub">Sunset · 90 minutes</div><div class="price">£35 <small>/ person</small></div></div></article>
+    <article class="card"><div class="img" style="--g:linear-gradient(135deg,#c8eda4,#5aac3c)"></div><div class="b"><h2>Korean cooking class, Seoul</h2><div class="sub">4 hours · market tour</div><div class="price">₩59,000 <small>/ person</small></div></div></article>
+    <article class="card"><div class="img" style="--g:linear-gradient(135deg,#f3b1c8,#c94672)"></div><div class="b"><h2>Street food tour, Mexico City</h2><div class="sub">Evening · 8 tastings</div><div class="price">MX$2,490 <small>/ group</small></div></div></article>
+    <article class="card"><div class="img" style="--g:linear-gradient(135deg,#d3d4d6,#6c707b)"></div><div class="b"><h2>Hammam &amp; massage, Istanbul</h2><div class="sub">Historic bath · 1 hour</div><div class="price">₺1,499 <small>/ person</small></div></div></article>
+  </div>
+</main>
+</body>
+</html>
