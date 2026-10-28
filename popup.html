@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  :root { --ink:#4a2a10; --soft:#9a6a42; --accent:#e8781c; --bg:#fffaf3; --line:#f0d9bd; --field:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#ffe6c7; --soft:#c49a72; --accent:#ff9a3d; --bg:#24170d; --line:#4a3220; --field:#2f1f12; }
+  }
+  * { box-sizing: border-box; }
+  body { width: 290px; margin: 0; font: 14px/1.4 system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); }
+  header { padding: 16px 18px 14px; color: #fff; background: linear-gradient(135deg, #f59a3c, #d9601a); }
+  header h1 { display: flex; align-items: center; gap: 8px; margin: 0; font: 700 17px/1.2 ui-rounded, "SF Pro Rounded", system-ui, sans-serif; }
+  header p { margin: 2px 0 0; font-size: 12px; opacity: .9; }
+  main { padding: 14px 18px 18px; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+  select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit;
+    color: var(--ink); background: var(--field); }
+  select:focus-visible, .switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .switch { appearance: none; width: 40px; height: 23px; margin: 0; border-radius: 99px; background: var(--line);
+    position: relative; cursor: pointer; transition: background .2s; }
+  .switch::after { content: ""; position: absolute; top: 3px; inset-inline-start: 3px; width: 17px; height: 17px; border-radius: 50%;
+    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform .2s; }
+  .switch:checked { background: var(--accent); }
+  .switch:checked::after { transform: translateX(17px); }
+  [dir=rtl] .switch:checked::after { transform: translateX(-17px); }
+  select + label.field { margin-top: 14px; }
+  label.field { display: block; font-size: 12px; color: var(--soft); margin-bottom: 6px; }
+  footer { padding: 0 18px 14px; font-size: 11.5px; color: var(--soft); }
+</style>
+<header><h1><img src="icons/icon-48.png" alt="" width="24" height="24">DirectChange</h1><p data-i18n="tagline"></p></header>
+<main>
+  <div class="row"><span data-i18n="showConversions"></span><input type="checkbox" class="switch" id="enabled"></div>
+  <label class="field" for="target" data-i18n="referenceCurrency"></label>
+  <select id="target"></select>
+  <label class="field" for="lang" data-i18n="language"></label>
+  <select id="lang"></select>
+</main>
+<footer id="info" data-i18n="loading"></footer>
+<script src="parse.js"></script>
+<script src="popup.js"></script>

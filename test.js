@@ -40,4 +40,16 @@ assert.deepStrictEqual(one('USD 45', 'quigj.ca'), [45, 'USD']);
 assert.strictEqual(defaultCurrency('fr-FR'), 'EUR');
 assert.strictEqual(defaultCurrency('en-CA'), 'CAD');
 assert.strictEqual(defaultCurrency('en'), 'USD');
+// every locale has the same keys/placeholders as English, and the popup lists exactly these folders
+const fs = require('fs');
+const en = JSON.parse(fs.readFileSync('_locales/en/messages.json'));
+const dirs = fs.readdirSync('_locales').sort();
+for (const d of dirs) {
+  const m = JSON.parse(fs.readFileSync(`_locales/${d}/messages.json`));
+  assert.deepStrictEqual(Object.keys(m).sort(), Object.keys(en).sort(), d);
+  for (const k in en) for (const p of Object.keys(en[k].placeholders ?? {}))
+    assert(m[k].message.includes(`$${p.toUpperCase()}$`), `${d}.${k} misses $${p.toUpperCase()}$`);
+}
+const langs = eval(fs.readFileSync('popup.js', 'utf8').match(/const LANGS = (\[[\s\S]*?\]);/)[1]);
+assert.deepStrictEqual([...langs].sort(), dirs);
 console.log('all good');
