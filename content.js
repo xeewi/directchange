@@ -6,20 +6,22 @@ let settings, rates, known, local, ratesTime, ratesSource, done = new WeakSet();
 // ponytail: plain attachShadow, not customElements.define (the registry is null in content scripts).
 const CSS = `
 :host{all:initial;display:inline-block;margin:0 .3em;vertical-align:baseline;font-size:.82em}
-.pill{display:inline-flex;align-items:center;gap:.3em;padding:.08em .6em .08em .45em;border-radius:999px;
+.pill{display:inline-flex;align-items:center;gap:.3em;padding:.12em .55em .12em .12em;border-radius:.42em;
   font:600 1em/1.45 ui-rounded,"SF Pro Rounded",system-ui,-apple-system,sans-serif;white-space:nowrap;cursor:default;
   color:#7a3b0c;background:linear-gradient(#fff7ec,#ffe8c9);
   box-shadow:inset 0 0 0 1px #f2c287,0 1px 2px rgba(122,59,12,.12);transition:transform .15s,box-shadow .15s}
+@media (prefers-reduced-motion:reduce){.pill{transition:none}.pill:hover{transform:none}}
 .pill:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px #e9a55c,0 3px 8px rgba(122,59,12,.18)}
-.coin{display:inline-grid;place-items:center;width:1.15em;height:1.15em;border-radius:50%;font-size:.8em;
-  color:#fff;background:radial-gradient(circle at 35% 30%,#ffc36b,#e8781c)}
+.mark{display:block;flex:none;width:1.2em;height:1.2em}
 :host([dark]) .pill{color:#ffdcae;background:linear-gradient(#4b2b12,#3a200b);box-shadow:inset 0 0 0 1px #8c5a2a}
 .card{position:fixed;inset:auto;pointer-events:none;margin:0;padding:12px 14px;min-width:190px;border:0;border-radius:14px;
-  font:13px/1.4 system-ui,-apple-system,sans-serif;color:#4a2a10;background:#fffaf3;
-  box-shadow:0 10px 30px rgba(90,45,10,.22),inset 0 3px 0 #f0913a}
-.from{font-size:12px;color:#9a6a42}
-.to{font-size:20px;font-weight:700;color:#c25e10;margin:2px 0 6px}
-.meta{font-size:11.5px;color:#9a6a42;border-top:1px dashed #f0d2ae;padding-top:6px}`;
+  font:13px/1.4 system-ui,-apple-system,sans-serif;color:#3b220d;background:#fffaf3;
+  box-shadow:0 10px 30px rgba(90,45,10,.22),inset 0 3px 0 #e0701c}
+.from{font-size:12px;color:#7a5a40}
+.to{font-size:20px;font-weight:700;color:#a8430d;margin:2px 0 6px}
+.meta{font-size:11.5px;color:#7a5a40;border-top:1px dashed #f1dcc2;padding-top:6px}
+:host([dark]) .card{color:#ffe9cf;background:#26190e;box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 3px 0 #ff9a3d}
+:host([dark]) .from,:host([dark]) .meta{color:#c9a07a}:host([dark]) .to{color:#ff9a3d}:host([dark]) .meta{border-color:#3d2a19}`;
 
 let darkCache = new WeakMap();
 function isDark(el) { // light text color => dark background
@@ -39,7 +41,7 @@ function badge(p, near) {
   const rate = convert(1, p.currency, settings.target, rates);
   const when = new Date(ratesTime).toLocaleString(loc, { dateStyle: 'short', timeStyle: 'short' });
   root.innerHTML = `<style>${CSS}</style>
-    <span class="pill"><span class="coin">≈</span><span></span></span>
+    <span class="pill"><svg class="mark" viewBox="0 0 128 128" role="img" aria-label="≈"><rect x="4" y="4" width="120" height="120" rx="30" fill="#e0701c"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#fff7ec" stroke-width="13" stroke-linecap="round"/></svg><span></span></span>
     <div class="card" popover="manual"><div class="from"></div><div class="to"></div><div class="meta"></div></div>`;
   const pill = root.querySelector('.pill'), card = root.querySelector('.card');
   pill.lastChild.textContent = formatMoney(value, settings.target, loc);

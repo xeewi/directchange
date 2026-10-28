@@ -6,10 +6,12 @@
 <title>DirectChange privacy policy</title>
 <link rel="icon" href="assets/icon-128.png">
 <style>
-  :root { --bg: #fffaf3; --ink: #3b220d; --soft: #8a6446; --line: #f1dcc2; --accent: #d65a17; }
+  :root { --bg: #fffaf3; --ink: #3b220d; --soft: #7a5a40; --line: #f1dcc2; --accent: #a8430d; --focus: #c2540f; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --bg: #1c130b; --ink: #ffe9cf; --soft: #c9a07a; --line: #3d2a19; --accent: #ff9a3d; }
+    :root:not([data-theme="light"]) { --bg: #1c130b; --ink: #ffe9cf; --soft: #c9a07a; --line: #3d2a19; --accent: #ff9a3d; --focus: #ff9a3d; }
   }
+  body { border-top: 10px solid #e0701c; }
+  a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
   body { margin: 0; font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
   main { max-width: 700px; margin: 0 auto; padding: 40px 20px 60px; }
   a { color: var(--accent); }
@@ -49,13 +51,14 @@
     <li>Your settings (on/off, reference currency, language), in your browser's extension storage. If you
       use browser sync, your browser syncs them across your devices.</li>
     <li>The latest exchange rates, cached locally.</li>
+    <li>The last amount and currencies typed in the popup converter, stored locally.</li>
   </ul>
   <p>Uninstalling the extension deletes all of it.</p>
 
   <h2>Permissions</h2>
   <ul>
     <li><b>Access to websites:</b> needed to detect prices on the pages you visit and show their converted value.</li>
-    <li><b>Storage:</b> keeps your settings and the cached rates.</li>
+    <li><b>Storage:</b> keeps your settings, the cached rates and your last conversion.</li>
   </ul>
 
   <h2>Contact</h2>

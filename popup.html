@@ -1,21 +1,21 @@
 <!doctype html>
 <meta charset="utf-8">
 <style>
-  :root { --ink:#4a2a10; --soft:#9a6a42; --accent:#e8781c; --bg:#fffaf3; --line:#f0d9bd; --field:#fff; }
+  :root { --ink:#3b220d; --soft:#7a5a40; --accent:#e0701c; --accent-text:#a8430d; --focus:#c2540f; --bg:#fffaf3; --line:#f1dcc2; --edge:#a8784c; --field:#fff; }
   @media (prefers-color-scheme: dark) {
-    :root { --ink:#ffe6c7; --soft:#c49a72; --accent:#ff9a3d; --bg:#24170d; --line:#4a3220; --field:#2f1f12; }
+    :root { --ink:#ffe9cf; --soft:#c9a07a; --accent:#ff9a3d; --accent-text:#ff9a3d; --focus:#ff9a3d; --bg:#1c130b; --line:#3d2a19; --edge:#8a6446; --field:#26190e; }
   }
   * { box-sizing: border-box; }
   body { width: 290px; margin: 0; font: 14px/1.4 system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); }
-  header { padding: 16px 18px 14px; color: #fff; background: linear-gradient(135deg, #f59a3c, #d9601a); }
+  header { padding: 16px 18px 14px; color: #3b220d; background: #e0701c; }
   header h1 { display: flex; align-items: center; gap: 8px; margin: 0; font: 700 17px/1.2 ui-rounded, "SF Pro Rounded", system-ui, sans-serif; }
-  header p { margin: 2px 0 0; font-size: 12px; opacity: .9; }
+  header p { margin: 2px 0 0; font-size: 12px; }
   main { padding: 14px 18px 18px; }
   .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
-  select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit;
+  select { width: 100%; padding: 8px 10px; border: 1px solid var(--edge); border-radius: 10px; font: inherit;
     color: var(--ink); background: var(--field); }
-  select:focus-visible, .switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .switch { appearance: none; width: 40px; height: 23px; margin: 0; border-radius: 99px; background: var(--line);
+  select:focus-visible, .switch:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .switch { appearance: none; width: 40px; height: 23px; margin: 0; border-radius: 99px; background: var(--soft);
     position: relative; cursor: pointer; transition: background .2s; }
   .switch::after { content: ""; position: absolute; top: 3px; inset-inline-start: 3px; width: 17px; height: 17px; border-radius: 50%;
     background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform .2s; }
@@ -25,35 +25,36 @@
   select + label.field { margin-top: 14px; }
   label.field { display: block; font-size: 12px; color: var(--soft); margin-bottom: 6px; }
   .site { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 10px 12px; border-radius: 14px;
-    background: linear-gradient(135deg, rgba(245,154,60,.18), rgba(217,96,26,.12)); border: 1px solid rgba(232,120,28,.35); }
+    background: var(--field); border: 1px solid var(--accent); }
   .site[hidden] { display: none; }
-  .site .sym { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 50%; color: #fff;
-    font: 700 15px/1 ui-rounded, "SF Pro Rounded", system-ui, sans-serif; background: radial-gradient(circle at 35% 30%, #ffc36b, #e8781c); }
+  .site .sym { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 50%;
+    font: 700 15px/1 ui-rounded, "SF Pro Rounded", system-ui, sans-serif; background: radial-gradient(circle at 35% 30%, #ffc36b, #e0701c); color: #3b220d; }
   .site small { display: block; font-size: 11.5px; color: var(--soft); }
   .site b { display: block; font-size: 15px; }
-  .site .code { margin-inline-start: auto; font-weight: 700; color: var(--accent); }
+  .site .code { margin-inline-start: auto; font-weight: 700; color: var(--accent-text); }
   .conv { margin-bottom: 16px; padding: 12px; border-radius: 14px; background: var(--field); border: 1px solid var(--line); }
   .conv h2 { margin: 0 0 8px; font-size: 12px; font-weight: 600; color: var(--soft); }
   .conv-row { display: flex; gap: 8px; align-items: center; }
   .conv-row select { width: 82px; flex: none; }
   #amount, #result { flex: 1; min-width: 0; padding: 6px 10px; border-radius: 10px;
     font: 600 18px/1.35 ui-rounded, "SF Pro Rounded", system-ui, sans-serif; }
-  #amount { border: 1px solid var(--line); color: var(--ink); background: var(--bg); }
-  #amount:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-  #result { color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; user-select: all; }
+  #amount { border: 1px solid var(--edge); color: var(--ink); background: var(--bg); }
+  #amount:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+  #result { color: var(--accent-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; user-select: all; }
   .swap { display: block; width: 28px; height: 28px; margin: 4px auto; padding: 0; border-radius: 50%; cursor: pointer;
-    font-size: 15px; color: var(--accent); background: var(--bg); border: 1px solid var(--line); transition: transform .25s; }
-  .swap:hover { transform: rotate(180deg); }
-  .swap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    font-size: 15px; color: var(--accent-text); background: var(--bg); border: 1px solid var(--edge); transition: transform .25s; }
+  @media (prefers-reduced-motion: no-preference) { .swap:hover { transform: rotate(180deg); } }
+  .swap svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+  .swap:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
   footer { padding: 0 18px 14px; font-size: 11.5px; color: var(--soft); }
 </style>
-<header><h1><img src="icons/icon-48.png" alt="" width="24" height="24">DirectChange</h1><p data-i18n="tagline"></p></header>
+<header><h1><svg viewBox="0 0 128 128" width="24" height="24" aria-hidden="true"><rect x="4" y="4" width="120" height="120" rx="30" fill="#fff7ec"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#e0701c" stroke-width="13" stroke-linecap="round"/></svg>DirectChange</h1><p data-i18n="tagline"></p></header>
 <main>
   <div class="site" id="site" hidden><span class="sym" id="site-sym"></span><div><small data-i18n="siteCurrency"></small><b id="site-name"></b></div><span class="code" id="site-code"></span></div>
   <section class="conv" aria-labelledby="conv-title">
     <h2 id="conv-title" data-i18n="converter"></h2>
     <div class="conv-row"><input id="amount" inputmode="decimal" autocomplete="off" spellcheck="false"><select id="from"></select></div>
-    <button id="swap" class="swap" type="button">⇅</button>
+    <button id="swap" class="swap" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4"/></svg></button>
     <div class="conv-row"><output id="result" for="amount from to" aria-live="polite"></output><select id="to"></select></div>
   </section>
   <div class="row"><span data-i18n="showConversions"></span><input type="checkbox" class="switch" id="enabled"></div>

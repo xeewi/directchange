@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://xeewi.github.io/directchange/">Website</a> ·
+  <a href="https://directchange.xeewi.cool/">Website</a> ·
   <a href="#install">Install</a> ·
   <a href="#the-popup">The popup</a> ·
   <a href="#how-it-works">How it works</a> ·
@@ -18,13 +18,13 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/demo.png" alt="A trip wishlist with prices in yen, dollars, pounds, won, pesos and lira, each followed by its euro equivalent in a small orange pill" width="820">
+  <img src="docs/assets/demo.png" alt="A trip wishlist with prices in yen, dollars, pounds, won, pesos and lira, each followed by its euro equivalent in a small orange tag" width="820">
 </p>
 
 ## Why
 
 You're booking a ryokan in Kyoto and the site says **¥24,000** a night. Is that a lot? DirectChange
-answers right there on the page, with a small pill next to the price: **≈ €137**. Hover it for the exact rate
+answers right there on the page, with a small tag next to the price: **≈ €137**. Hover it for the exact rate
 and when it was fetched.
 
 ## Features
@@ -139,7 +139,7 @@ Native speakers are very welcome to improve them. To add a language:
 
 DirectChange collects nothing. The only network requests are to the two exchange-rate APIs, and they
 contain no information about you or the pages you visit. Your settings are stored with
-`chrome.storage.sync`. See the full [privacy policy](https://xeewi.github.io/directchange/privacy.html).
+`chrome.storage.sync`. See the full [privacy policy](https://directchange.xeewi.cool/privacy.html).
 
 ## License
 
