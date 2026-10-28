@@ -12,6 +12,7 @@
 <p align="center">
   <a href="https://xeewi.github.io/directchange/">Website</a> ·
   <a href="#install">Install</a> ·
+  <a href="#the-popup">The popup</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#translations">Translations</a>
 </p>
@@ -36,8 +37,9 @@ and when it was fetched.
   `14 000 bahts`, `Rs 900`… even prices split across several HTML tags.
 - **Knows where the site is.** A plain `$` on a `.ca` site is Canadian dollars, `¥` on a `.cn` site is
   yuan, `kr` on a `.no` site is Norwegian krone. See [how it decides](#which-currency-is-).
-- **Quick converter** in the popup: type a budget (say 1,000 €) and see it in the currency of the site
-  you're on, handy for setting price filters.
+- **A converter that knows the site.** Open the popup on any shop: it shows which currency the site
+  uses and converts your budget into it. Want a 1,000 € price filter on a Japanese site? It's
+  already there: ≈ ¥175,700.
 - **Dynamic pages.** Infinite scroll, filters and single-page apps are converted as content appears.
 - **36 languages**, following your browser by default or chosen in the popup. Right-to-left
   languages (Arabic, Hebrew, Persian) are supported.
@@ -54,19 +56,37 @@ and when it was fetched.
 3. Click **Load unpacked** and pick the repository folder.
 4. Click the DirectChange icon to choose your currency and language.
 
+## The popup
+
+<img src="docs/assets/popup.png" alt="The popup on a Japanese site: a banner shows the site's currency, Japanese Yen, and the converter turns 1000 EUR into ¥175,700" width="290" align="right">
+
+Click the DirectChange icon to open it.
+
+- **This site's currency.** A banner shows the currency of the page you're on. DirectChange counts
+  the prices displayed on the page and picks the most frequent currency. If the page shows no prices,
+  it falls back to the [site's location](#which-currency-is-).
+- **Quick converter.** Type an amount (`1000`, `1 000` and `2,5` all work) and it converts from your
+  reference currency into the site's, live. Use ⇅ to convert the other way. The amount and currencies
+  are remembered.
+- **Settings.** Turn the badges on or off, and choose your reference currency and the interface
+  language.
+
+<br clear="right">
+
 ## How it works
 
 ```
 background.js   fetches and caches the rates (USD-based), Coinbase first, er-api as fallback
 parse.js        finds prices in text, guesses the site's currency, converts and formats
 content.js      walks the page, inserts the badges, watches for new content
-popup.html/js   settings: on/off, reference currency, language
+popup.html/js   site currency banner, quick converter and settings
 _locales/       UI translations (Chrome i18n format)
 ```
 
 The content script scans text nodes for a currency token next to a number. Then it parses the number
 (`14,000`, `14 000`, `1.234,56`, `9.99`) and inserts a `<dc-price>` element right after it. A
-`MutationObserver` handles content added later.
+`MutationObserver` handles content added later. When the popup opens, it asks the content script
+of the active tab for the page's currency.
 
 ### Which currency is `$`?
 
@@ -91,7 +111,8 @@ There are no dependencies and no build step. You need Node.js only to run the te
 node test.js
 ```
 
-The tests cover price parsing, site-currency detection, conversion and translation-file consistency.
+The tests cover price parsing, site-currency detection (from the domain and from the prices shown),
+conversion and translation-file consistency.
 
 To package for the stores:
 
