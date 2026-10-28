@@ -5,5 +5,12 @@
   "description": "Shows every price in your own currency, at today's live rate.",
   "permissions": [
     "storage"
-  ]
+  ],
+  "host_permissions": [
+    "https://api.coinbase.com/*",
+    "https://open.er-api.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
