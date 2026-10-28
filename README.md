@@ -17,13 +17,13 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/demo.png" alt="A Thai booking site where every baht price shows its euro equivalent in a small orange pill" width="820">
+  <img src="docs/assets/demo.png" alt="A trip wishlist with prices in yen, dollars, pounds, won, pesos and lira, each followed by its euro equivalent in a small orange pill" width="820">
 </p>
 
 ## Why
 
-You're booking a villa in Phuket and the site says **฿14,000**. Is that a lot? DirectChange answers
-right there on the page, with a small pill next to the price: **≈ €372**. Hover it for the exact rate
+You're booking a ryokan in Kyoto and the site says **¥24,000** a night. Is that a lot? DirectChange
+answers right there on the page, with a small pill next to the price: **≈ €137**. Hover it for the exact rate
 and when it was fetched.
 
 ## Features
@@ -32,8 +32,8 @@ and when it was fetched.
   (light or dark). It lives in a Shadow DOM, so the site's CSS can't break it.
 - **Live rates.** Rates come from Coinbase's public API (near real time) and are refreshed every
   10 minutes, with open.er-api.com (daily) as a fallback. 150+ currencies.
-- **Reads prices the way people write them.** `฿14,000`, `14 000 bahts`, `1.234,56 €`, `USD 45`,
-  `C$20`, `Rs 900`… even prices split across several HTML tags.
+- **Reads prices the way people write them.** `¥24,000`, `1.234,56 €`, `MX$2,490`, `USD 45`,
+  `14 000 bahts`, `Rs 900`… even prices split across several HTML tags.
 - **Knows where the site is.** A plain `$` on a `.ca` site is Canadian dollars, `¥` on a `.cn` site is
   yuan, `kr` on a `.no` site is Norwegian krone. See [how it decides](#which-currency-is-).
 - **Dynamic pages.** Infinite scroll, filters and single-page apps are converted as content appears.
