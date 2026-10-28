@@ -6,7 +6,7 @@
 <title>DirectChange: every price, in your currency</title>
 <meta name="description" content="A free browser extension that shows the live equivalent of every foreign price, right next to it, in your own currency.">
 <meta property="og:title" content="DirectChange: every price, in your currency">
-<meta property="og:description" content="฿14,000 ≈ €372. Live currency conversion, right where you read prices.">
+<meta property="og:description" content="¥24,000 ≈ €137. Live currency conversion, right where you read prices.">
 <meta property="og:image" content="https://xeewi.github.io/directchange/assets/demo.png">
 <link rel="icon" href="assets/icon-128.png">
 <style>
@@ -40,6 +40,8 @@
   .hero h1 { font-size: clamp(38px, 6vw, 64px); letter-spacing: -.02em; }
   .hero h1 em { font-style: normal; color: var(--accent); }
   .hero p { max-width: 620px; margin: 18px auto 0; font-size: 19px; color: var(--soft); }
+  .example span { transition: opacity .25s; }
+  .example.swap span { opacity: 0; }
   .example { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; font-size: 26px; font-weight: 700; }
   .pill { display: inline-flex; align-items: center; gap: .3em; padding: .05em .6em .05em .4em; border-radius: 999px;
     font: 600 .8em/1.5 ui-rounded, "SF Pro Rounded", system-ui, sans-serif; color: var(--pill-ink); background: var(--pill-bg);
@@ -91,6 +93,23 @@
   .privacy p { max-width: 620px; margin: 12px auto 0; opacity: .95; }
   .privacy a { font-weight: 600; }
 
+  .currencies { overflow: hidden; margin-top: 34px; display: grid; gap: 14px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .track { display: flex; gap: 12px; width: max-content; animation: scroll 70s linear infinite; }
+  .track.rev { animation-direction: reverse; }
+  .currencies:hover .track { animation-play-state: paused; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 14px; white-space: nowrap;
+    font-weight: 700; background: var(--surface); border: 1px solid var(--line); }
+  .picker { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 22px; color: var(--soft); font-size: 15px; }
+  .picker select { padding: 7px 10px; border-radius: 10px; border: 1px solid var(--line); font: inherit; color: var(--ink); background: var(--surface); }
+  .picker select:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 2px; }
+  .rates-note { text-align: center; color: var(--soft); font-size: 13px; margin-top: 14px; }
+  @media (prefers-reduced-motion: reduce) {
+    .track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+    .currencies { -webkit-mask-image: none; mask-image: none; }
+  }
   footer { padding: 48px 0 40px; text-align: center; font-size: 14px; color: var(--soft); }
   footer a { margin: 0 8px; }
 
@@ -117,8 +136,8 @@
   <header class="hero">
     <h1>Every price,<br><em>in your currency.</em></h1>
     <p>DirectChange adds the live equivalent of every foreign price right next to it, on any website. No more mental math, no more tab-switching to a converter.</p>
-    <div class="example" aria-label="Example: 14,000 baht is about 372 euros">
-      <span>฿14,000</span><span class="pill"><span class="coin">≈</span>€372</span>
+    <div class="example" aria-label="Example: 24,000 yen is about 137 euros">
+      <span id="ex-from">¥24,000</span><span class="pill"><span class="coin">≈</span><span id="ex-to">€137</span></span>
     </div>
     <div class="cta">
       <a class="btn primary" href="https://github.com/xeewi/directchange#install">Add to Chrome, it's free</a>
@@ -127,10 +146,23 @@
     <p class="note">Works in Chrome, Edge, Brave, Arc and other Chromium browsers.</p>
     <div class="shot">
       <div class="bar"><i></i><i></i><i></i></div>
-      <img src="assets/demo.png" width="2560" height="1520" alt="A Thai booking site: each baht price shows its euro equivalent in a small orange pill">
+      <img src="assets/demo.png" width="2560" height="1520" alt="A trip wishlist with prices in yen, dollars, pounds, won, pesos and lira, each followed by its euro equivalent in a small orange pill">
     </div>
   </header>
 </div>
+
+<section id="currencies">
+  <div class="wrap">
+    <h2>Any currency, anywhere</h2>
+    <p class="lead">Yen, rupees, pesos or rand: DirectChange reads 150+ currencies and shows them in yours.</p>
+    <label class="picker">Show prices in <select id="target" aria-label="Your currency"></select></label>
+  </div>
+  <div class="currencies" aria-label="Example conversions">
+    <div class="track" id="row1"></div>
+    <div class="track rev" id="row2"></div>
+  </div>
+  <p class="rates-note" id="rates-note"></p>
+</section>
 
 <section id="features">
   <div class="wrap">
@@ -139,7 +171,7 @@
     <div class="features">
       <div class="feature"><div class="ico">⚡</div><h3>Live rates</h3><p>Near real-time rates for 150+ currencies, refreshed every 10 minutes. Hover any badge to see the exact rate and when it was fetched.</p></div>
       <div class="feature"><div class="ico">🧭</div><h3>Knows where the site is</h3><p>A “$” on a Canadian site is Canadian dollars. A “¥” on a Chinese site is yuan. DirectChange reads the domain, the page language and the shop's own data.</p></div>
-      <div class="feature"><div class="ico">🔎</div><h3>Reads prices like you do</h3><p>฿14,000, 14 000 bahts, 1.234,56 €, USD 45, C$20, Rs 900… It even handles prices split across the page's HTML.</p></div>
+      <div class="feature"><div class="ico">🔎</div><h3>Reads prices like you do</h3><p>¥24,000, 1.234,56 €, MX$2,490, USD 45, 14 000 bahts, Rs 900… It even handles prices split across the page's HTML.</p></div>
       <div class="feature"><div class="ico">🎨</div><h3>Blends into any site</h3><p>A soft pill that adapts to light and dark pages. It's isolated from the site's styles, so it never breaks a layout.</p></div>
       <div class="feature"><div class="ico">🌍</div><h3>Speaks 36 languages</h3><p>Follows your browser by default, or pick a language in the settings. Right-to-left languages included.</p></div>
       <div class="feature"><div class="ico">🔒</div><h3>Private by design</h3><p>No account, no analytics. The page is read on your device and never sent anywhere.</p></div>
@@ -152,11 +184,11 @@
     <h2>Set it once, forget it</h2>
     <ol class="steps">
       <li><h3>Install</h3><p>Add DirectChange to your browser. It takes ten seconds.</p></li>
-      <li><h3>Pick your currency</h3><p>Euro, dollar, yen, baht… any of 150+ currencies. It defaults to your region's currency.</p></li>
+      <li><h3>Pick your currency</h3><p>Euro, dollar, yen, rupee… any of 150+ currencies. It defaults to your region's currency.</p></li>
       <li><h3>Browse as usual</h3><p>Foreign prices get a small badge with their value in your currency, wherever you are on the web.</p></li>
     </ol>
     <div class="split">
-      <img src="assets/demo-hover.png" width="1280" height="760" alt="Hovering a badge shows a card: 14,000 THB, about €372, with the rate, time and source">
+      <img src="assets/demo-hover.png" width="1280" height="760" alt="Hovering a badge shows a card: 24,000 JPY, about €137, with the rate, time and source">
       <img class="popup" src="assets/popup.png" width="580" height="660" alt="The settings popup: on/off switch, reference currency and language">
     </div>
   </div>
@@ -187,5 +219,66 @@
   <a href="https://github.com/xeewi/directchange">GitHub</a>·<a href="privacy.html">Privacy</a>·<a href="https://github.com/xeewi/directchange/blob/main/LICENSE">MIT License</a>
   <p>Made with care by Guillaume Gautier.</p>
 </footer>
+<script>
+// Example prices around the world, converted into the visitor's currency with today's rates.
+const EXAMPLES = [[24000, 'JPY'], [129, 'USD'], [4999, 'INR'], [89, 'GBP'], [2490, 'MXN'], [59000, 'KRW'], [5999, 'ZAR'],
+  [699, 'CNY'], [14000, 'THB'], [1250000, 'VND'], [450000, 'IDR'], [2690, 'PHP'], [349, 'MYR'], [129, 'SGD'], [880, 'HKD'], [1990, 'TWD'], [199, 'AUD'],
+  [249, 'NZD'], [349, 'CAD'], [899, 'BRL'], [85000, 'ARS'], [49990, 'CLP'], [189000, 'COP'], [249, 'CHF'],
+  [1290, 'SEK'], [1490, 'NOK'], [999, 'DKK'], [399, 'PLN'], [3990, 'CZK'], [29990, 'HUF'], [1499, 'TRY'], [450, 'AED'],
+  [399, 'SAR'], [299, 'ILS'], [4500, 'EGP'], [85000, 'NGN'], [12500, 'KES'], [990, 'MAD'], [3200, 'UAH'], [89, 'EUR']];
+// Fallback if the live request fails (USD-based, Oct 2026).
+let rates = {"EUR":0.897453,"USD":1,"GBP":0.751056,"JPY":157.89,"CNY":6.681042,"INR":95.2,"KRW":1326.81,"THB":33.77,"VND":25805.82,"IDR":18158.1,"PHP":64.01,"MYR":4.088906,"SGD":1.281211,"HKD":7.844274,"TWD":32.44,"AUD":1.422618,"NZD":1.758915,"CAD":1.404056,"MXN":18.67,"BRL":5.348375,"ARS":1538.74,"CLP":989.44,"COP":3143.43,"CHF":0.828754,"SEK":9.950172,"NOK":9.327001,"DKK":6.706467,"PLN":3.95074,"CZK":21.85,"HUF":329.4,"TRY":49.81,"AED":3.6725,"SAR":3.75,"ILS":3.056403,"EGP":56.09,"ZAR":16.64,"NGN":1353.43,"KES":129.9,"MAD":9.849837,"UAH":45.58};
+const CODES = EXAMPLES.map(e => e[1]);
+const EURO = 'AT BE BG CY DE EE ES FI FR GR HR IE IT LT LU LV MT NL PT SI SK'.split(' ');
+const $ = id => document.getElementById(id);
+
+// ISO currency codes start with the country code (JPY = JP), except the euro.
+const region = (navigator.language.split('-')[1] || '').toUpperCase();
+let target = CODES.find(c => c.slice(0, 2) === region) || (EURO.includes(region) ? 'EUR' : 'USD');
+
+function money(amount, currency) {
+  const digits = amount >= 100 || Number.isInteger(amount) ? 0 : 2;
+  const opts = { style: 'currency', currency, minimumFractionDigits: digits, maximumFractionDigits: digits };
+  const narrow = new Intl.NumberFormat('en', { ...opts, currencyDisplay: 'narrowSymbol' }).format(amount);
+  // Shared symbols ($, ¥, kr…) would be ambiguous here: show "CA$", "CN¥" etc. instead.
+  return /^[^\d]*(\$|¥|kr|Rs|£)/.test(narrow) && !['USD', 'JPY', 'GBP'].includes(currency)
+    ? new Intl.NumberFormat('en', opts).format(amount) : narrow;
+}
+const convert = (amount, from) => amount / rates[from] * rates[target];
+const chip = ([amount, code]) => `<span class="chip">${money(amount, code)}<span class="pill"><span class="coin">≈</span>${money(convert(amount, code), target)}</span></span>`;
+
+function render() {
+  const list = EXAMPLES.filter(e => e[1] !== target), half = Math.ceil(list.length / 2);
+  // each row twice, so the -50% scroll loops seamlessly
+  $('row1').innerHTML = list.slice(0, half).map(chip).join('').repeat(2);
+  $('row2').innerHTML = list.slice(half).map(chip).join('').repeat(2);
+}
+
+let i = 0;
+function rotate() {
+  const list = EXAMPLES.filter(e => e[1] !== target), [amount, code] = list[i++ % list.length];
+  const ex = document.querySelector('.example');
+  ex.classList.add('swap');
+  setTimeout(() => {
+    $('ex-from').textContent = money(amount, code);
+    $('ex-to').textContent = money(convert(amount, code), target);
+    ex.setAttribute('aria-label', `Example: ${money(amount, code)} is about ${money(convert(amount, code), target)}`);
+    ex.classList.remove('swap');
+  }, 250);
+}
+
+const names = new Intl.DisplayNames('en', { type: 'currency' });
+[...CODES].sort().forEach(c => $('target').add(new Option(`${c} · ${names.of(c)}`, c, false, c === target)));
+$('target').onchange = e => { target = e.target.value; i = 0; render(); rotate(); };
+$('rates-note').textContent = 'Sample rates from October 2026.';
+render(); rotate();
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(rotate, 2400);
+
+fetch('https://open.er-api.com/v6/latest/USD').then(r => r.json()).then(j => {
+  if (j.result !== 'success') return;
+  rates = j.rates; render();
+  $('rates-note').textContent = `Live rates from open.er-api.com, updated ${new Date(j.time_last_update_unix * 1000).toLocaleDateString('en', { dateStyle: 'medium' })}.`;
+}).catch(() => {});
+</script>
 </body>
 </html>
