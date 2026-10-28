@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Mostra cada preço na sua moeda, com a cotação do dia."
+  },
+  "tagline": {
+    "message": "Todos os preços, na sua moeda."
+  },
+  "showConversions": {
+    "message": "Mostrar conversões"
+  },
+  "enable": {
+    "message": "Ativar"
+  },
+  "referenceCurrency": {
+    "message": "Minha moeda de referência"
+  },
+  "loading": {
+    "message": "Carregando cotações…"
+  },
+  "ratesError": {
+    "message": "Cotações indisponíveis: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ moedas · cotações de $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Idioma"
+  },
+  "languageAuto": {
+    "message": "Automático (navegador)"
+  }
+}

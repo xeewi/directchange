@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Zeigt jeden Preis in deiner Währung, zum aktuellen Tageskurs."
+  },
+  "tagline": {
+    "message": "Alle Preise in deiner Währung."
+  },
+  "showConversions": {
+    "message": "Umrechnungen anzeigen"
+  },
+  "enable": {
+    "message": "Aktivieren"
+  },
+  "referenceCurrency": {
+    "message": "Meine Referenzwährung"
+  },
+  "loading": {
+    "message": "Kurse werden geladen…"
+  },
+  "ratesError": {
+    "message": "Kurse nicht verfügbar: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ Währungen · Kurse vom $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Sprache"
+  },
+  "languageAuto": {
+    "message": "Automatisch (Browser)"
+  }
+}

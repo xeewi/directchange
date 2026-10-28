@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Shows every price in your own currency, at today's live rate."
+  },
+  "tagline": {
+    "message": "All prices, in your currency."
+  },
+  "showConversions": {
+    "message": "Show conversions"
+  },
+  "enable": {
+    "message": "Enable"
+  },
+  "referenceCurrency": {
+    "message": "My reference currency"
+  },
+  "loading": {
+    "message": "Loading rates…"
+  },
+  "ratesError": {
+    "message": "Rates unavailable: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ currencies · rates from $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Language"
+  },
+  "languageAuto": {
+    "message": "Automatic (browser)"
+  }
+}

@@ -2,7 +2,8 @@
   "manifest_version": 3,
   "name": "DirectChange",
   "version": "1.0.0",
-  "description": "Shows every price in your own currency, at today's live rate.",
+  "description": "__MSG_description__",
+  "default_locale": "en",
   "permissions": [
     "storage"
   ],

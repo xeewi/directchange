@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Mostra ogni prezzo nella tua valuta, al cambio del giorno."
+  },
+  "tagline": {
+    "message": "Tutti i prezzi, nella tua valuta."
+  },
+  "showConversions": {
+    "message": "Mostra conversioni"
+  },
+  "enable": {
+    "message": "Attiva"
+  },
+  "referenceCurrency": {
+    "message": "La mia valuta di riferimento"
+  },
+  "loading": {
+    "message": "Caricamento dei cambi…"
+  },
+  "ratesError": {
+    "message": "Cambi non disponibili: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ valute · cambi del $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Lingua"
+  },
+  "languageAuto": {
+    "message": "Automatica (browser)"
+  }
+}

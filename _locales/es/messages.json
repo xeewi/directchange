@@ -1,0 +1,48 @@
+{
+  "description": {
+    "message": "Muestra cada precio en tu moneda, al tipo de cambio del día."
+  },
+  "tagline": {
+    "message": "Todos los precios, en tu moneda."
+  },
+  "showConversions": {
+    "message": "Mostrar conversiones"
+  },
+  "enable": {
+    "message": "Activar"
+  },
+  "referenceCurrency": {
+    "message": "Mi moneda de referencia"
+  },
+  "loading": {
+    "message": "Cargando tipos de cambio…"
+  },
+  "ratesError": {
+    "message": "Tipos de cambio no disponibles: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "ratesInfo": {
+    "message": "$COUNT$ monedas · tipos del $DATE$ ($SOURCE$)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "date": {
+        "content": "$2"
+      },
+      "source": {
+        "content": "$3"
+      }
+    }
+  },
+  "language": {
+    "message": "Idioma"
+  },
+  "languageAuto": {
+    "message": "Automático (navegador)"
+  }
+}
