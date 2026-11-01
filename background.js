@@ -34,3 +34,13 @@ chrome.runtime.onMessage.addListener((msg, _sender, reply) => {
   getRates().then(reply, e => reply({ error: String(e) }));
   return true;
 });
+
+// Toolbar icon turns grey while prices are hidden.
+async function syncIcon() {
+  const { enabled } = await chrome.storage.sync.get({ enabled: true });
+  const f = enabled ? 'icon' : 'icon-off';
+  chrome.action.setIcon({ path: { 16: `icons/${f}-16.png`, 32: `icons/${f}-32.png` } });
+}
+syncIcon();
+chrome.runtime.onStartup.addListener(syncIcon); // setIcon is not persisted across browser restarts
+chrome.storage.onChanged.addListener((c, area) => { if (area === 'sync' && c.enabled) syncIcon(); });

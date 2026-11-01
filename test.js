@@ -57,4 +57,16 @@ for (const d of dirs) {
 }
 const langs = eval(fs.readFileSync('popup.js', 'utf8').match(/const LANGS = (\[[\s\S]*?\]);/)[1]);
 assert.deepStrictEqual([...langs].sort(), dirs);
+
+// the website offers the same languages, each with every key and placeholder of its English file
+const site = fs.readFileSync('docs/index.html', 'utf8').match(/const LANGS = (\[[\s\S]*?\]);/)[1];
+assert.deepStrictEqual(eval(site), langs);
+const siteEn = JSON.parse(fs.readFileSync('docs/i18n/en.json'));
+assert.deepStrictEqual(fs.readdirSync('docs/i18n').sort(), dirs.map(d => `${d}.json`));
+for (const d of dirs) {
+  const m = JSON.parse(fs.readFileSync(`docs/i18n/${d}.json`));
+  assert.deepStrictEqual(Object.keys(m).sort(), Object.keys(siteEn).sort(), `site ${d}`);
+  for (const k in siteEn) for (const p of siteEn[k].match(/\{\w+\}/g) ?? [])
+    assert(m[k].includes(p), `site ${d}.${k} misses ${p}`);
+}
 console.log('all good');
