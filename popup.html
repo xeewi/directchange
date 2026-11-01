@@ -12,9 +12,10 @@
   header p { margin: 2px 0 0; font-size: 12px; }
   main { padding: 14px 18px 18px; }
   .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
-  select { width: 100%; padding: 8px 10px; border: 1px solid var(--edge); border-radius: 10px; font: inherit;
+  .row[hidden] { display: none; }
+  select, #fee { width: 100%; padding: 8px 10px; border: 1px solid var(--edge); border-radius: 10px; font: inherit;
     color: var(--ink); background: var(--field); }
-  select:focus-visible, .switch:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  select:focus-visible, #fee:focus-visible, .switch:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
   .switch { appearance: none; width: 40px; height: 23px; margin: 0; border-radius: 99px; background: var(--soft);
     position: relative; cursor: pointer; transition: background .2s; }
   .switch::after { content: ""; position: absolute; top: 3px; inset-inline-start: 3px; width: 17px; height: 17px; border-radius: 50%;
@@ -22,7 +23,7 @@
   .switch:checked { background: var(--accent); }
   .switch:checked::after { transform: translateX(17px); }
   [dir=rtl] .switch:checked::after { transform: translateX(-17px); }
-  select + label.field { margin-top: 14px; }
+  select + label.field, #fee + label.field { margin-top: 14px; }
   label.field { display: block; font-size: 12px; color: var(--soft); margin-bottom: 6px; }
   .site { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 10px 12px; border-radius: 14px;
     background: var(--field); border: 1px solid var(--accent); }
@@ -47,6 +48,7 @@
   .swap svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
   .swap:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
   footer { padding: 0 18px 14px; font-size: 11.5px; color: var(--soft); }
+  footer a { color: inherit; }
 </style>
 <header><h1><svg viewBox="0 0 128 128" width="24" height="24" aria-hidden="true"><rect x="4" y="4" width="120" height="120" rx="30" fill="#fff7ec"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#e0701c" stroke-width="13" stroke-linecap="round"/></svg>DirectChange</h1><p data-i18n="tagline"></p></header>
 <main>
@@ -58,8 +60,11 @@
     <div class="conv-row"><output id="result" for="amount from to" aria-live="polite"></output><select id="to"></select></div>
   </section>
   <div class="row"><span data-i18n="showConversions"></span><input type="checkbox" class="switch" id="enabled"></div>
+  <div class="row" id="here-row" hidden><span id="here-label"></span><input type="checkbox" class="switch" id="here"></div>
   <label class="field" for="target" data-i18n="referenceCurrency"></label>
   <select id="target"></select>
+  <label class="field" for="fee" data-i18n="cardFee"></label>
+  <input id="fee" type="number" min="0" max="20" step="0.1" inputmode="decimal" placeholder="0">
   <label class="field" for="lang" data-i18n="language"></label>
   <select id="lang"></select>
 </main>

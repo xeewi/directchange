@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "此網站的貨幣"
+  },
+  "showOnSite": {
+    "message": "在 $SITE$ 上顯示",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "境外刷卡手續費 (%)"
   }
 }

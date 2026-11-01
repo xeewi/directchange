@@ -54,10 +54,12 @@ const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cap = w => w[0].toUpperCase() + w.slice(1);
 const tokens = [...Object.keys(SYMBOLS), ...Object.keys(WORDS).flatMap(w => [w, cap(w)])]
   .sort((a, b) => b.length - a.length).map(esc);
-const CUR = `(?<![A-Za-z])(?:${tokens.join('|')}|[A-Z]{3})(?![A-Za-z])`;
+const CUR = `(?<![A-Za-z$])(?:${tokens.join('|')}|[A-Z]{3})(?![A-Za-z])`;
 const SP = '[\\s\\u00a0\\u202f\\u2009]';
 const NUM = `\\d{1,3}(?:[,.'\\u00a0\\u202f\\u2009 ]\\d{3})+(?:[.,]\\d{1,2})?|\\d+(?:[.,]\\d{1,2})?`;
-const RE = new RegExp(`(${CUR})${SP}?(?<![\\d.,])(${NUM})(?!\\d)|(?<![\\d.,])(${NUM})${SP}?(${CUR})`, 'g');
+const MULT = `([kKmM]|bn|${SP}(?:thousand|million|billion)s?)(?![A-Za-z²³])`; // "$5k", "€2.5M", "$1.2 million"
+const RE = new RegExp(`(${CUR})${SP}?(?<![\\d.,])(${NUM})(?!\\d)(?:${MULT})?|(?<![A-Za-z\\d.,])(${NUM})(?:${MULT})?${SP}?(${CUR})`, 'g');
+const factor = s => s ? { k: 1e3, t: 1e3, m: 1e6, b: 1e9 }[s.trim()[0].toLowerCase()] : 1;
 
 function parseNumber(s) {
   s = s.replace(/[\s   ']/g, '');
@@ -89,8 +91,8 @@ function resolve(token, local) {
 function findPrices(text, local = null, known = null) {
   const out = [];
   for (const m of text.matchAll(RE)) {
-    const currency = resolve(m[1] ?? m[4], local);
-    const amount = parseNumber(m[2] ?? m[3]);
+    const currency = resolve(m[1] ?? m[6], local);
+    const amount = parseNumber(m[2] ?? m[4]) * factor(m[3] ?? m[5]);
     if (!currency || !(amount > 0) || (known && !known.has(currency))) continue;
     out.push({ index: m.index, end: m.index + m[0].length, amount, currency });
   }

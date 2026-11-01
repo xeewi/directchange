@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "इस साइट की मुद्रा"
+  },
+  "showOnSite": {
+    "message": "$SITE$ पर दिखाएँ",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "विदेश में कार्ड शुल्क (%)"
   }
 }

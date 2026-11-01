@@ -68,8 +68,9 @@ Click the DirectChange icon to open it.
 - **Quick converter.** Type an amount (`1000`, `1 000` and `2,5` all work) and it converts from your
   reference currency into the site's, live. Use ⇅ to convert the other way. The amount and currencies
   are remembered.
-- **Settings.** Turn the badges on or off, and choose your reference currency and the interface
-  language.
+- **Settings.** Turn the badges on or off, everywhere or just on the current site, and choose your
+  reference currency and the interface language. Enter your card's foreign-transaction fee (say 2 %)
+  and every badge shows what the price really costs you, fee included.
 
 <br clear="right">
 

@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Tiền tệ của trang này"
+  },
+  "showOnSite": {
+    "message": "Hiển thị trên $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Phí thẻ ở nước ngoài (%)"
   }
 }

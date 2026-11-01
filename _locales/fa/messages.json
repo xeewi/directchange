@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "ارز این سایت"
+  },
+  "showOnSite": {
+    "message": "نمایش در $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "کارمزد کارت در خارج (%)"
   }
 }

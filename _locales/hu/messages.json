@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Az oldal pénzneme"
+  },
+  "showOnSite": {
+    "message": "Megjelenítés itt: $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Kártyadíj külföldön (%)"
   }
 }

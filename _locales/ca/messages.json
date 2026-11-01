@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Moneda d'aquest lloc"
+  },
+  "showOnSite": {
+    "message": "Mostra a $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Comissió de la targeta a l’estranger (%)"
   }
 }

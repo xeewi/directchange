@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Mata uang situs ini"
+  },
+  "showOnSite": {
+    "message": "Tampilkan di $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Biaya kartu di luar negeri (%)"
   }
 }

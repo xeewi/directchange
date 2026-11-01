@@ -38,7 +38,7 @@ DirectChange is a browser extension that shows every foreign price on a web page
 
 - Live rates from Coinbase's public API, refreshed every 10 minutes, with open.er-api.com (daily) as fallback. 150+ currencies.
 - Parses prices as people write them (`¥24,000`, `1.234,56 €`, `MX$2,490`, `USD 45`, `14 000 bahts`), including prices split across HTML tags; handles dynamic pages via `MutationObserver`.
-- Settings in `chrome.storage.sync`: badges on/off, reference currency, interface language.
+- Settings in `chrome.storage.sync`: badges on/off (global and per site), reference currency, card fee %, interface language.
 - 36 interface languages, including right-to-left (Arabic, Hebrew, Persian).
 - Manifest V3, only `storage` permission plus the two rate APIs.
 - No dependencies, no build step; `node test.js` is the only tooling.

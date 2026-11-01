@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Webbplatsens valuta"
+  },
+  "showOnSite": {
+    "message": "Visa på $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Kortavgift utomlands (%)"
   }
 }

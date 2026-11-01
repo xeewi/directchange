@@ -12,6 +12,7 @@ const CSS = `
   box-shadow:inset 0 0 0 1px #f2c287,0 1px 2px rgba(122,59,12,.12);transition:transform .15s,box-shadow .15s}
 @media (prefers-reduced-motion:reduce){.pill{transition:none}.pill:hover{transform:none}}
 .pill:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px #e9a55c,0 3px 8px rgba(122,59,12,.18)}
+.pill:focus-visible{outline:2px solid #c2540f;outline-offset:2px}
 .mark{display:block;flex:none;width:1.2em;height:1.2em}
 :host([dark]) .pill{color:#ffdcae;background:linear-gradient(#4b2b12,#3a200b);box-shadow:inset 0 0 0 1px #8c5a2a}
 .card{position:fixed;inset:auto;pointer-events:none;margin:0;padding:12px 14px;min-width:190px;border:0;border-radius:14px;
@@ -19,6 +20,7 @@ const CSS = `
   box-shadow:0 10px 30px rgba(90,45,10,.22),inset 0 3px 0 #e0701c}
 .from{font-size:12px;color:#7a5a40}
 .to{font-size:20px;font-weight:700;color:#a8430d;margin:2px 0 6px}
+.fee{margin:-4px 0 6px}.fee:empty{display:none}
 .meta{font-size:11.5px;color:#7a5a40;border-top:1px dashed #f1dcc2;padding-top:6px}
 :host([dark]) .card{color:#ffe9cf;background:#26190e;box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 3px 0 #ff9a3d}
 :host([dark]) .from,:host([dark]) .meta{color:#c9a07a}:host([dark]) .to{color:#ff9a3d}:host([dark]) .meta{border-color:#3d2a19}`;
@@ -41,21 +43,32 @@ function badge(p, near) {
   const rate = convert(1, p.currency, settings.target, rates);
   const when = new Date(ratesTime).toLocaleString(loc, { dateStyle: 'short', timeStyle: 'short' });
   root.innerHTML = `<style>${CSS}</style>
-    <span class="pill"><svg class="mark" viewBox="0 0 128 128" role="img" aria-label="≈"><rect x="4" y="4" width="120" height="120" rx="30" fill="#e0701c"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#fff7ec" stroke-width="13" stroke-linecap="round"/></svg><span></span></span>
-    <div class="card" popover="manual"><div class="from"></div><div class="to"></div><div class="meta"></div></div>`;
+    <span class="pill" tabindex="0" role="note"><svg class="mark" viewBox="0 0 128 128" aria-hidden="true"><rect x="4" y="4" width="120" height="120" rx="30" fill="#e0701c"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#fff7ec" stroke-width="13" stroke-linecap="round"/></svg><span></span></span>
+    <div class="card" popover="manual"><div class="from"></div><div class="to"></div><div class="fee"></div><div class="meta"></div></div>`;
   const pill = root.querySelector('.pill'), card = root.querySelector('.card');
-  pill.lastChild.textContent = formatMoney(value, settings.target, loc);
+  // The badge shows what the user really pays: the price plus their card's foreign-transaction fee.
+  const to = formatMoney(value * (1 + settings.fee / 100), settings.target, loc);
+  pill.lastChild.textContent = to;
+  pill.setAttribute('aria-label', `${formatMoney(p.amount, p.currency, loc)} ≈ ${to}`);
   card.querySelector('.from').textContent = `${p.amount.toLocaleString(loc)} ${p.currency}`;
-  card.querySelector('.to').textContent = '≈ ' + formatMoney(value, settings.target, loc);
+  card.querySelector('.to').textContent = '≈ ' + to;
+  if (settings.fee > 0) card.querySelector('.fee').textContent = // breakdown, e.g. "137 € +2 %"
+    `${formatMoney(value, settings.target, loc)} ${(settings.fee / 100).toLocaleString(loc, { style: 'percent', maximumFractionDigits: 2, signDisplay: 'always' })}`;
+  // er-api's terms require this exact attribution wherever its rates are shown
+  const source = ratesSource === 'open.er-api.com' ? 'Rates By Exchange Rate API' : ratesSource;
   card.querySelector('.meta').textContent =
-    `1 ${p.currency} = ${rate.toLocaleString(loc, { maximumSignificantDigits: 4 })} ${settings.target} · ${when} · ${ratesSource}`;
-  pill.onmouseenter = () => {
+    `1 ${p.currency} = ${rate.toLocaleString(loc, { maximumSignificantDigits: 4 })} ${settings.target} · ${when} · ${source}`;
+  const show = () => {
     card.showPopover();
     const r = pill.getBoundingClientRect(), h = card.offsetHeight, w = card.offsetWidth;
     card.style.top = (r.top - h - 8 < 0 ? r.bottom + 8 : r.top - h - 8) + 'px';
     card.style.left = Math.max(8, Math.min(r.left, innerWidth - w - 8)) + 'px';
   };
-  pill.onmouseleave = () => card.hidePopover();
+  const hide = () => card.hidePopover();
+  // focus covers keyboard users and taps on touch screens, where there is no hover
+  pill.onmouseenter = pill.onfocus = show;
+  pill.onmouseleave = pill.onblur = hide;
+  pill.onkeydown = e => { if (e.key === 'Escape') hide(); };
   return host;
 }
 
@@ -123,10 +136,13 @@ function reset() {
   done = new WeakSet();
 }
 
+// The tab's host, also inside iframes, so "off on this site" covers its embedded widgets.
+const HOST = location.ancestorOrigins?.length ? new URL(location.ancestorOrigins[location.ancestorOrigins.length - 1]).hostname : location.hostname;
+
 async function start() {
   reset();
-  settings = await chrome.storage.sync.get({ target: defaultCurrency(), enabled: true, lang: 'auto' });
-  if (!settings.enabled || !document.body) return;
+  settings = await chrome.storage.sync.get({ target: defaultCurrency(), enabled: true, lang: 'auto', fee: 0, off: [] });
+  if (!settings.enabled || settings.off.includes(HOST) || !document.body) return;
   const r = await chrome.runtime.sendMessage('rates');
   if (r?.error) return console.warn('DirectChange:', r.error);
   ({ rates, time: ratesTime, source: ratesSource } = r);
@@ -137,14 +153,14 @@ async function start() {
   observer.observe(document.body, { childList: true, subtree: true });
 }
 
-// The popup's converter asks which currency this site uses.
+// The popup asks which currency this site uses (for its converter) and its host (for "on this site").
 // Prices shown on the page win; the domain/lang/markup guess is the fallback. Badges live in
 // closed shadow roots, so innerText doesn't see them.
 const ISO = new Set(Intl.supportedValuesOf('currency'));
 chrome.runtime.onMessage.addListener((msg, _s, reply) => {
   if (msg !== 'local') return;
   const guess = siteCurrency();
-  reply(dominantCurrency((document.body?.innerText ?? '').slice(0, 300000), guess, ISO) ?? guess);
+  reply({ currency: dominantCurrency((document.body?.innerText ?? '').slice(0, 300000), guess, ISO) ?? guess, host: HOST });
 });
 chrome.storage.onChanged.addListener((_c, area) => { if (area === 'sync') start(); });
 start();

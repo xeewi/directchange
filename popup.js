@@ -16,8 +16,8 @@ async function translator(lang) {
   };
 }
 
-// Currency of the site in the active tab, as the content script sees it (null on chrome:// pages etc.).
-async function siteCurrency() {
+// { currency, host } of the site in the active tab, as the content script sees it (null on chrome:// pages etc.).
+async function siteInfo() {
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     return await chrome.tabs.sendMessage(tab.id, 'local', { frameId: 0 });
@@ -25,7 +25,7 @@ async function siteCurrency() {
 }
 
 (async () => {
-  const s = await chrome.storage.sync.get({ target: defaultCurrency(), enabled: true, lang: 'auto' });
+  const s = await chrome.storage.sync.get({ target: defaultCurrency(), enabled: true, lang: 'auto', fee: 0, off: [] });
   const t = await translator(s.lang);
   const loc = toLocale(s.lang);
   document.documentElement.lang = loc ?? chrome.i18n.getUILanguage();
@@ -51,7 +51,18 @@ async function siteCurrency() {
 
   // Converter: "my currency -> this site's currency" by default, e.g. a 1000 € budget on a Thai site.
   const saved = (await chrome.storage.local.get('conv')).conv ?? { amount: '1000', from: s.target };
-  const site = await siteCurrency();
+  const info = await siteInfo();
+  const site = info?.currency;
+  if (info?.host) {
+    $('here-label').textContent = t('showOnSite', info.host);
+    $('here').setAttribute('aria-label', t('showOnSite', info.host));
+    $('here').checked = !s.off.includes(info.host);
+    $('here').onchange = async e => {
+      const { off } = await chrome.storage.sync.get({ off: [] });
+      chrome.storage.sync.set({ off: e.target.checked ? off.filter(h => h !== info.host) : [...new Set([...off, info.host])] });
+    };
+    $('here-row').hidden = false;
+  }
   if (site && codes.includes(site)) { // highlight it
     const sym = new Intl.NumberFormat('en', { style: 'currency', currency: site, currencyDisplay: 'narrowSymbol' })
       .formatToParts(0).find(p => p.type === 'currency').value;
@@ -77,7 +88,17 @@ async function siteCurrency() {
   update();
   $('info').textContent = r.error ? t('ratesError', r.error)
     : t('ratesInfo', codes.length, new Date(r.time).toLocaleString(loc, { dateStyle: 'short', timeStyle: 'short' }), r.source);
+  if (r.source === 'open.er-api.com') { // attribution required by er-api's terms
+    const a = Object.assign(document.createElement('a'), { href: 'https://www.exchangerate-api.com', target: '_blank', textContent: 'Rates By Exchange Rate API' });
+    $('info').append(' · ', a);
+  }
 
+  $('fee').value = s.fee || '';
+  $('fee').onchange = e => { // card's foreign-transaction fee in %, added to every badge
+    const fee = Math.min(20, Math.max(0, parseNumber(e.target.value.trim() || '0') || 0));
+    e.target.value = fee || '';
+    chrome.storage.sync.set({ fee });
+  };
   $('target').onchange = e => chrome.storage.sync.set({ target: e.target.value });
   $('enabled').onchange = e => chrome.storage.sync.set({ enabled: e.target.checked });
   $('lang').onchange = async e => { await chrome.storage.sync.set({ lang: e.target.value }); location.reload(); };

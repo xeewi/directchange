@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "สกุลเงินของเว็บไซต์นี้"
+  },
+  "showOnSite": {
+    "message": "แสดงบน $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "ค่าธรรมเนียมบัตรในต่างประเทศ (%)"
   }
 }

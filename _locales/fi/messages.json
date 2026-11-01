@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Sivuston valuutta"
+  },
+  "showOnSite": {
+    "message": "Näytä sivustolla $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Kortin ulkomaanmaksu (%)"
   }
 }

@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Валута на този сайт"
+  },
+  "showOnSite": {
+    "message": "Показване на $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Такса на картата в чужбина (%)"
   }
 }

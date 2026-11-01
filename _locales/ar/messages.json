@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "عملة هذا الموقع"
+  },
+  "showOnSite": {
+    "message": "العرض على $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "رسوم البطاقة في الخارج (%)"
   }
 }

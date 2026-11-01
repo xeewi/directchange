@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Dette websteds valuta"
+  },
+  "showOnSite": {
+    "message": "Vis på $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Kortgebyr i udlandet (%)"
   }
 }

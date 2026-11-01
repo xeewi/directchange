@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Νόμισμα αυτού του ιστότοπου"
+  },
+  "showOnSite": {
+    "message": "Εμφάνιση στο $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Χρέωση κάρτας στο εξωτερικό (%)"
   }
 }

@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Bu sitenin para birimi"
+  },
+  "showOnSite": {
+    "message": "$SITE$ üzerinde göster",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Yurt dışı kart ücreti (%)"
   }
 }

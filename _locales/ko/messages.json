@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "이 사이트의 통화"
+  },
+  "showOnSite": {
+    "message": "$SITE$에서 표시",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "해외 카드 수수료 (%)"
   }
 }

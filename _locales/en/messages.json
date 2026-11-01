@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "This site's currency"
+  },
+  "showOnSite": {
+    "message": "Show on $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Card fee abroad (%)"
   }
 }

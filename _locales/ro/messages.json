@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Moneda acestui site"
+  },
+  "showOnSite": {
+    "message": "Afișează pe $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Comision card în străinătate (%)"
   }
 }

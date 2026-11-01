@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Währung dieser Website"
+  },
+  "showOnSite": {
+    "message": "Auf $SITE$ anzeigen",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Kartengebühr im Ausland (%)"
   }
 }

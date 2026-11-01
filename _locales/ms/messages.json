@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Mata wang laman ini"
+  },
+  "showOnSite": {
+    "message": "Papar di $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Caj kad di luar negara (%)"
   }
 }

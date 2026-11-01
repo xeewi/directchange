@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "এই সাইটের মুদ্রা"
+  },
+  "showOnSite": {
+    "message": "$SITE$-এ দেখান",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "বিদেশে কার্ড ফি (%)"
   }
 }

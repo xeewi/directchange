@@ -18,6 +18,17 @@ assert.deepStrictEqual(one('199 kr', 'x.no'), [199, 'NOK']);
 assert.strictEqual(findPrices('Chambre 12, 3 nuits, 2024').length, 0);
 assert.strictEqual(findPrices('from ฿1,200 to ฿3,500').length, 2);
 assert.strictEqual(findPrices('ABC123 hello', '', new Set(['USD', 'EUR'])).length, 0);
+// k / M / million suffixes multiply; a number glued to letters is a model number, not a price
+assert.deepStrictEqual(one('$5k'), [5000, 'USD']);
+assert.deepStrictEqual(one('€2.5M'), [2500000, 'EUR']);
+assert.deepStrictEqual(one('£3m budget'), [3000000, 'GBP']);
+assert.deepStrictEqual(one('$1.2 million'), [1200000, 'USD']);
+assert.deepStrictEqual(one('12k EUR'), [12000, 'EUR']);
+assert.deepStrictEqual(one('5 thousand dollars'), [5000, 'USD']);
+assert.deepStrictEqual(one('$19.99/mo'), [19.99, 'USD']);
+assert.deepStrictEqual(one('$5kg'), [5, 'USD']);
+assert.strictEqual(findPrices('Model X200 USD').length, 0);
+assert.strictEqual(findPrices('=$A$1+B2').length, 0);
 assert.strictEqual(parseNumber('1.234.567'), 1234567);
 assert.strictEqual(parseNumber('3,5'), 3.5);
 assert.strictEqual(convert(100, 'THB', 'EUR', { USD: 1, THB: 36, EUR: 0.9 }), 2.5);

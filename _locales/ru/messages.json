@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Валюта этого сайта"
+  },
+  "showOnSite": {
+    "message": "Показывать на $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Комиссия карты за границей (%)"
   }
 }

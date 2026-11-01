@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Měna tohoto webu"
+  },
+  "showOnSite": {
+    "message": "Zobrazit na $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Poplatek karty v zahraničí (%)"
   }
 }

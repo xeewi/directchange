@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Monnaie de ce site"
+  },
+  "showOnSite": {
+    "message": "Afficher sur $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Frais de ta carte à l’étranger (%)"
   }
 }

@@ -56,5 +56,16 @@
   },
   "siteCurrency": {
     "message": "Valuta van deze site"
+  },
+  "showOnSite": {
+    "message": "Tonen op $SITE$",
+    "placeholders": {
+      "site": {
+        "content": "$1"
+      }
+    }
+  },
+  "cardFee": {
+    "message": "Kaartkosten in het buitenland (%)"
   }
 }
