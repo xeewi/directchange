@@ -117,8 +117,13 @@ conversion and translation-file consistency.
 To package for the stores:
 
 ```sh
-zip -r directchange.zip manifest.json background.js content.js parse.js popup.html popup.js icons _locales -x icons/icon.svg
+zip -r directchange.zip manifest.json background.js content.js parse.js popup.html popup.js icons _locales -x 'icons/*.svg'
 ```
+
+To release, bump `version` in `manifest.json`, commit, then push a matching tag
+(`git tag v1.0.1 && git push --tags`). The `Release` workflow runs the tests, uploads the zip to the
+Chrome Web Store, submits it for review and attaches it to a GitHub Release. It needs the
+`CWS_PUBLISHER_ID`, `CWS_CLIENT_ID`, `CWS_CLIENT_SECRET` and `CWS_REFRESH_TOKEN` repository secrets.
 
 ## Translations
 
