@@ -30,7 +30,7 @@ DirectChange is a browser extension that shows every foreign price on a web page
 
 ## Operating Context
 
-- Used in Chromium browsers (Chrome, Edge, Brave, Arc) while browsing booking sites, shops and other pages with prices.
+- Used in Chromium browsers (Chrome, Edge, Brave, Arc) and Firefox (desktop and Android) while browsing booking sites, shops and other pages with prices.
 - Three surfaces: the inline badge (`<dc-price>`, `content.js`), the toolbar popup (`popup.html`/`popup.js`: site-currency banner, quick converter, settings), and the website at `docs/` (landing page and privacy policy, served at https://directchange.xeewi.cool/).
 - Store assets live in `store/` (screenshots, promo tiles, promo video, in English and French).
 
@@ -43,7 +43,7 @@ DirectChange is a browser extension that shows every foreign price on a web page
 - Manifest V3, only `storage` permission plus the two rate APIs.
 - No dependencies, no build step; `node test.js` is the only tooling.
 - **Free forever.** No paid tier, upsell or premium plan; never design one.
-- **Distribution:** Chrome Web Store listing is pending; store CTAs say "coming soon" until it's live. Install from source works today. Firefox and Safari are planned, so copy should not frame the product as permanently Chromium-only.
+- **Distribution:** live on the [Chrome Web Store](https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm) (also used by Edge, Brave, Arc) and [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/directchange/). The site's install buttons send Firefox visitors to Firefox Add-ons and everyone else to the Chrome Web Store. Safari is not supported yet, so copy should not promise it.
 
 ## Brand Commitments
 

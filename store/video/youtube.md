@@ -5,7 +5,7 @@
 
 ## Title (≤ 100 chars)
 
-DirectChange: see every foreign price in your currency (free Chrome extension)
+DirectChange: see every foreign price in your currency (free Chrome & Firefox extension)
 
 ## Description
 
@@ -20,15 +20,17 @@ Shopping abroad, booking a trip or browsing a foreign store? DirectChange shows 
 ✦ Available in 36 languages
 ✦ Free, open source, no account, no tracking
 
+🧩 Chrome Web Store: https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm
+🦊 Firefox Add-ons: https://addons.mozilla.org/firefox/addon/directchange/
 🌐 Website: https://directchange.xeewi.cool/
 💻 Source code: https://github.com/xeewi/directchange
 🔒 Privacy policy: https://directchange.xeewi.cool/privacy.html
 
-#chromeextension #currencyconverter #travel
+#chromeextension #firefoxaddon #currencyconverter #travel
 
 ## Tags
 
-DirectChange, currency converter, chrome extension, currency conversion, price converter, exchange rate, travel, online shopping, browser extension, convert prices, foreign currency, free extension
+DirectChange, currency converter, chrome extension, firefox add-on, currency conversion, price converter, exchange rate, travel, online shopping, browser extension, convert prices, foreign currency, free extension
 
 ## Settings
 

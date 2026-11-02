@@ -189,14 +189,14 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
       <h1 data-i18n="heroTitle">Every foreign price on the web, in your own currency, right next to it.</h1>
       <p class="lede" data-i18n="heroLede">DirectChange adds the live equivalent of every foreign price right after it, on any website. No more mental math, no more tab-switching to a converter.</p>
       <div class="row">
-        <a class="btn cream" href="https://github.com/xeewi/directchange#install" data-i18n="install">Install it free</a>
+        <a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Install it free</a>
         <a class="btn line" href="https://github.com/xeewi/directchange" data-i18n="viewSource">View the source</a>
         <label><span data-i18n="showPricesIn">Show prices in</span> <select id="target"></select></label>
       </div>
     </div>
     <div class="meta">
       <span data-i18n="metaFree">Free, open source, no account, no tracking.</span>
-      <span data-i18n="metaBrowsers">Works in Chrome, Edge, Brave, Arc and other Chromium browsers. Chrome Web Store listing coming soon.</span>
+      <span><span data-i18n="metaBrowsers">Works in Chrome, Firefox, Edge, Brave, Arc and other Chromium browsers.</span> <a href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm">Chrome Web Store</a> · <a href="https://addons.mozilla.org/firefox/addon/directchange/">Firefox Add-ons</a></span>
       <button type="button" id="pause" aria-pressed="false">Pause animations</button>
     </div>
   </div>
@@ -287,7 +287,7 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   <div class="wrap">
     <h2 data-i18n="closeTitle">Your browsing stays yours</h2>
     <p><span data-i18n="closeText">DirectChange collects nothing. The only requests it makes fetch exchange rates, and they say nothing about you or the pages you visit. The code is open source, so you can check.</span> <a href="privacy.html" data-i18n="privacyLink">Read the privacy policy</a></p>
-    <div class="row"><a class="btn cream" href="https://github.com/xeewi/directchange#install" data-i18n="install">Install it free</a></div>
+    <div class="row"><a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Install it free</a></div>
     <footer>
       <nav aria-label="Footer"><a href="https://github.com/xeewi/directchange">GitHub</a><a href="privacy.html" data-i18n="footerPrivacy">Privacy</a><a href="https://github.com/xeewi/directchange/blob/main/LICENSE" data-i18n="footerLicense">MIT License</a></nav>
       <p data-i18n="madeBy">Made with care by Guillaume Gautier.</p>
@@ -296,6 +296,9 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
 </div>
 
 <script>
+// Install buttons point to the visitor's store: Firefox Add-ons on Firefox, the Chrome Web Store everywhere else.
+if (/Firefox\//.test(navigator.userAgent)) document.querySelectorAll('[data-store]').forEach(a => a.href = 'https://addons.mozilla.org/firefox/addon/directchange/');
+
 // Example prices around the world, converted into the visitor's currency with today's rates.
 const EXAMPLES = [[24000, 'JPY'], [129, 'USD'], [4999, 'INR'], [89, 'GBP'], [2490, 'MXN'], [59000, 'KRW'], [5999, 'ZAR'],
   [699, 'CNY'], [14000, 'THB'], [1250000, 'VND'], [450000, 'IDR'], [2690, 'PHP'], [349, 'MYR'], [129, 'SGD'], [880, 'HKD'], [1990, 'TWD'], [199, 'AUD'],
