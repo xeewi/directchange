@@ -56,6 +56,12 @@ and when it was fetched.
 3. Click **Load unpacked** and pick the repository folder.
 4. Click the DirectChange icon to choose your currency and language.
 
+**From source in Firefox** (140 or later):
+
+1. Run `sh build.sh`.
+2. Open `about:debugging#/runtime/this-firefox` and click **Load Temporary Add-on…**.
+3. Pick `dist/firefox/manifest.json`.
+
 ## The popup
 
 <img src="docs/assets/popup.png" alt="The popup on a Japanese site: a banner shows the site's currency, Japanese Yen, and the converter turns 1000 EUR into ¥175,700" width="290" align="right">
@@ -115,16 +121,21 @@ node test.js
 The tests cover price parsing, site-currency detection (from the domain and from the prices shown),
 conversion and translation-file consistency.
 
-To package for the stores:
+To package for the stores, run `sh build.sh`. It writes to `dist/`:
 
-```sh
-zip -r directchange.zip manifest.json background.js content.js parse.js popup.html popup.js icons _locales -x 'icons/*.svg'
-```
+- `directchange-chrome.zip` for the Chrome Web Store, Microsoft Edge Add-ons and Opera add-ons.
+- `directchange-firefox.zip` for Firefox Add-ons (desktop and Android). The code is the same; only
+  the manifest changes: Firefox runs `background.js` as an event page instead of a service worker,
+  and needs an add-on id.
 
 To release, bump `version` in `manifest.json`, commit, then push a matching tag
-(`git tag v1.0.1 && git push --tags`). The `Release` workflow runs the tests, uploads the zip to the
-Chrome Web Store, submits it for review and attaches it to a GitHub Release. It needs the
-`CWS_PUBLISHER_ID`, `CWS_CLIENT_ID`, `CWS_CLIENT_SECRET` and `CWS_REFRESH_TOKEN` repository secrets.
+(`git tag v1.0.1 && git push --tags`). The `Release` workflow runs the tests, builds both packages,
+uploads the Chrome one to the Chrome Web Store, submits it for review and attaches both to a GitHub
+Release. It needs the `CWS_PUBLISHER_ID`, `CWS_CLIENT_ID`, `CWS_CLIENT_SECRET` and `CWS_REFRESH_TOKEN`
+repository secrets. If `AMO_API_KEY` and `AMO_API_SECRET` are set
+([AMO API keys](https://addons.mozilla.org/developers/addon/api/key/)), it also submits the Firefox
+package to Firefox Add-ons. The first Firefox version has to be uploaded by hand. Edge and Opera
+updates are uploaded by hand from the GitHub Release.
 
 ## Translations
 

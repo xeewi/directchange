@@ -1,4 +1,4 @@
-# Push a tag matching manifest.json's version (e.g. v1.0.1) to publish to the Chrome Web Store.
+# Push a tag matching manifest.json's version (e.g. v1.0.1) to publish to the Chrome Web Store and Firefox Add-ons.
 name: Release
 
 on:
@@ -11,6 +11,8 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      AMO_API_KEY: ${{ secrets.AMO_API_KEY }} # job-level so the Firefox step can be skipped when unset
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,11 +26,14 @@ jobs:
           v=$(node -p "require('./manifest.json').version")
           [ "v$v" = "$GITHUB_REF_NAME" ] || { echo "Tag $GITHUB_REF_NAME != manifest v$v"; exit 1; }
 
-      - name: Zip
-        run: zip -r directchange.zip manifest.json background.js content.js parse.js popup.html popup.js icons _locales -x 'icons/*.svg'
+      - name: Build
+        run: sh build.sh
 
-      - name: Upload and submit for review
-        run: npx -y chrome-webstore-upload-cli@4 --source directchange.zip
+      - name: Lint Firefox build
+        run: npx -y web-ext@8 lint --source-dir dist/firefox --warnings-as-errors
+
+      - name: Upload to Chrome Web Store and submit for review
+        run: npx -y chrome-webstore-upload-cli@4 --source dist/directchange-chrome.zip
         env:
           EXTENSION_ID: jempfanheojijeljdinblbpdhfelojkm
           PUBLISHER_ID: ${{ secrets.CWS_PUBLISHER_ID }}
@@ -37,6 +42,15 @@ jobs:
           REFRESH_TOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
 
       - name: GitHub Release
-        run: gh release create "$GITHUB_REF_NAME" directchange.zip --generate-notes
+        run: gh release create "$GITHUB_REF_NAME" dist/directchange-chrome.zip dist/directchange-firefox.zip --generate-notes
         env:
           GH_TOKEN: ${{ github.token }}
+
+      # The add-on must exist on AMO first (upload directchange-firefox.zip by hand once).
+      # approval-timeout 0: submit and return, don't wait days for the review.
+      - name: Submit to Firefox Add-ons
+        if: env.AMO_API_KEY != ''
+        run: npx -y web-ext@8 sign --source-dir dist/firefox --artifacts-dir dist/amo --channel listed --approval-timeout 0
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.AMO_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.AMO_API_SECRET }}

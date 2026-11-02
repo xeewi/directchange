@@ -42,9 +42,12 @@ function badge(p, near) {
   const value = convert(p.amount, p.currency, settings.target, rates);
   const rate = convert(1, p.currency, settings.target, rates);
   const when = new Date(ratesTime).toLocaleString(loc, { dateStyle: 'short', timeStyle: 'short' });
-  root.innerHTML = `<style>${CSS}</style>
-    <span class="pill" tabindex="0" role="note"><svg class="mark" viewBox="0 0 128 128" aria-hidden="true"><rect x="4" y="4" width="120" height="120" rx="30" fill="#e0701c"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#fff7ec" stroke-width="13" stroke-linecap="round"/></svg><span></span></span>
+  // static markup only: Firefox's add-on review flags innerHTML built from variables
+  root.innerHTML = `<span class="pill" tabindex="0" role="note"><svg class="mark" viewBox="0 0 128 128" aria-hidden="true"><rect x="4" y="4" width="120" height="120" rx="30" fill="#e0701c"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#fff7ec" stroke-width="13" stroke-linecap="round"/></svg><span></span></span>
     <div class="card" popover="manual"><div class="from"></div><div class="to"></div><div class="fee"></div><div class="meta"></div></div>`;
+  const style = document.createElement('style');
+  style.textContent = CSS;
+  root.prepend(style);
   const pill = root.querySelector('.pill'), card = root.querySelector('.card');
   // The badge shows what the user really pays: the price plus their card's foreign-transaction fee.
   const to = formatMoney(value * (1 + settings.fee / 100), settings.target, loc);
