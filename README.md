@@ -10,6 +10,11 @@
 </p>
 
 <p align="center">
+  <a href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm"><b>Chrome Web Store</b></a> ·
+  <a href="https://addons.mozilla.org/firefox/addon/directchange/"><b>Firefox Add-ons</b></a>
+</p>
+
+<p align="center">
   <a href="https://directchange.xeewi.cool/">Website</a> ·
   <a href="#install">Install</a> ·
   <a href="#the-popup">The popup</a> ·
@@ -47,7 +52,9 @@ and when it was fetched.
 
 ## Install
 
-**From the Chrome Web Store:** coming soon.
+- **Chrome, Edge, Brave, Arc and other Chromium browsers:**
+  [Chrome Web Store](https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm)
+- **Firefox** (desktop and Android): [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/directchange/)
 
 **From source** (Chrome, Edge, Brave, Arc or any Chromium browser):
 
