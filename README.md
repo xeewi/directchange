@@ -167,4 +167,4 @@ contain no information about you or the pages you visit. Your settings are store
 
 ## License
 
-[MIT](LICENSE) © 2026 Guillaume Gautier
+[MIT](LICENSE) © 2026 [Guillaume Gautier](https://xeewi.cool/) · [LinkedIn](https://www.linkedin.com/in/gautierg) · [Malt](https://www.malt.fr/profile/xeewi) · [GitHub](https://github.com/xeewi)

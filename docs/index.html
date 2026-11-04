@@ -3,13 +3,177 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DirectChange: every price, in your currency</title>
-<meta name="description" content="A free browser extension that shows the live equivalent of every foreign price, right next to it, in your own currency.">
-<meta property="og:title" content="DirectChange: every price, in your currency">
-<meta property="og:description" content="¥24,000 ≈ €137. Live currency conversion, right where you read prices.">
+<title>DirectChange: currency converter extension for Chrome and Firefox</title>
+<meta name="description" content="DirectChange is a free browser extension that converts every foreign price on the web into your currency, at today's live rate. Try its converter right here.">
+<meta property="og:title" content="DirectChange: currency converter extension for Chrome and Firefox">
+<meta property="og:description" content="¥24,000 ≈ €137. A free browser extension that converts every foreign price on the web into your currency, right next to it.">
 <meta property="og:image" content="https://directchange.xeewi.cool/assets/demo.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://directchange.xeewi.cool/">
+<meta property="og:site_name" content="DirectChange">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#e0701c">
 <link rel="icon" href="assets/icon-128.png">
+<!-- what the page is about, for search engines and AI assistants; the FAQ matches the visible English one -->
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://directchange.xeewi.cool/#app",
+  "name": "DirectChange",
+  "description": "Free, open-source browser extension that shows every foreign price on a web page in your own currency, at today's live rate, and adds a quick currency converter to the browser toolbar.",
+  "applicationCategory": "BrowserApplication",
+  "applicationSubCategory": "Currency converter",
+  "operatingSystem": "Chrome, Edge, Brave, Arc and other Chromium browsers; Firefox (desktop and Android)",
+  "softwareVersion": "1.1.0",
+  "url": "https://directchange.xeewi.cool/",
+  "image": "https://directchange.xeewi.cool/assets/icon-128.png",
+  "screenshot": "https://directchange.xeewi.cool/assets/demo.png",
+  "downloadUrl": [
+   "https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm",
+   "https://addons.mozilla.org/firefox/addon/directchange/"
+  ],
+  "installUrl": [
+   "https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm",
+   "https://addons.mozilla.org/firefox/addon/directchange/"
+  ],
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "USD"
+  },
+  "isAccessibleForFree": true,
+  "license": "https://opensource.org/licenses/MIT",
+  "codeRepository": "https://github.com/xeewi/directchange",
+  "sameAs": [
+   "https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm",
+   "https://addons.mozilla.org/firefox/addon/directchange/",
+   "https://github.com/xeewi/directchange"
+  ],
+  "author": {
+   "@type": "Person",
+   "name": "Guillaume Gautier",
+   "url": "https://xeewi.cool/",
+   "sameAs": [
+    "https://www.linkedin.com/in/gautierg",
+    "https://www.malt.fr/profile/xeewi",
+    "https://github.com/xeewi"
+   ],
+   "jobTitle": "Senior Full-Stack Engineer & AI Workflow Advisor"
+  },
+  "inLanguage": [
+   "ar",
+   "bg",
+   "bn",
+   "ca",
+   "cs",
+   "da",
+   "de",
+   "el",
+   "en",
+   "es",
+   "fa",
+   "fi",
+   "fr",
+   "he",
+   "hi",
+   "hu",
+   "id",
+   "it",
+   "ja",
+   "ko",
+   "ms",
+   "nl",
+   "no",
+   "pl",
+   "pt-BR",
+   "pt-PT",
+   "ro",
+   "ru",
+   "sk",
+   "sv",
+   "th",
+   "tr",
+   "uk",
+   "vi",
+   "zh-CN",
+   "zh-TW"
+  ],
+  "featureList": [
+   "Converts every foreign price on a web page and shows the result in a small tag next to it",
+   "Live exchange rates from Coinbase, refreshed every 10 minutes, open.er-api.com as fallback; 150+ currencies",
+   "Detects the site's currency from its product data, country domain and page language",
+   "Quick converter in the toolbar popup, pre-filled with the site's currency",
+   "Optional card foreign-transaction fee added to every conversion",
+   "36 interface languages, including right-to-left",
+   "No account, no tracking, no analytics"
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "What is DirectChange?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "DirectChange is a free, open-source browser extension that converts prices into your own currency as you browse. It puts a small tag with the converted amount right after every foreign price on a web page, at today's live rate, and adds a quick converter to your browser toolbar."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is DirectChange free?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. DirectChange is free, with no paid plan, no ads and no account. It's open source under the MIT License, so anyone can read the code on GitHub."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Which browsers does it work in?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Chrome, Edge, Brave, Arc and other Chromium browsers, through the Chrome Web Store, and Firefox on desktop and Android, through Firefox Add-ons. Safari isn't supported yet."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Where do the exchange rates come from?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "From Coinbase's public exchange-rate API, refreshed every 10 minutes, with open.er-api.com as a daily fallback. It covers more than 150 currencies. Hover a tag to see the exact rate, when it was fetched and its source."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How does it know which currency a site uses?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "A “$” isn't always US dollars. DirectChange reads the currency the shop declares in its product data, then the country domain (.ca, .com.au, .jp…), then the page language. Explicit symbols like € or C$ and codes like USD are never reinterpreted."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Can it include my card's foreign transaction fee?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. Enter your card's fee abroad in the popup, for example 2%, and every tag shows what the price really costs you, fee included. The card that opens on hover shows the breakdown."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Does DirectChange collect my data?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. The extension reads prices on your device and never sends page content, URLs or browsing history anywhere. Its only network requests fetch exchange rates, and they say nothing about you."
+    }
+   }
+  ]
+ }
+]
+</script>
 <script>
 // = folders in ../_locales and files in i18n/
 const LANGS = ['ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi', 'fr', 'he', 'hi', 'hu', 'id', 'it',
@@ -53,7 +217,8 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
   .drench :focus-visible { outline-color: var(--on-orange); }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
-  h1, h2, h3 { font-family: var(--round); line-height: 1.15; margin: 0; letter-spacing: -.02em; }
+  h1, h2, h3 { font-family: var(--round); line-height: 1.15; margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+  p { text-wrap: pretty; }
   .i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
   /* orange bands: the brand's color as the ground, dark ink on top */
@@ -65,22 +230,41 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   nav .links { display: flex; gap: 26px; font-size: 15px; font-weight: 600; }
   nav .links a { text-decoration: none; } nav .links a:hover { text-decoration: underline; }
 
-  .stage { display: flex; flex-direction: column; justify-content: center; padding: 24px 0 40px; }
-  .big { display: flex; flex-wrap: wrap; align-items: center; gap: .16em .28em; margin: 0; font: 800 clamp(52px, 8.6vw, 124px)/1 var(--round); letter-spacing: -.045em; }
-  .big .pill { font-size: 1em; padding: .1em .3em .1em .1em; gap: .14em; border-radius: .3em; background: var(--cream); color: var(--on-orange); box-shadow: 0 10px 30px rgba(90, 40, 5, .25); }
-  .big .mark { width: .74em; height: .74em; }
-  .big [data-swap] { transition: opacity .3s, transform .3s cubic-bezier(.2, .7, .2, 1); }
-  .big.out [data-swap] { opacity: 0; transform: translateY(.08em); }
-  .hero h1 { margin-top: 30px; max-width: 18em; font-size: clamp(26px, 2.8vw, 40px); font-weight: 700; letter-spacing: -.015em; }
-  .hero .lede { max-width: 36em; margin: 12px 0 0; font-size: 18px; }
+  /* converter first, the extension pitch under it; side by side on wide screens */
+  .stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px); grid-template-areas: "intro tool" "pitch tool";
+    gap: 0 64px; align-content: center; padding: 24px 0 40px; }
+  .intro { grid-area: intro; align-self: end; } .tool { grid-area: tool; align-self: center; } .pitch { grid-area: pitch; }
+  .hero h1 { max-width: 11em; font: 800 clamp(40px, 5.4vw, 76px)/1.02 var(--round); letter-spacing: -.035em; }
+  .hero .lede { max-width: 30em; margin: 16px 0 0; font-size: 18px; }
+  .pitch { margin-top: 36px; padding-top: 24px; border-top: 1.5px solid rgba(59, 34, 13, .25); }
+  .pitch p { max-width: 30em; margin: 0; }
+  .pitch .pitch-title { font: 700 22px/1.2 var(--round); margin-bottom: 4px; }
+  .pitch .row { margin-top: 20px; }
+
+  /* the popup's converter card, scaled up; a cream object on the orange, so its colors don't follow dark mode */
+  .tool { --edge: #a8784c; padding: 22px 22px 18px; border-radius: 22px; color: var(--on-orange); background: var(--cream); box-shadow: 0 10px 30px rgba(90, 40, 5, .25); }
+  .tool-title { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; font: 600 14px/1.2 system-ui, sans-serif; letter-spacing: 0; color: #7a5a40; }
+  .tool-title .mark { width: 22px; height: 22px; }
+  .tool-row { display: flex; gap: 10px; align-items: center; }
+  .tool-row select { flex: none; width: 124px; height: 58px; background: #fff; border: 1px solid var(--edge); }
+  #amount, .result { flex: 1; min-width: 0; height: 58px; padding: 0 14px; border-radius: 14px; font: 700 clamp(24px, 2.6vw, 32px)/1 var(--round); letter-spacing: -.02em; }
+  #amount { color: var(--on-orange); background: #fff; border: 1px solid var(--edge); }
+  .result { display: flex; align-items: center; gap: 10px; padding-inline-start: 8px; color: #7a3b0c; overflow: hidden; white-space: nowrap;
+    background: linear-gradient(#fff7ec, #ffe8c9); box-shadow: inset 0 0 0 1px #f2c287; }
+  .result .mark { width: 40px; height: 40px; }
+  .result span { overflow: hidden; text-overflow: ellipsis; user-select: all; }
+  .swap { display: block; width: 40px; height: 40px; margin: 8px auto; padding: 0; border-radius: 50%; cursor: pointer;
+    color: #a8430d; background: #fff; border: 1px solid #a8784c; }
+  .swap .i { display: block; margin: auto; }
+  @media (prefers-reduced-motion: no-preference) { .swap { transition: transform .25s; } .swap:hover { transform: rotate(180deg); } }
+  .tool :focus-visible { outline-color: #c2540f; }
+  .tool-note { margin: 14px 0 0; font-size: 13px; color: #7a5a40; }
   .row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 28px; }
   .btn { display: inline-flex; align-items: center; gap: 8px; height: 54px; padding: 0 28px; border-radius: 999px; font: 700 17px/1 var(--round);
     text-decoration: none; transition: transform .15s; }
   .btn:hover { transform: translateY(-2px); }
   .btn.cream { color: var(--on-orange); background: var(--cream); box-shadow: 0 6px 18px rgba(90, 40, 5, .25); }
   .btn.line { color: var(--on-orange); border: 2px solid var(--on-orange); }
-  .row label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-weight: 600; white-space: nowrap; }
-  .row select { max-width: 100%; }
   select { font: 600 16px/1.2 system-ui, sans-serif; color: var(--on-orange); background: var(--cream); border: 0; border-radius: 10px; padding: 10px 12px; }
   .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding: 18px 0 22px; font-size: 14px; font-weight: 500;
     border-top: 1.5px solid rgba(59, 34, 13, .25); }
@@ -94,7 +278,90 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   section { padding: 96px 0 0; }
   h2 { font-size: clamp(30px, 4vw, 46px); max-width: 16em; }
   .lead { max-width: 38em; margin: 14px 0 0; color: var(--soft); font-size: 18px; }
-  .shot { display: block; width: 100%; height: auto; margin-top: 40px; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+
+  /* A browser window holding a made-up third-party page (store/wishlist.html, used for the store screenshots).
+     It's someone else's site, so it stays light in dark mode, and so do the badges on it. */
+  .browser { margin-top: 40px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #ecedf0; border-bottom: 1px solid #dcdee2; }
+  .bar i { width: 11px; height: 11px; border-radius: 50%; background: #c9ccd1; }
+  .bar .url { flex: 1; max-width: 420px; margin: 0 auto; padding: 4px 12px; border-radius: 8px; font: 13px/1.4 system-ui, sans-serif; color: #55585e; background: #fff; text-align: center; }
+  .bar .mark { width: 20px; height: 20px; }
+  .web { --pill-bg: linear-gradient(#fff7ec, #ffe8c9); --pill-ink: #7a3b0c; --pill-ring: #f2c287; color: #1d1d1f; background: #f4f5f7; font: 16px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .web header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 18px 28px; background: #fff; border-bottom: 1px solid #e3e5e8; }
+  .web header b { font-size: 20px; color: #0d6b57; } .web header span { font-size: 14px; color: #6b6f76; }
+  .web .page { padding: 26px 28px 32px; }
+  .web .w-title { margin: 0 0 18px; font: 700 24px/1.2 system-ui, sans-serif; letter-spacing: -.01em; }
+  .wish { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .w-card { background: #fff; border-radius: 14px; box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
+  .w-card .img { height: 130px; border-radius: 14px 14px 0 0; background: var(--g); }
+  .w-card .b { position: relative; padding: 14px 16px 16px; } /* holds the rate card, so it never sticks out of the listing */
+  .w-card .w-name { margin: 0; font-size: 16px; font-weight: 600; }
+  .w-card .sub { margin-top: 4px; font-size: 14px; color: #6b6f76; }
+  .w-card .price { margin-top: 12px; font-size: 18px; font-weight: 700; }
+  .w-card .price small { font-size: 14px; font-weight: 400; color: #6b6f76; }
+  .hint { margin: 14px 0 0; color: var(--soft); font-size: 14px; }
+
+  /* the badge and its rate card, as content.js draws them; the card shows on hover, focus or tap */
+  .badge { display: inline-block; margin: 0 .3em; font-size: .82em; vertical-align: baseline; }
+  .badge .pill { font-size: 1em; cursor: default; transition: transform .15s, box-shadow .15s; }
+  .badge .pill:hover, .badge .pill:focus-visible { transform: translateY(-1px); box-shadow: inset 0 0 0 1px #e9a55c, 0 3px 8px rgba(122, 59, 12, .18); }
+  .badge .pill:focus-visible { outline: 2px solid #c2540f; outline-offset: 2px; }
+  .rate-card { position: absolute; z-index: 2; bottom: calc(100% - 40px); inset-inline-start: 12px; display: none; width: max-content; max-width: calc(100% - 24px);
+    padding: 12px 14px; border-radius: 14px; font: 400 13px/1.4 system-ui, -apple-system, sans-serif; color: #3b220d; background: #fffaf3;
+    box-shadow: 0 10px 30px rgba(90, 45, 10, .22), inset 0 3px 0 #e0701c; cursor: default; }
+  /* invisible bridge down to the tag, so the pointer can move onto the card without it closing */
+  .rate-card::after { content: ""; position: absolute; top: 100%; inset-inline: 0; height: 56px; }
+  .open .rate-card::after { display: none; }
+  .badge:hover .rate-card, .badge:focus-within .rate-card, .badge.open .rate-card { display: block; }
+  .rate-card span { display: block; }
+  .rate-card .from { font-size: 12px; color: #7a5a40; }
+  .rate-card .to { margin: 2px 0 6px; font-size: 20px; font-weight: 700; color: #a8430d; }
+  .rate-card .fee { margin: -4px 0 6px; }
+  .rate-card .rc-meta { padding-top: 6px; font-size: 11.5px; color: #7a5a40; border-top: 1px dashed #f1dcc2; }
+  .no-badges .badge { display: none; }
+  .badge.shut .rate-card { display: none; } /* Escape pressed, until the pointer or focus leaves */
+
+  /* one listing, zoomed in, with its rate card open */
+  .zoom { margin-top: 40px; padding: 40px 6%; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .zoom .w-card { max-width: 400px; zoom: 1.6; }
+
+  /* the toolbar popup (popup.html), working, opened on the wishlist above; follows dark mode like the real one */
+  .popup { --p-ink: #3b220d; --p-soft: #7a5a40; --p-accent: #e0701c; --p-accent-text: #a8430d; --p-bg: #fffaf3; --p-line: #f1dcc2; --p-edge: #a8784c; --p-field: #fff;
+    width: 100%; max-width: 330px; justify-self: center; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow);
+    font: 15px/1.4 system-ui, -apple-system, sans-serif; color: var(--p-ink); background: var(--p-bg); }
+  @media (prefers-color-scheme: dark) {
+    .popup { --p-ink: #ffe9cf; --p-soft: #c9a07a; --p-accent: #ff9a3d; --p-accent-text: #ff9a3d; --p-bg: #1c130b; --p-line: #3d2a19; --p-edge: #8a6446; --p-field: #26190e; }
+  }
+  .pp-head { padding: 16px 18px 14px; color: #3b220d; background: #e0701c; }
+  .pp-head p { margin: 2px 0 0; font-size: 13px; }
+  .pp-head .pp-name { display: flex; align-items: center; gap: 8px; margin: 0; font: 700 18px/1.2 var(--round); }
+  .pp-main { padding: 14px 18px 4px; }
+  .popup select, .popup input:not(.switch) { width: 100%; padding: 8px 10px; border: 1px solid var(--p-edge); border-radius: 10px; font: 400 15px/1.3 system-ui, sans-serif; color: var(--p-ink); background: var(--p-field); }
+  .popup :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .popup ::placeholder { color: var(--p-soft); opacity: 1; }
+  .pp-site { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 10px 12px; border-radius: 14px; background: var(--p-field); border: 1px solid var(--p-accent); }
+  .pp-site .sym { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; font: 700 16px/1 var(--round); color: #3b220d;
+    background: radial-gradient(circle at 35% 30%, #ffc36b, #e0701c); }
+  .pp-site small { display: block; font-size: 12px; color: var(--p-soft); } .pp-site b { display: block; font-size: 16px; }
+  .pp-site .code { margin-inline-start: auto; font-weight: 700; color: var(--p-accent-text); }
+  .pp-conv { margin-bottom: 16px; padding: 12px; border-radius: 14px; background: var(--p-field); border: 1px solid var(--p-line); }
+  .pp-conv h3 { margin: 0 0 8px; font: 600 13px/1.4 system-ui, sans-serif; letter-spacing: 0; color: var(--p-soft); }
+  .pp-row { display: flex; gap: 8px; align-items: center; }
+  .popup .pp-row select { width: 88px; flex: none; }
+  .popup #pp-amount, #pp-result { flex: 1; min-width: 0; padding: 6px 10px; font: 600 19px/1.35 var(--round); }
+  .popup #pp-amount { background: var(--p-bg); }
+  #pp-result { color: var(--p-accent-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .popup .swap { width: 30px; height: 30px; margin: 4px auto; color: var(--p-accent-text); background: var(--p-bg); border-color: var(--p-edge); }
+  .popup .swap .i { width: 17px; height: 17px; }
+  .pp-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+  .switch { appearance: none; flex: none; width: 40px; height: 23px; margin: 0; border-radius: 99px; background: var(--p-soft); position: relative; cursor: pointer; transition: background .2s; }
+  .switch::after { content: ""; position: absolute; top: 3px; inset-inline-start: 3px; width: 17px; height: 17px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25); transition: transform .2s; }
+  .switch:checked { background: var(--p-accent); } .switch:checked::after { transform: translateX(17px); }
+  [dir=rtl] .switch:checked::after { transform: translateX(-17px); }
+  .popup label { display: block; margin: 14px 0 6px; font-size: 13px; color: var(--p-soft); }
+  .pp-line + label { margin-top: 0; }
+  .pp-foot { margin: 0; padding: 12px 18px 14px; font-size: 12.5px; color: var(--p-soft); }
 
   .currencies { overflow: hidden; margin-top: 36px; display: grid; gap: 14px;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
@@ -104,12 +371,14 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   @keyframes scroll { to { transform: translateX(-50%); } }
   .chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 14px; white-space: nowrap; font-weight: 700;
     background: var(--surface); border: 1px solid var(--line); }
-  .rates-note { margin: 14px 0 0; color: var(--soft); font-size: 14px; }
 
   .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 48px; margin-top: 44px; }
   .fact { padding: 26px 0; border-top: 1.5px solid var(--line); }
   .fact h3 { display: flex; align-items: center; gap: 10px; font-size: 21px; color: var(--accent-text); }
   .fact p { margin: 8px 0 0; color: var(--soft); }
+  .faq { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; margin-top: 36px; }
+  .qa { padding: 24px 0; border-top: 1.5px solid var(--line); }
+  .qa h3 { font-size: 21px; } .qa p { margin: 8px 0 0; color: var(--soft); }
 
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin: 44px 0 0; padding: 0; list-style: none; counter-reset: s; }
   .steps li { counter-increment: s; }
@@ -122,7 +391,6 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   .split li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; }
   .split li .i { color: var(--accent-text); margin-top: 3px; }
   .split li b { display: block; } .split li span { color: var(--soft); }
-  .popup-shot { width: 100%; max-width: 300px; height: auto; justify-self: center; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); }
 
   /* plain text links, not chips: each one switches the page's language */
   .langs { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 26px 0 0; padding: 0; list-style: none; font-size: 16px; }
@@ -143,9 +411,12 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 72px; padding: 22px 0 0; font-size: 14px;
     border-top: 1.5px solid rgba(59, 34, 13, .25); }
   footer nav { padding: 0; gap: 18px; justify-content: start; } footer p { margin: 0; }
+  footer .me { margin-inline-start: 10px; white-space: nowrap; }
+  .close footer p { font-size: 14px; } .close footer a { font-weight: 600; }
 
   @media (prefers-reduced-motion: reduce) {
-    .big [data-swap], .btn { transition: none; }
+    .btn, .badge .pill, .swap, .switch, .switch::after { transition: none; }
+    .badge .pill:hover { transform: none; }
     .track { animation: none; flex-wrap: wrap; width: auto; }
     .currencies { -webkit-mask-image: none; mask-image: none; }
     .chip[aria-hidden] { display: none; }
@@ -154,7 +425,13 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   @media (max-width: 820px) {
     .wrap { padding: 0 20px; }
     nav .links a.hide-sm { display: none; }
-    .facts, .steps, .split { grid-template-columns: 1fr; }
+    .stage { grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "tool" "pitch"; }
+    .tool { margin-top: 28px; padding: 18px 16px 14px; }
+    .tool-row select { width: 96px; }
+    .facts, .steps, .split, .wish, .faq { grid-template-columns: 1fr; }
+    .web header, .web .page { padding-inline: 16px; }
+    .zoom { padding: 16px 12px; }
+    footer .me { margin-inline-start: 0; } .zoom .w-card { zoom: 1; }
     .facts { gap: 0; } .steps { gap: 28px; } .split { gap: 36px; }
     section { padding-top: 72px; }
   }
@@ -179,21 +456,33 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
     <nav>
       <a class="brand" href="#"><svg viewBox="0 0 128 128" width="32" height="32" aria-hidden="true"><rect x="4" y="4" width="120" height="120" rx="30" fill="#fff7ec"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#e0701c" stroke-width="13" stroke-linecap="round"/></svg>DirectChange</a>
       <div class="links">
+        <a class="hide-sm" href="#converter" data-i18n="navConverter">Converter</a>
         <a class="hide-sm" href="#features" data-i18n="navFeatures">Features</a>
         <a class="hide-sm" href="#how" data-i18n="navHow">How it works</a>
-        <a class="hide-sm" href="#converter" data-i18n="navConverter">Converter</a>
         <a href="https://github.com/xeewi/directchange">GitHub</a>
         <label class="lang-pick"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span class="sr" data-i18n="language">Language</span><select id="lang"></select></label>
       </div>
     </nav>
     <div class="stage">
-      <p class="big" id="big" aria-live="polite"><span data-swap id="ex-from">¥24,000</span><span class="pill"><svg class="mark" role="img" aria-label="≈"><use href="#i-mark"/></svg><span data-swap id="ex-to">€137</span></span></p>
-      <h1 data-i18n="heroTitle">Every foreign price on the web, in your own currency, right next to it.</h1>
-      <p class="lede" data-i18n="heroLede">DirectChange adds the live equivalent of every foreign price right after it, on any website. No more mental math, no more tab-switching to a converter.</p>
-      <div class="row">
-        <a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Install it free</a>
-        <a class="btn line" href="https://github.com/xeewi/directchange" data-i18n="viewSource">View the source</a>
-        <label><span data-i18n="showPricesIn">Show prices in</span> <select id="target"></select></label>
+      <div class="intro">
+        <h1 data-i18n="heroTitle">What is that price in your currency?</h1>
+        <p class="lede" data-i18n="heroLede">Convert it right here, at today's live rate. This is the converter from DirectChange, a free browser extension that does it for every price on the web.</p>
+      </div>
+      <!-- the extension's popup converter, working here with the same live rates -->
+      <form class="tool" id="tool" aria-labelledby="tool-title">
+        <h2 class="tool-title" id="tool-title"><svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg><span data-i18n="navConverter">Converter</span></h2>
+        <div class="tool-row"><input id="amount" inputmode="decimal" autocomplete="off" spellcheck="false" aria-label="Amount" data-i18n-aria="amount"><select id="from" aria-label="Currency of the amount" data-i18n-aria="fromCurrency"></select></div>
+        <button type="button" id="swap" class="swap" aria-label="Swap currencies" data-i18n-aria="swap" data-i18n-title="swap" title="Swap currencies"><svg class="i" aria-hidden="true"><use href="#i-swap"/></svg></button>
+        <div class="tool-row"><output id="result" class="result" for="amount from to" aria-live="polite"><svg class="mark" role="img" aria-label="≈"><use href="#i-mark"/></svg><span id="result-text">—</span></output><select id="to" aria-label="Convert to" data-i18n-aria="toCurrency"></select></div>
+        <p class="tool-note"><span id="rate"></span> <span id="rates-note"></span></p>
+      </form>
+      <div class="pitch">
+        <p class="pitch-title" data-i18n="pitchTitle">Get DirectChange in your browser.</p>
+        <p data-i18n="pitchText">The free extension for Chrome, Firefox, Edge and Brave puts your price next to every foreign price, on any website. No more copy-paste.</p>
+        <div class="row">
+          <a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Get the free extension</a>
+          <a class="btn line" href="https://github.com/xeewi/directchange" data-i18n="viewSource">View the source</a>
+        </div>
       </div>
     </div>
     <div class="meta">
@@ -205,74 +494,105 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
 </header>
 
 <main>
-  <section id="demo">
-    <div class="wrap">
-      <h2 data-i18n="demoTitle">On any page, right where you look</h2>
-      <p class="lead" data-i18n="demoLead">A trip wishlist in six currencies. Every price gets a small tag with its value in yours.</p>
-      <picture>
-        <source type="image/webp" srcset="assets/demo-1280.webp 1280w, assets/demo.webp 2560w" sizes="(max-width: 1180px) 100vw, 1124px">
-        <img class="shot" src="assets/demo.png" width="2560" height="1520" loading="lazy" decoding="async" data-i18n-alt="demoAlt" alt="A trip wishlist with prices in yen, dollars, pounds, won, pesos and lira, each followed by its euro equivalent in a small orange tag">
-      </picture>
-    </div>
-  </section>
-
-  <section id="currencies">
-    <div class="wrap">
-      <h2 data-i18n="currTitle">Any currency, anywhere</h2>
-      <p class="lead" data-i18n="currLead">Yen, rupees, pesos or rand: DirectChange reads 150+ currencies and shows them in yours.</p>
-    </div>
-    <div class="currencies" role="group" data-i18n-aria="currAria" aria-label="Example conversions">
-      <div class="track" id="row1"></div>
-      <div class="track rev" id="row2"></div>
-    </div>
-    <div class="wrap"><p class="rates-note" id="rates-note"></p></div>
-  </section>
-
-  <section id="features">
-    <div class="wrap">
-      <h2 data-i18n="featTitle">Small, quiet, and right where you look</h2>
-      <p class="lead" data-i18n="featLead">It does one thing: tell you what a price means to you, without leaving the page.</p>
-      <div class="facts">
-        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="f1t">Live rates</span></h3><p data-i18n="f1p">Near real-time rates for 150+ currencies, refreshed every 10 minutes. Hover any badge to see the exact rate and when it was fetched.</p></div>
-        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="f2t">Knows where the site is</span></h3><p data-i18n="f2p">A “$” on a Canadian site is Canadian dollars. A “¥” on a Chinese site is yuan. DirectChange reads the domain, the page language, the shop's own data and the prices it shows.</p></div>
-        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span data-i18n="f3t">Reads prices like you do</span></h3><p data-i18n="f3p">¥24,000, 1.234,56 €, MX$2,490, USD 45, 14 000 bahts, Rs 900… It even handles prices split across the page's HTML.</p></div>
-        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><span data-i18n="f4t">Blends into any site</span></h3><p data-i18n="f4p">A small tag that adapts to light and dark pages. It's isolated from the site's styles, so it never breaks a layout.</p></div>
-        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span data-i18n="f5t">Speaks 36 languages</span></h3><p data-i18n="f5p">Follows your browser by default, or pick a language in the settings. Right-to-left languages included.</p></div>
-        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n="f6t">Private by design</span></h3><p data-i18n="f6p">No account, no analytics. The page is read on your device and never sent anywhere.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="how">
-    <div class="wrap">
-      <h2 data-i18n="howTitle">Set it once, forget it</h2>
-      <ol class="steps">
-        <li><h3 data-i18n="s1t">Install</h3><p data-i18n="s1p">Add DirectChange to your browser. It takes ten seconds.</p></li>
-        <li><h3 data-i18n="s2t">Pick your currency</h3><p data-i18n="s2p">Euro, dollar, yen, rupee… any of 150+ currencies. It defaults to your region's currency.</p></li>
-        <li><h3 data-i18n="s3t">Browse as usual</h3><p data-i18n="s3p">Foreign prices get a small badge with their value in your currency, wherever you are on the web.</p></li>
-      </ol>
-      <picture>
-        <source type="image/webp" srcset="assets/demo-hover.webp">
-        <img class="shot" src="assets/demo-hover.png" width="1280" height="760" loading="lazy" decoding="async" data-i18n-alt="hoverAlt" alt="Hovering a badge shows a card: 24,000 JPY, about €137, with the rate, time and source">
-      </picture>
-    </div>
-  </section>
-
   <section id="converter">
     <div class="wrap split">
       <div>
-        <h2 data-i18n="convTitle">A converter that knows where you are</h2>
-        <p class="lead" data-i18n="convLead">Setting a price filter on a foreign shop? Open DirectChange: it already knows the site's currency and has your budget converted into it.</p>
+        <h2 data-i18n="convTitle">The same converter, one click away on any site</h2>
+        <p class="lead" data-i18n="convLead">This is the extension's real popup, working. Open it on any shop: DirectChange already knows the site's currency and has your budget converted into it.</p>
         <ul>
           <li><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><div><b data-i18n="c1b">Spots the site's currency</b><span data-i18n="c1s">It counts the prices on the page and picks the one the site really uses, even on a .com.</span></div></li>
           <li><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg><div><b data-i18n="c2b">Your budget, converted instantly</b><span data-i18n="c2s">1,000 € on a Japanese site? ≈ ¥175,700, before you even type.</span></div></li>
           <li><svg class="i" aria-hidden="true"><use href="#i-swap"/></svg><div><b data-i18n="c3b">Both ways, remembered</b><span data-i18n="c3s">Swap currencies in one click. Your last amount is kept for next time.</span></div></li>
         </ul>
       </div>
-      <picture>
-        <source type="image/webp" srcset="assets/popup.webp">
-        <img class="popup-shot" src="assets/popup.png" width="580" height="1142" loading="lazy" decoding="async" data-i18n-alt="popupAlt" alt="The popup on a Japanese site: a banner shows the site's currency, Japanese Yen, and the converter turns 1000 EUR into ¥175,638">
-      </picture>
+      <!-- popup.html, rebuilt here and working: opened on the wishlist below, its settings drive the tags on this page -->
+      <div class="popup" role="group" aria-labelledby="pp-title">
+        <div class="pp-head"><p class="pp-name" id="pp-title"><svg viewBox="0 0 128 128" width="24" height="24" aria-hidden="true"><rect x="4" y="4" width="120" height="120" rx="30" fill="#fff7ec"/><path d="M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0" fill="none" stroke="#e0701c" stroke-width="13" stroke-linecap="round"/></svg>DirectChange</p><p data-i18n="p_tagline">All prices, in your currency.</p></div>
+        <div class="pp-main">
+          <div class="pp-site"><span class="sym" aria-hidden="true">¥</span><div><small data-i18n="p_siteCurrency">This site's currency</small><b id="pp-site-name">Japanese Yen</b></div><span class="code">JPY</span></div>
+          <section class="pp-conv" aria-labelledby="pp-conv-title">
+            <h3 id="pp-conv-title" data-i18n="p_converter">Quick converter</h3>
+            <div class="pp-row"><input id="pp-amount" value="1000" inputmode="decimal" autocomplete="off" spellcheck="false" aria-label="Amount" data-i18n-aria="amount"><select id="pp-from" aria-label="Currency of the amount" data-i18n-aria="fromCurrency"></select></div>
+            <button type="button" id="pp-swap" class="swap" aria-label="Swap currencies" data-i18n-aria="swap" data-i18n-title="swap" title="Swap currencies"><svg class="i" aria-hidden="true"><use href="#i-swap"/></svg></button>
+            <div class="pp-row"><output id="pp-result" for="pp-amount pp-from pp-to" aria-live="polite"></output><select id="pp-to" aria-label="Convert to" data-i18n-aria="toCurrency"></select></div>
+          </section>
+          <div class="pp-line"><span id="pp-enabled-label" data-i18n="p_showConversions">Show conversions</span><input type="checkbox" class="switch" id="pp-enabled" checked aria-labelledby="pp-enabled-label"></div>
+          <div class="pp-line"><span id="pp-here-label">Show on wanderlist.example</span><input type="checkbox" class="switch" id="pp-here" checked aria-labelledby="pp-here-label"></div>
+          <label for="pp-target" data-i18n="p_referenceCurrency">My reference currency</label><select id="pp-target"></select>
+          <label for="pp-fee" data-i18n="p_cardFee">Card fee abroad (%)</label><input id="pp-fee" type="number" min="0" max="20" step="0.1" inputmode="decimal" placeholder="0">
+          <label for="pp-lang" data-i18n="p_language">Language</label><select id="pp-lang"></select>
+        </div>
+        <p class="pp-foot" id="pp-info"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="wrap">
+      <h2 id="demo-title" data-i18n="demoTitle">The extension converts every price, right on the page</h2>
+      <p class="lead" data-i18n="demoLead">A trip wishlist in six currencies, with DirectChange installed. Each price gets a small tag with its value in yours, at today's rate.</p>
+      <!-- a live page, not a screenshot: the tags use today's rates and follow the currency picked above or in the popup below -->
+      <div class="browser" role="group" aria-labelledby="demo-title">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">wanderlist.example</span><svg class="mark"><use href="#i-mark"/></svg></div>
+        <div class="web" lang="en">
+          <header><b>wanderlist</b><span>Saved for 2027 · 6 places</span></header>
+          <div class="page"><p class="w-title">Your trip wishlist</p><div class="wish" id="wish"></div></div>
+        </div>
+      </div>
+      <p class="hint" data-i18n="demoHint">Hover or tap a tag to see the exact rate.</p>
+    </div>
+  </section>
+
+  <section id="currencies">
+    <div class="wrap">
+      <h2 data-i18n="currTitle">Any currency, anywhere</h2>
+      <p class="lead" data-i18n="currLead">Yen, rupees, pesos or rand: the extension reads 150+ currencies and shows them in yours.</p>
+    </div>
+    <div class="currencies" role="group" data-i18n-aria="currAria" aria-label="Example conversions">
+      <div class="track" id="row1"></div>
+      <div class="track rev" id="row2"></div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2 data-i18n="featTitle">Why install DirectChange</h2>
+      <p class="lead" data-i18n="featLead">A small, free extension that does one thing: tell you what a price means to you, without leaving the page.</p>
+      <div class="facts">
+        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="f1t">Live rates</span></h3><p data-i18n="f1p">Rates from Coinbase for 150+ currencies, refreshed every 10 minutes. Hover any tag to see the exact rate and when it was fetched.</p></div>
+        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="f2t">Knows where the site is</span></h3><p data-i18n="f2p">A “$” on a Canadian site is Canadian dollars. A “¥” on a Chinese site is yuan. DirectChange reads the domain, the page language, the shop's own data and the prices it shows.</p></div>
+        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span data-i18n="f3t">Reads prices like you do</span></h3><p data-i18n="f3p">¥24,000, 1.234,56 €, MX$2,490, USD 45, 14 000 bahts, Rs 900… It even handles prices split across the page's HTML.</p></div>
+        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><span data-i18n="f4t">Blends into any site</span></h3><p data-i18n="f4p">A small tag that adapts to light and dark pages. It's isolated from the site's styles, so it never breaks a layout.</p></div>
+        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span data-i18n="f5t">Speaks 36 languages</span></h3><p data-i18n="f5p">Follows your browser by default, or pick a language in the settings. Right-to-left languages included.</p></div>
+        <div class="fact"><h3><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n="f6t">Private by design</span></h3><p data-i18n="f6p">No account, no analytics. The extension reads the page on your device and never sends it anywhere.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2 data-i18n="howTitle">Install it once, forget it</h2>
+      <ol class="steps">
+        <li><h3 data-i18n="s1t">Install</h3><p data-i18n="s1p">Add DirectChange to Chrome, Firefox, Edge or Brave. It's free and takes ten seconds.</p></li>
+        <li><h3 data-i18n="s2t">Pick your currency</h3><p data-i18n="s2p">Euro, dollar, yen, rupee… any of 150+ currencies. It defaults to your region's currency.</p></li>
+        <li><h3 data-i18n="s3t">Browse as usual</h3><p data-i18n="s3p">Foreign prices get a small badge with their value in your currency, wherever you are on the web.</p></li>
+      </ol>
+      <div class="zoom web" lang="en" id="zoom"></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 data-i18n="faqTitle">Questions about DirectChange</h2>
+      <div class="faq">
+        <div class="qa"><h3 data-i18n="q1">What is DirectChange?</h3><p data-i18n="a1">DirectChange is a free, open-source browser extension that converts prices into your own currency as you browse. It puts a small tag with the converted amount right after every foreign price on a web page, at today's live rate, and adds a quick converter to your browser toolbar.</p></div>
+        <div class="qa"><h3 data-i18n="q2">Is DirectChange free?</h3><p data-i18n="a2">Yes. DirectChange is free, with no paid plan, no ads and no account. It's open source under the MIT License, so anyone can read the code on GitHub.</p></div>
+        <div class="qa"><h3 data-i18n="q3">Which browsers does it work in?</h3><p data-i18n="a3">Chrome, Edge, Brave, Arc and other Chromium browsers, through the Chrome Web Store, and Firefox on desktop and Android, through Firefox Add-ons. Safari isn't supported yet.</p></div>
+        <div class="qa"><h3 data-i18n="q4">Where do the exchange rates come from?</h3><p data-i18n="a4">From Coinbase's public exchange-rate API, refreshed every 10 minutes, with open.er-api.com as a daily fallback. It covers more than 150 currencies. Hover a tag to see the exact rate, when it was fetched and its source.</p></div>
+        <div class="qa"><h3 data-i18n="q5">How does it know which currency a site uses?</h3><p data-i18n="a5">A “$” isn't always US dollars. DirectChange reads the currency the shop declares in its product data, then the country domain (.ca, .com.au, .jp…), then the page language. Explicit symbols like € or C$ and codes like USD are never reinterpreted.</p></div>
+        <div class="qa"><h3 data-i18n="q6">Can it include my card's foreign transaction fee?</h3><p data-i18n="a6">Yes. Enter your card's fee abroad in the popup, for example 2%, and every tag shows what the price really costs you, fee included. The card that opens on hover shows the breakdown.</p></div>
+        <div class="qa"><h3 data-i18n="q7">Does DirectChange collect my data?</h3><p data-i18n="a7">No. The extension reads prices on your device and never sends page content, URLs or browsing history anywhere. Its only network requests fetch exchange rates, and they say nothing about you.</p></div>
+      </div>
     </div>
   </section>
 
@@ -285,17 +605,18 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   </section>
 </main>
 
-<div class="drench close">
+<section class="drench close" aria-labelledby="close-title">
   <div class="wrap">
-    <h2 data-i18n="closeTitle">Your browsing stays yours</h2>
-    <p><span data-i18n="closeText">DirectChange collects nothing. The only requests it makes fetch exchange rates, and they say nothing about you or the pages you visit. The code is open source, so you can check.</span> <a href="privacy.html" data-i18n="privacyLink">Read the privacy policy</a></p>
-    <div class="row"><a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Install it free</a></div>
+    <h2 id="close-title" data-i18n="closeTitle">Your browsing stays yours</h2>
+    <p><span data-i18n="closeText">The DirectChange extension collects nothing. The only requests it makes fetch exchange rates, and they say nothing about you or the pages you visit. The code is open source, so you can check.</span> <a href="privacy.html" data-i18n="privacyLink">Read the privacy policy</a></p>
+    <div class="row"><a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Get the free extension</a></div>
     <footer>
       <nav aria-label="Footer"><a href="https://github.com/xeewi/directchange">GitHub</a><a href="privacy.html" data-i18n="footerPrivacy">Privacy</a><a href="https://github.com/xeewi/directchange/blob/main/LICENSE" data-i18n="footerLicense">MIT License</a></nav>
-      <p data-i18n="madeBy">Made with care by Guillaume Gautier.</p>
+      <p><span data-i18n="madeBy" id="made-by">Made with care by Guillaume Gautier.</span>
+        <span class="me"><a href="https://www.linkedin.com/in/gautierg" rel="me">LinkedIn</a> · <a href="https://www.malt.fr/profile/xeewi" rel="me">Malt</a> · <a href="https://github.com/xeewi" rel="me">GitHub</a></span></p>
     </footer>
   </div>
-</div>
+</section>
 
 <script>
 // Install buttons point to the visitor's store: Firefox Add-ons on Firefox, the Chrome Web Store everywhere else.
@@ -329,7 +650,7 @@ function money(amount, currency) {
   return /\$|¥|kr|Rs|£/.test(narrow) && !['USD', 'JPY', 'GBP'].includes(currency)
     ? new Intl.NumberFormat(loc, opts).format(amount) : narrow;
 }
-const convert = (amount, from) => amount / rates[from] * rates[target];
+const convert = (amount, from, to = target) => amount / rates[from] * rates[to];
 const chip = ([amount, code]) => `<span class="chip">${money(amount, code)}<span class="pill">${MARK}${money(convert(amount, code), target)}</span></span>`;
 
 function render() {
@@ -340,33 +661,137 @@ function render() {
   $('row2').innerHTML = loop(list.slice(half).map(chip).join(''));
 }
 
-let i = 0, timer;
-function show() {
-  const list = EXAMPLES.filter(e => e[1] !== target), [amount, code] = list[i % list.length];
-  $('ex-from').textContent = money(amount, code);
-  $('ex-to').textContent = money(convert(amount, code), target);
-}
-function rotate() { $('big').classList.add('out'); setTimeout(() => { i++; show(); $('big').classList.remove('out'); }, 300); }
-const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const play = on => { clearInterval(timer); if (on && !calm) timer = setInterval(rotate, 3000); };
-
 // one control pauses all motion on the page (WCAG 2.2.2)
 $('pause').onclick = () => {
   const paused = $('pause').getAttribute('aria-pressed') !== 'true';
   $('pause').setAttribute('aria-pressed', paused);
   $('pause').textContent = t(paused ? 'play' : 'pause');
-  document.body.classList.toggle('paused', paused); play(!paused);
+  document.body.classList.toggle('paused', paused);
 };
 
-function currencies() {
-  const names = new Intl.DisplayNames(loc, { type: 'currency' });
-  $('target').replaceChildren(...[...CODES].sort().map(c => new Option(`${c} · ${names.of(c)}`, c, false, c === target)));
+// "24,000", "1.234,56", "14 000" -> number. ponytail: copy of parseNumber in ../parse.js (the site can't load files outside docs/)
+function parseNumber(s) {
+  s = s.replace(/[\s   ']/g, '');
+  const dot = s.lastIndexOf('.'), comma = s.lastIndexOf(',');
+  if (dot >= 0 && comma >= 0) {
+    const dec = dot > comma ? '.' : ',';
+    return parseFloat(s.split(dec === '.' ? ',' : '.').join('').replace(dec, '.'));
+  }
+  const sep = dot >= 0 ? '.' : comma >= 0 ? ',' : null;
+  if (!sep) return parseFloat(s);
+  const parts = s.split(sep);
+  return parseFloat(parts.length > 2 || parts.at(-1).length === 3 ? parts.join('') : parts.join('.'));
 }
-$('target').onchange = e => { target = e.target.value; i = 0; render(); show(); };
+
+// One "my currency" (target) for the whole page: the hero converter, the popup's converter and reference
+// currency, the chips and the demo tags all follow it. In each converter, `mine` is the side holding it;
+// swapping moves it to the other side, so swapping never changes the visitor's currency.
+// The hero converter: a foreign price into the visitor's currency, remembered like in the popup.
+let savedConv; try { savedConv = JSON.parse(localStorage.getItem('conv')); } catch {}
+let conv = savedConv ?? { amount: new Intl.NumberFormat(loc).format(24000), from: target === 'JPY' ? 'USD' : 'JPY', to: target };
+let mine = conv.mine === 'from' ? 'from' : 'to', ppMine = 'from';
+$('amount').value = conv.amount;
+
+function currencies() { // codes only, like the popup, with the name on hover
+  const names = new Intl.DisplayNames(loc, { type: 'currency' });
+  for (const sel of ['from', 'to'])
+    $(sel).replaceChildren(...Object.keys(rates).sort().map(c => Object.assign(new Option(c, c, false, c === conv[sel]), { title: names.of(c) })));
+  target = $(mine).value; // a saved currency missing from the fallback rates comes back once the live ones load
+}
+function update(save) {
+  const n = parseNumber($('amount').value.trim() || 'x'), from = $('from').value, to = $('to').value;
+  $('result-text').textContent = Number.isFinite(n) ? money(convert(n, from, to), to) : '—';
+  $('rate').textContent = `1 ${from} = ${new Intl.NumberFormat(loc, { maximumSignificantDigits: 4 }).format(convert(1, from, to))} ${to}.`;
+  if (!save) return;
+  conv = { amount: $('amount').value, from, to, mine };
+  try { localStorage.setItem('conv', JSON.stringify(conv)); } catch {}
+}
+// Changing "my currency" anywhere updates it everywhere.
+function setTarget(c) {
+  target = c;
+  $(mine).value = $(`pp-${ppMine}`).value = $('pp-target').value = c;
+  update(true); ppUpdate(); render(); demo();
+}
+$('tool').onsubmit = e => e.preventDefault();
+$('amount').oninput = () => update(true);
+for (const side of ['from', 'to']) $(side).onchange = () => side === mine ? setTarget($(side).value) : update(true);
+$('swap').onclick = () => { [$('from').value, $('to').value] = [$('to').value, $('from').value]; mine = mine === 'to' ? 'from' : 'to'; update(true); };
 
 let updated; // date of the live rates, once fetched
 const ratesNote = () => $('rates-note').textContent = updated
   ? t('ratesLive', { source: 'open.er-api.com', date: updated.toLocaleDateString(loc, { dateStyle: 'medium' }) }) : t('ratesSample');
+
+// The wishlist from store/wishlist.html, with tags drawn like content.js draws them.
+const WISH = [
+  ['Ryokan with private onsen, Kyoto', '2 guests · dinner included', '¥24,000', 24000, 'JPY', 'night', '#7dd0c6, #2b8c97'],
+  ['Broadway show, New York', 'Orchestra seats · Saturday', '$129', 129, 'USD', 'ticket', '#fdd08f, #e8883a'],
+  ['Thames river cruise, London', 'Sunset · 90 minutes', '£35', 35, 'GBP', 'person', '#b6c2ff, #5c66d6'],
+  ['Korean cooking class, Seoul', '4 hours · market tour', '₩59,000', 59000, 'KRW', 'person', '#c8eda4, #5aac3c'],
+  ['Street food tour, Mexico City', 'Evening · 8 tastings', 'MX$2,490', 2490, 'MXN', 'group', '#f3b1c8, #c94672'],
+  ['Hammam & massage, Istanbul', 'Historic bath · 1 hour', '₺1,499', 1499, 'TRY', 'person', '#d3d4d6, #6c707b'],
+];
+let fee = 0, badgesOn = true, siteOn = true; // the popup's settings, for this page only (not saved)
+const MARK_HIDDEN = '<svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg>';
+function badge(amount, code, open) { // the badge shows what you really pay: price + card fee
+  const value = convert(amount, code), to = money(value * (1 + fee / 100), target);
+  const when = updated ? ' · ' + updated.toLocaleString(loc, { dateStyle: 'short', timeStyle: 'short' }) : '';
+  const feeLine = fee > 0 ? `<span class="fee">${money(value, target)} ${(fee / 100).toLocaleString(loc, { style: 'percent', maximumFractionDigits: 2, signDisplay: 'always' })}</span>` : '';
+  return `<span class="badge${open ? ' open' : ''}"><span class="pill" tabindex="0" role="note" aria-label="${money(amount, code)} ≈ ${to}">${MARK_HIDDEN}<span>${to}</span></span>`
+    + `<span class="rate-card" aria-hidden="true"><span class="from">${amount.toLocaleString(loc)} ${code}</span><span class="to">≈ ${to}</span>${feeLine}`
+    + `<span class="rc-meta">1 ${code} = ${convert(1, code).toLocaleString(loc, { maximumSignificantDigits: 4 })} ${target}${when} · Rates By Exchange Rate API</span></span></span>`;
+}
+// like the extension, no tag on prices already in your currency
+const listing = ([title, sub, shown, amount, code, unit, g], open) => `<article class="w-card"><div class="img" style="--g: linear-gradient(135deg, ${g})"></div>`
+  + `<div class="b"><p class="w-name">${title.replace('&', '&amp;')}</p><div class="sub">${sub}</div><div class="price">${shown}${code === target ? ' ' : badge(amount, code, open)}<small>/ ${unit}</small></div></div></article>`;
+function demo() {
+  $('wish').innerHTML = WISH.map(w => listing(w)).join('');
+  $('zoom').innerHTML = listing(WISH.find(w => w[4] !== target), true);
+  document.body.classList.toggle('no-badges', !(badgesOn && siteOn));
+  $('pp-target').value = target;
+}
+
+// The popup, as popup.js builds it, opened on the wishlist (whose prices make it guess yen, like the real one).
+function popup() {
+  const names = new Intl.DisplayNames(loc, { type: 'currency' }), codes = Object.keys(rates).sort();
+  const keep = { from: $('pp-from').value || target, to: $('pp-to').value || (target === 'JPY' ? 'USD' : 'JPY') };
+  keep[ppMine] = target;
+  for (const sel of ['from', 'to'])
+    $(`pp-${sel}`).replaceChildren(...codes.map(c => Object.assign(new Option(c, c, false, c === keep[sel]), { title: names.of(c) })));
+  $('pp-target').replaceChildren(...codes.map(c => new Option(`${c} — ${names.of(c)}`, c, false, c === target)));
+  const yen = names.of('JPY');
+  $('pp-site-name').textContent = yen[0].toLocaleUpperCase(loc) + yen.slice(1);
+  $('pp-here-label').textContent = t('p_showOnSite', { site: 'wanderlist.example' });
+  $('pp-lang').options[0].text = t('p_languageAuto');
+  $('pp-info').textContent = updated
+    ? t('p_ratesInfo', { count: codes.length, date: updated.toLocaleString(loc, { dateStyle: 'short', timeStyle: 'short' }), source: 'open.er-api.com' }) + ' · '
+    : t('ratesSample') + ' ';
+  $('pp-info').append(Object.assign(document.createElement('a'), { href: 'https://www.exchangerate-api.com', textContent: 'Rates By Exchange Rate API' }));
+  ppUpdate();
+}
+// WCAG 1.4.13: Escape hides an open rate card; it comes back once the pointer or focus has left its tag
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.badge:hover, .badge:focus-within').forEach(b => b.classList.add('shut'));
+});
+for (const type of ['mouseout', 'focusout']) document.addEventListener(type, e => {
+  const b = e.target.closest?.('.badge');
+  if (b && !b.contains(e.relatedTarget)) b.classList.remove('shut');
+});
+function ppUpdate() {
+  const n = parseNumber($('pp-amount').value.trim() || 'x'), to = $('pp-to').value;
+  $('pp-result').textContent = Number.isFinite(n) ? money(convert(n, $('pp-from').value, to), to) : '—';
+}
+$('pp-amount').oninput = ppUpdate;
+for (const side of ['from', 'to']) $(`pp-${side}`).onchange = () => side === ppMine ? setTarget($(`pp-${side}`).value) : ppUpdate();
+$('pp-swap').onclick = () => { [$('pp-from').value, $('pp-to').value] = [$('pp-to').value, $('pp-from').value]; ppMine = ppMine === 'from' ? 'to' : 'from'; ppUpdate(); };
+$('pp-enabled').onchange = e => { badgesOn = e.target.checked; demo(); };
+$('pp-here').onchange = e => { siteOn = e.target.checked; demo(); };
+$('pp-target').onchange = e => setTarget(e.target.value);
+$('pp-fee').onchange = e => { // same bounds as popup.js
+  fee = Math.min(20, Math.max(0, parseNumber(e.target.value.trim() || '0') || 0));
+  e.target.value = fee || ''; demo();
+};
+$('pp-lang').add(new Option('', 'auto'));
+const refresh = () => { currencies(); update(); render(); demo(); popup(); ratesNote(); };
 
 // Each language named in itself ("Français", "日本語"), sorted like the extension's popup.
 const LANG_NAMES = LANGS.map(l => {
@@ -375,15 +800,32 @@ const LANG_NAMES = LANGS.map(l => {
 }).sort(([a], [b]) => a.localeCompare(b));
 LANG_NAMES.forEach(([name, l]) => {
   $('lang').add(new Option(name, l));
+  $('pp-lang').add(new Option(name, l));
   const a = Object.assign(document.createElement('a'), { href: `?lang=${l}`, lang: l.replace('_', '-'), hreflang: l.replace('_', '-'), textContent: name });
   a.dataset.lang = l;
   a.onclick = e => { e.preventDefault(); pick(l); };
   $('langs').appendChild(document.createElement('li')).appendChild(a);
 });
 $('lang').onchange = e => pick(e.target.value);
+// the popup's "Automatic" forgets the choice and follows the browser again
+$('pp-lang').onchange = e => {
+  if (e.target.value !== 'auto') return pick(e.target.value);
+  try { localStorage.removeItem('lang'); } catch {}
+  history.replaceState(null, '', location.pathname + location.hash);
+  setLang(navigator.languages.map(matchLang).find(Boolean) || 'en');
+};
+$('pp-lang').value = [new URLSearchParams(location.search).get('lang'), saved].find(l => LANGS.includes(l)) || 'auto';
+
+// "Made with care by Guillaume Gautier": the name, wherever each language puts it, links to his site
+function linkName() {
+  const [before, after = ''] = $('made-by').textContent.split('Guillaume Gautier');
+  $('made-by').replaceChildren(before, Object.assign(document.createElement('a'), { href: 'https://xeewi.cool/', rel: 'me', textContent: 'Guillaume Gautier' }), after);
+}
+linkName();
 
 // A choice made on the page is remembered and kept in the URL, so the link can be shared.
 function pick(l) {
+  $('pp-lang').value = l;
   try { localStorage.setItem('lang', l); } catch {}
   history.replaceState(null, '', `?lang=${l}${location.hash}`);
   setLang(l);
@@ -396,23 +838,28 @@ async function setLang(l) {
   const html = document.documentElement;
   html.lang = loc; html.dir = ['ar', 'he', 'fa'].includes(l) ? 'rtl' : 'ltr';
   document.title = t('title');
+  // each language is its own page for search engines (alternates listed in sitemap.xml)
+  const url = `https://directchange.xeewi.cool/${l === 'en' ? '' : `?lang=${l}`}`;
+  (document.querySelector('link[rel=canonical]') || document.head.appendChild(Object.assign(document.createElement('link'), { rel: 'canonical' }))).href = url;
+  document.querySelector('meta[property="og:url"]').content = url;
   document.querySelector('meta[name=description]').content = t('metaDescription');
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
-  document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.alt = t(el.dataset.i18nAlt); });
+  linkName();
   document.querySelectorAll('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
+  document.querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.dataset.i18nTitle); });
   $('pause').textContent = t($('pause').getAttribute('aria-pressed') === 'true' ? 'play' : 'pause');
   $('lang').value = l;
   document.querySelectorAll('#langs a').forEach(a => a.dataset.lang === l ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
-  currencies(); ratesNote(); render(); show();
+  refresh();
   html.classList.remove('wait');
 }
 
-currencies(); render(); show(); play(true);
+refresh();
 setLang(lang);
 
 fetch('https://open.er-api.com/v6/latest/USD').then(r => r.json()).then(j => {
   if (j.result !== 'success') return;
-  rates = j.rates; updated = new Date(j.time_last_update_unix * 1000); render(); show(); ratesNote();
+  rates = j.rates; updated = new Date(j.time_last_update_unix * 1000); refresh();
 }).catch(() => {});
 </script>
 <script>

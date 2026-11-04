@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-28T10:18:05.548996+00:00",
+  "generatedAt": "2026-11-04T16:49:49.929135+00:00",
   "title": "Design System: DirectChange",
   "extensions": {
     "colorMeta": {
@@ -314,13 +314,9 @@
       }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Display",
-        "purpose": "The converted-price headline in the hero only."
-      },
       "headline-hero": {
         "displayName": "Headline Hero",
-        "purpose": "The sentence under the giant price."
+        "purpose": "The hero question above the converter, max 11em wide."
       },
       "headline": {
         "displayName": "Headline",
@@ -353,18 +349,22 @@
       "label": {
         "displayName": "Label",
         "purpose": "Popup labels; never uppercase."
+      },
+      "figure-hero": {
+        "displayName": "Figure Hero",
+        "purpose": "Amount and result in the hero converter card."
       }
     },
     "shadows": [
       {
         "name": "lifted-frame",
         "value": "0 18px 50px rgba(110,55,10,.16)",
-        "purpose": "Screenshots on the website (dark: rgba(0,0,0,.45))."
+        "purpose": "The live demos on the website: browser frame, zoomed listing, popup (dark: rgba(0,0,0,.45))."
       },
       {
         "name": "cream-lift-hero",
         "value": "0 10px 30px rgba(90,40,5,.25)",
-        "purpose": "The hero price tag on orange."
+        "purpose": "The hero converter card on orange."
       },
       {
         "name": "cream-lift-button",
@@ -394,11 +394,6 @@
         "purpose": "Buttons rise 2px, price tags 1px, on hover; off with reduced motion."
       },
       {
-        "name": "price-swap",
-        "value": "opacity .3s, transform .3s cubic-bezier(.2,.7,.2,1)",
-        "purpose": "Hero price cross-fade every 3s."
-      },
-      {
         "name": "marquee",
         "value": "scroll 80s linear infinite",
         "purpose": "Currency chip rows; paused on hover, by the pause button, static with reduced motion."
@@ -407,6 +402,11 @@
         "name": "switch",
         "value": "background .2s, transform .2s",
         "purpose": "Popup switch track and knob."
+      },
+      {
+        "name": "swap-turn",
+        "value": "transform .25s",
+        "purpose": "Converter swap button turns 180° on hover; off with reduced motion."
       }
     ],
     "breakpoints": [
@@ -442,12 +442,12 @@
       "css": ".ds-host { font: 17px/1.6 system-ui, sans-serif; color: #3b220d; } .ds-pill { display: inline-flex; align-items: center; gap: .3em; padding: .12em .55em .12em .12em; border-radius: .42em; white-space: nowrap; font: 600 .82em/1.5 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; color: #7a3b0c; background: linear-gradient(#fff7ec, #ffe8c9); box-shadow: inset 0 0 0 1px #f2c287, 0 1px 2px rgba(122,59,12,.12); transition: transform .15s, box-shadow .15s; } .ds-pill:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px #e9a55c, 0 3px 8px rgba(122,59,12,.18); } .ds-mark { display: block; flex: none; width: 1.2em; height: 1.2em; }"
     },
     {
-      "name": "Hero Price",
+      "name": "Hero Converter",
       "kind": "custom",
-      "refersTo": "price-tag-hero",
-      "description": "The giant converted price that heads the orange hero band.",
-      "html": "<div class=\"ds-band\"><p class=\"ds-big\"><span>¥24,000</span><span class=\"ds-pill-hero\"><svg class=\"ds-mark\" viewBox=\"0 0 128 128\" role=\"img\" aria-label=\"≈\"><rect x=\"4\" y=\"4\" width=\"120\" height=\"120\" rx=\"30\" fill=\"#e0701c\"/><path d=\"M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0\" fill=\"none\" stroke=\"#fff7ec\" stroke-width=\"13\" stroke-linecap=\"round\"/></svg><span>€137</span></span></p></div>",
-      "css": ".ds-band { background: #e0701c; color: #3b220d; padding: 24px; } .ds-big { display: flex; flex-wrap: wrap; align-items: center; gap: .16em .28em; margin: 0; font: 800 64px/1 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; letter-spacing: -.045em; } .ds-pill-hero { display: inline-flex; align-items: center; gap: .14em; padding: .1em .3em .1em .1em; border-radius: .3em; background: #fff7ec; color: #3b220d; box-shadow: 0 10px 30px rgba(90,40,5,.25); } .ds-mark { display: block; flex: none; width: .74em; height: .74em; }"
+      "refersTo": "converter-hero",
+      "description": "The popup's converter, scaled up and working, as the landing page hero: amount and currency, swap, result in the price tag.",
+      "html": "<div class=\"ds-band\"><form class=\"ds-tool\"><p class=\"ds-tool-title\"><svg viewBox=\"0 0 128 128\" width=\"22\" height=\"22\" aria-hidden=\"true\"><rect x=\"4\" y=\"4\" width=\"120\" height=\"120\" rx=\"30\" fill=\"#e0701c\"/><path d=\"M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0\" fill=\"none\" stroke=\"#fff7ec\" stroke-width=\"13\" stroke-linecap=\"round\"/></svg>Converter</p><div class=\"ds-tool-row\"><input class=\"ds-amount\" value=\"24,000\" aria-label=\"Amount\"><select class=\"ds-cur\" aria-label=\"Currency of the amount\"><option>JPY</option></select></div><button type=\"button\" class=\"ds-swap\" aria-label=\"Swap currencies\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 20V4M4 8l4-4 4 4M16 4v16M12 16l4 4 4-4\"/></svg></button><div class=\"ds-tool-row\"><output class=\"ds-result\"><svg viewBox=\"0 0 128 128\" width=\"40\" height=\"40\" aria-hidden=\"true\"><rect x=\"4\" y=\"4\" width=\"120\" height=\"120\" rx=\"30\" fill=\"#e0701c\"/><path d=\"M30 50c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0M30 80c11.3-10.7 22.7-10.7 34 0s22.7 10.7 34 0\" fill=\"none\" stroke=\"#fff7ec\" stroke-width=\"13\" stroke-linecap=\"round\"/></svg>€135</output><select class=\"ds-cur\" aria-label=\"Convert to\"><option>EUR</option></select></div><p class=\"ds-note\">1 JPY = 0.00564 EUR. Live rates from open.er-api.com.</p></form></div>",
+      "css": ".ds-band { background: #e0701c; padding: 28px; } .ds-tool { max-width: 480px; padding: 22px 22px 18px; border-radius: 22px; color: #3b220d; background: #fff7ec; box-shadow: 0 10px 30px rgba(90,40,5,.25); } .ds-tool-title { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; font: 600 14px/1.2 system-ui, sans-serif; color: #7a5a40; } .ds-tool-row { display: flex; gap: 10px; align-items: center; } .ds-amount, .ds-result { flex: 1; min-width: 0; height: 58px; padding: 0 14px; border-radius: 14px; font: 700 32px/1 ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; letter-spacing: -.02em; } .ds-amount { color: #3b220d; background: #fff; border: 1px solid #a8784c; } .ds-result { display: flex; align-items: center; gap: 10px; padding-inline-start: 8px; color: #7a3b0c; background: linear-gradient(#fff7ec, #ffe8c9); box-shadow: inset 0 0 0 1px #f2c287; } .ds-cur { flex: none; width: 124px; height: 58px; padding: 10px 12px; border-radius: 10px; font: 600 16px/1.2 system-ui, sans-serif; color: #3b220d; background: #fff; border: 1px solid #a8784c; } .ds-swap { display: grid; place-items: center; width: 40px; height: 40px; margin: 8px auto; padding: 0; border-radius: 50%; cursor: pointer; color: #a8430d; background: #fff; border: 1px solid #a8784c; transition: transform .25s; } .ds-swap:hover { transform: rotate(180deg); } .ds-tool :focus-visible { outline: 3px solid #c2540f; outline-offset: 3px; } .ds-note { margin: 14px 0 0; font-size: 13px; color: #7a5a40; }"
     },
     {
       "name": "Currency Chip",
@@ -489,7 +489,7 @@
   ],
   "narrative": {
     "northStar": "Orange Drench",
-    "overview": "The brand orange is no longer an accent; it is the ground. The website opens and closes on solid orange bands, the popup opens on a flat orange header, and the privacy page carries an orange top edge. On the orange, everything is dark roasted ink, and the one cream object is the price tag: on the landing page a single converted price (\"¥24,000 ≈ €137\") set enormous is the headline itself. Between the orange edges, the page sits on plain white (night paper in dark mode) and breathes: rules and text instead of boxes.\n\nThe register is simple and close to standard. One warm family (orange, cream, roasted brown, toffee), the system rounded face for headings and figures, the system sans for reading, no web fonts. The signature is the price tag: a cream rounded tag led by the app mark (an orange square holding two cream ≈ waves), shared exactly across website, store art and inline badge.\n\nThe inline badge appears on pages DirectChange doesn't own, so it stays small and polite (0.82em of the host text, 1px hover lift). The website is where the orange gets to drench.",
+    "overview": "The brand orange is no longer an accent; it is the ground. The website opens and closes on solid orange bands, the popup opens on a flat orange header, and the privacy page carries an orange top edge. On the orange, everything is dark roasted ink, and the one cream object is the price tag: on the landing page the hero is a working copy of the popup's converter, a cream card whose result sits in the price tag, with the extension pitch under the question it answers. Between the orange edges, the page sits on plain white (night paper in dark mode) and breathes: rules and text instead of boxes.\n\nThe register is simple and close to standard. One warm family (orange, cream, roasted brown, toffee), the system rounded face for headings and figures, the system sans for reading, no web fonts. The signature is the price tag: a cream rounded tag led by the app mark (an orange square holding two cream ≈ waves), shared exactly across website, store art and inline badge.\n\nThe inline badge appears on pages DirectChange doesn't own, so it stays small and polite (0.82em of the host text, 1px hover lift). The website is where the orange gets to drench.",
     "keyCharacteristics": [
       "Orange as a ground at the edges of every surface, never as mid-page panels.",
       "Dark ink on orange, always; cream is the only object color on orange.",
@@ -525,8 +525,8 @@
         "section": "typography"
       },
       {
-        "name": "The One Giant Price Rule",
-        "body": "The display size belongs to the converted price. Sentences never take the display size.",
+        "name": "The Tool First Rule",
+        "body": "The hero leads with the converter itself; the extension is offered right after it, under a 1.5px ink rule, never before it.",
         "section": "typography"
       },
       {
@@ -551,7 +551,7 @@
       "Do use Ember Dark (#a8430d) for accent text on light grounds and Marigold Night (#ff9a3d) in dark mode.",
       "Do show converted values in a price tag led by the app mark, with corners concentric to the mark, and set every figure in the rounded face.",
       "Do use capsules only for actions, rounded rectangles for information, circles only for round things.",
-      "Do group content below the hero with 1.5px rules and type; reserve shadows for screenshots and cream objects on orange.",
+      "Do group content below the hero with 1.5px rules and type; reserve shadows for the live demos and cream objects on orange.",
       "Do define both the light and night value for each new surface, and honor `prefers-reduced-motion` and right-to-left layouts."
     ],
     "donts": [

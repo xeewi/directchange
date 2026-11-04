@@ -595,7 +595,43 @@
           "docs/index.html"
         ],
         "createdAt": "2026-10-28T09:32:40.681Z",
-        "reason": "agent: currency strip is the product demo; has a visible pause control, pauses on hover, and becomes a static grid under reduced motion"
+        "reason": "agent triage: currency chip marquee documented in DESIGN.md (Chips and Tags), pausable by the page's pause button and static under reduced motion"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-04T16:42:56.254Z",
+        "reason": "agent triage: the scale is h1 clamp(40-76px) > h2 clamp(30-46px) > titles 21-22px > body 17px, so every heading step is at least 1.29x; the detector is comparing body-tier sizes (lede 18, body 17, controls 16)"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-04T17:43:32.375Z",
+        "reason": "agent triage: the nesting is the live demos (popup.html rebuilt as-is, a third-party page inside a browser frame), documented in DESIGN.md Live Demos"
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-04T17:43:32.391Z",
+        "reason": "agent triage: the teal/indigo gradients are the made-up third-party wishlist's photos (store/wishlist.html), deliberately outside the brand palette per DESIGN.md Live Demos"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-04T17:43:40.400Z",
+        "reason": "agent triage: the orange inset top edge is the extension's real rate card, documented in DESIGN.md (Shadow Vocabulary: Hover card)"
       }
     ]
   }

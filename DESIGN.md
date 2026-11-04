@@ -25,18 +25,12 @@ colors:
   marigold-night: "#ff9a3d"
   night-pill-ink: "#ffdcae"
 typography:
-  display:
-    fontFamily: "ui-rounded, 'SF Pro Rounded', system-ui, sans-serif"
-    fontSize: "clamp(52px, 8.6vw, 124px)"
-    fontWeight: 800
-    lineHeight: 1
-    letterSpacing: "-0.045em"
   headline-hero:
     fontFamily: "ui-rounded, 'SF Pro Rounded', system-ui, sans-serif"
-    fontSize: "clamp(26px, 2.8vw, 40px)"
-    fontWeight: 700
-    lineHeight: 1.15
-    letterSpacing: "-0.015em"
+    fontSize: "clamp(40px, 5.4vw, 76px)"
+    fontWeight: 800
+    lineHeight: 1.02
+    letterSpacing: "-0.035em"
   headline:
     fontFamily: "ui-rounded, 'SF Pro Rounded', system-ui, sans-serif"
     fontSize: "clamp(30px, 4vw, 46px)"
@@ -70,6 +64,12 @@ typography:
     fontSize: "17px"
     fontWeight: 700
     lineHeight: 1
+  figure-hero:
+    fontFamily: "ui-rounded, 'SF Pro Rounded', system-ui, sans-serif"
+    fontSize: "clamp(24px, 2.6vw, 32px)"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "-0.02em"
   figure:
     fontFamily: "ui-rounded, 'SF Pro Rounded', system-ui, sans-serif"
     fontSize: "18px"
@@ -87,7 +87,7 @@ rounded:
   frame: "16px"
   pill: "999px"
   tag: "0.42em"
-  tag-hero: "0.3em"
+  card-hero: "22px"
 spacing:
   xs: "8px"
   sm: "12px"
@@ -118,12 +118,17 @@ components:
     textColor: "{colors.pill-ink}"
     rounded: "{rounded.tag}"
     padding: "0.12em 0.55em 0.12em 0.12em"
-  price-tag-hero:
+  converter-hero:
     backgroundColor: "{colors.cream}"
     textColor: "{colors.roasted-ink}"
-    typography: "{typography.display}"
-    rounded: "{rounded.tag-hero}"
-    padding: "0.1em 0.3em 0.1em 0.1em"
+    rounded: "{rounded.card-hero}"
+    padding: "22px 22px 18px"
+  converter-hero-result:
+    backgroundColor: "{colors.pill-bottom}"
+    textColor: "{colors.pill-ink}"
+    typography: "{typography.figure-hero}"
+    rounded: "{rounded.card-sm}"
+    height: "58px"
   chip:
     backgroundColor: "{colors.cream-paper}"
     textColor: "{colors.roasted-ink}"
@@ -156,7 +161,7 @@ components:
 
 **Creative North Star: "Orange Drench"**
 
-The brand orange is no longer an accent; it is the ground. The website opens and closes on solid orange bands, the popup opens on a flat orange header, and the privacy page carries an orange top edge. On the orange, everything is dark roasted ink, and the one cream object is the price tag: on the landing page a single converted price ("¥24,000 ≈ €137") set enormous is the headline itself. Between the orange edges, the page sits on plain white (night paper in dark mode) and breathes: rules and text instead of boxes.
+The brand orange is no longer an accent; it is the ground. The website opens and closes on solid orange bands, the popup opens on a flat orange header, and the privacy page carries an orange top edge. On the orange, everything is dark roasted ink, and the one cream object is the price tag: on the landing page the hero is a working copy of the popup's converter, a cream card whose result sits in the price tag, with the extension pitch under the question it answers. Between the orange edges, the page sits on plain white (night paper in dark mode) and breathes: rules and text instead of boxes.
 
 The register is simple and close to standard. One warm family (orange, cream, roasted brown, toffee), the system rounded face for headings and figures, the system sans for reading, no web fonts. The signature is the price tag: a cream rounded tag led by the app mark (an orange square holding two cream ≈ waves), shared exactly across website, store art and inline badge.
 
@@ -177,7 +182,7 @@ One warm family: a saturated orange ground, cream objects, roasted-brown ink, an
 ### Primary
 - **Marigold Rate** (#e0701c): the drench. Ground of the landing page's top and closing bands, the popup header, the privacy page's 10px top border, the switch's on state, the app mark's square, and the giant step numerals (64px, the only place it is used as text on white). It stays the same in dark mode.
 - **Roasted Ink** (#3b220d): the only text color on orange (4.6:1), and body text on light grounds. Rules on orange are this ink at 25% alpha.
-- **Cream** (#fff7ec): the objects that sit on orange: the hero price tag, the primary button, the currency select. Also the mark's waves and the top of the price tag gradient.
+- **Cream** (#fff7ec): the objects that sit on orange: the hero converter card, the primary button. Also the mark's waves and the top of the price tag gradient.
 - **Ember Dark** (#a8430d): accent text on light grounds: fact titles, list icons, links on the privacy page, the popup's result and site-currency code (6:1 on white).
 - **Ember** (#c2540f): the focus ring on light grounds. On orange the ring switches to Roasted Ink.
 - **Symbol Highlight** (#ffc36b): the lit spot of the popup's round currency-symbol disc, a radial gradient to Marigold Rate.
@@ -186,7 +191,7 @@ One warm family: a saturated orange ground, cream objects, roasted-brown ink, an
 - **Surface White** (#ffffff): the website's page ground between the bands; popup field fill.
 - **Cream Paper** (#fffaf3): chips and language tags on the website; page ground of the popup and privacy page.
 - **Toffee Soft** (#7a5a40): leads, descriptions, notes and footers on light grounds.
-- **Biscuit Line** (#f1dcc2): rules above facts, borders on chips, tags, screenshot frames and the popup converter card.
+- **Biscuit Line** (#f1dcc2): rules above facts, borders on chips, tags, demo frames and the popup converter card.
 - **Field Edge** (#a8784c): the 1px edge of popup inputs, selects and the swap button, dark enough to read as a control (3.9:1 on white).
 
 ### Price Tag
@@ -212,8 +217,8 @@ One warm family: a saturated orange ground, cream objects, roasted-brown ink, an
 **Character:** The rounded face gives headings, numbers and buttons their softness; the system sans keeps reading text native and fast. No web fonts load.
 
 ### Hierarchy
-- **Display** (800, clamp(52px, 8.6vw, 124px), 1, -0.045em): the converted-price headline in the hero only; the cream tag inside it is set at the same size.
-- **Headline Hero** (700, clamp(26px, 2.8vw, 40px), 1.15, -0.015em): the sentence under the price, max 18em wide.
+- **Headline Hero** (800, clamp(40px, 5.4vw, 76px), 1.02, -0.035em): the hero question ("What is that price in your currency?"), max 11em wide.
+- **Figure Hero** (700, clamp(24px, 2.6vw, 32px), 1, -0.02em, rounded): the amount and result in the hero converter.
 - **Headline** (700, clamp(30px, 4vw, 46px), 1.15, -0.02em): section titles, max 16em wide. The closing band enlarges it to clamp(34px, 5vw, 60px).
 - **Title** (700, 21px, 1.15): fact and step titles.
 - **Numeral** (800, 64px, 1, -0.04em): step numbers in Marigold Rate.
@@ -226,13 +231,13 @@ One warm family: a saturated orange ground, cream objects, roasted-brown ink, an
 ### Named Rules
 **The Rounded Numbers Rule.** Prices, amounts and currency symbols are always set in the rounded face.
 
-**The One Giant Price Rule.** The display size belongs to the converted price. Sentences never take the display size.
+**The Tool First Rule.** The hero leads with the converter itself; the extension is offered right after it, under a 1.5px ink rule, never before it.
 
 ## Layout
 
-The website is a single column, at most 1180px wide with 28px gutters (20px at 820px and below). The hero band fills the viewport (up to 900px): nav on top, the giant price and its sentence centered vertically, and a meta strip at the bottom above a 1.5px ink rule. Sections below are left-aligned and spaced 96px apart (72px on small screens), each opening with a headline and a lead.
+The website is a single column, at most 1180px wide with 28px gutters (20px at 820px and below). The hero band fills the viewport (up to 900px): nav on top, then a two-column grid (question, lede and extension pitch left; the converter card right, max 480px; stacked question, converter, pitch at 820px and below), and a meta strip at the bottom above a 1.5px ink rule. Sections below are left-aligned and spaced 96px apart (72px on small screens), each opening with a headline and a lead.
 
-Below the hero, content is grouped by rules and type: facts in a three-column grid (48px column gap) where each item sits under a 1.5px Biscuit Line rule; steps in three columns led by a giant numeral; a 1.2fr / 1fr split pairing a list with the popup screenshot. Screenshots run full width under their section. At 820px and below every grid collapses to one column and nav links marked `hide-sm` hide. The closing band starts 110px after the last section and holds the privacy promise, the install button and the footer.
+Below the hero, content is grouped by rules and type: facts in a three-column grid (48px column gap) where each item sits under a 1.5px Biscuit Line rule; steps in three columns led by a giant numeral; a 1.2fr / 1fr split pairing a list with the working popup. Demos run full width under their section. At 820px and below every grid collapses to one column and nav links marked `hide-sm` hide. The closing band starts 110px after the last section and holds the privacy promise, the install button and the footer.
 
 The popup is a fixed 290px column: the flat orange header (16px 18px 14px), then the site banner, converter card, switch row and labelled selects, spaced 12–16px apart. The privacy page is a single 700px reading column.
 
@@ -241,8 +246,8 @@ The popup is a fixed 290px column: the flat orange header (16px 18px 14px), then
 Mostly flat. Depth comes from the orange-to-white change of ground and from rules, not from shadows. Shadows are reserved for two things: product imagery on white, and cream objects lifted off the orange. They are tinted warm brown in light mode and neutral black at higher opacity in dark mode.
 
 ### Shadow Vocabulary
-- **Lifted frame** (`box-shadow: 0 18px 50px rgba(110,55,10,.16)`; dark `rgba(0,0,0,.45)`): screenshots on the website.
-- **Cream lift** (`box-shadow: 0 10px 30px rgba(90,40,5,.25)` on the hero tag, `0 6px 18px rgba(90,40,5,.25)` on the cream button): cream objects on orange.
+- **Lifted frame** (`box-shadow: 0 18px 50px rgba(110,55,10,.16)`; dark `rgba(0,0,0,.45)`): the live demos on the website (browser frame, zoomed listing, popup).
+- **Cream lift** (`box-shadow: 0 10px 30px rgba(90,40,5,.25)` on the hero converter card, `0 6px 18px rgba(90,40,5,.25)` on the cream button): cream objects on orange.
 - **Pill ring** (`box-shadow: inset 0 0 0 1px #f2c287, 0 1px 2px rgba(122,59,12,.12)`): the price tag; on hover `inset 0 0 0 1px #e9a55c, 0 3px 8px rgba(122,59,12,.18)`.
 - **Hover card** (`box-shadow: 0 10px 30px rgba(90,45,10,.22), inset 0 3px 0 <orange>`): the badge's rate card, with an orange top edge.
 
@@ -251,12 +256,12 @@ Mostly flat. Depth comes from the orange-to-white change of ground and from rule
 
 ## Shapes
 
-Soft corners everywhere, and the shape says what a thing is. Buttons, the meta pause button and the switch are full capsules (999px). The price tag, chips, language tags, cards, screenshot frames, fields and the app mark are rounded rectangles: tag 0.42em (hero 0.3em), frames 16px, chips and popup cards 14px, fields and language tags 10px, mark 30/128, focus rings 4px. Circles are kept for the popup's currency-symbol disc and the swap button. Rules are straight 1.5px lines.
+Soft corners everywhere, and the shape says what a thing is. Buttons, the meta pause button and the switch are full capsules (999px). The price tag, chips, language tags, cards, demo frames, fields and the app mark are rounded rectangles: tag 0.42em, hero converter card 22px, frames 16px, chips and popup cards 14px, fields and language tags 10px, mark 30/128, focus rings 4px. Circles are kept for the popup's currency-symbol disc and the swap button. Rules are straight 1.5px lines.
 
 ### Named Rules
 **The Shape Means Role Rule.** Capsule = action, rounded rectangle = information, circle = only things that are genuinely round.
 
-**The Concentric Corner Rule.** A frame around the mark takes the mark's corner radius plus the inset (badge: 1.2em mark, .12em inset, .42em corner; hero: .74em mark, .1em inset, .3em corner).
+**The Concentric Corner Rule.** A frame around the mark takes the mark's corner radius plus the inset (badge: 1.2em mark, .12em inset, .42em corner; hero converter result: 40px mark, 8px inset, 14px corner).
 
 ## Components
 
@@ -270,8 +275,8 @@ Soft corners everywhere, and the shape says what a thing is. Buttons, the meta p
 ### Price Tag (signature)
 The converted price, placed right after the original price on any page and as the headline on the website.
 - **Style:** a rounded tag (.42em corners, .12em .55em .12em .12em padding) with the Cream-to-Pill-Bottom gradient and Pill Ring, Pill Ink text in the rounded face at 600, 0.82em of the host text (0.8em on the website's chips), led by the app mark at 1.2em.
-- **Hero variant:** flat Cream with Roasted Ink, set at display size (text 1em) on the orange band, .3em corners, .1em .3em .1em .1em padding, mark at .74em, with the cream lift shadow. The two sides of the price cross-fade every 3s (0.3s, paused by the meta button or reduced motion).
-- **Hover (badge):** rises 1px and the ring deepens; a hover card shows the source price, the converted figure (20px, 700) and a meta line under a dashed rule.
+- **Converter result:** the tag at 58px tall inside the hero converter card (cream, 22px corners, cream lift), 14px corners, mark at 40px, the figure in Pill Ink. The card keeps its light colors in dark mode, like every cream object on orange.
+- **Hover (badge):** rises 1px and the ring deepens; a hover card shows the source price, the converted figure (20px, 700) and a meta line under a dashed rule. The card stays open while the pointer is on it (200ms grace across the 8px gap) and closes with Escape; one card is open at a time.
 - **Dark host pages:** switches to the night tag when the host text is light.
 - **Isolation:** rendered in a closed Shadow DOM with `all: initial`.
 
@@ -280,6 +285,13 @@ The popup's site banner: a 34px circle with a radial gradient from Symbol Highli
 
 ### Icons
 Line icons on a 24px grid (1.8 stroke, round caps and joins), drawn bare at 22px in Ember Dark next to fact titles and list items, with no well or background. They live in one inline SVG sprite in `docs/index.html`.
+
+### Live Demos (no screenshots)
+The website shows the product as working HTML, never as images, all driven by the same live rates.
+- **Browser frame:** a light window (grey bar, dots, `wanderlist.example` address, app mark) holding the made-up wishlist from `store/wishlist.html`. It is someone else's site, so it stays light in dark mode, and so do the tags on it.
+- **Badge:** the price tag after each price, with the extension's rate card (Cream Paper, 14px corners, orange inset top edge, figure in Ember Dark, dashed rule over the meta line) on hover, focus or tap. The card is anchored inside its listing so it never overflows; the pointer can move onto it without it closing, and Escape hides it (WCAG 1.4.13), like the extension's own card. No tag on prices already in the visitor's currency, like the extension.
+- **Zoomed listing:** one listing at 1.6× (1× on small screens) with its rate card open.
+- **Popup:** `popup.html` rebuilt at 330px, opened on the wishlist demo (whose prices make it guess yen, as the real one does). It follows dark mode like the real popup, and its settings (show conversions, on this site, reference currency, card fee, language) act on the demos and the page, for this visit only.
 
 ### Chips and Tags
 - **Currency chip:** Cream Paper, 14px corners, 9px 14px padding, bold, 1px Biscuit Line border, holding a source price and its price tag. Chips scroll in two opposing marquee rows that pause on hover or via the pause button; with reduced motion they become a static wrapped grid.
@@ -308,7 +320,7 @@ The app icon and the price tag's lead: a Marigold Rate rounded square (30/128 co
 - **Do** use Ember Dark (#a8430d) for accent text on light grounds and Marigold Night (#ff9a3d) in dark mode.
 - **Do** show converted values in a price tag led by the app mark, with corners concentric to the mark, and set every figure in the rounded face.
 - **Do** use capsules only for actions, rounded rectangles for information, circles only for round things.
-- **Do** group content below the hero with 1.5px rules and type; reserve shadows for screenshots and cream objects on orange.
+- **Do** group content below the hero with 1.5px rules and type; reserve shadows for the live demos and cream objects on orange.
 - **Do** define both the light and night value for each new surface, and honor `prefers-reduced-motion` and right-to-left layouts.
 
 ### Don't:

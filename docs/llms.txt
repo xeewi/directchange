@@ -1,0 +1,28 @@
+# DirectChange
+
+> DirectChange is a free, open-source browser extension that shows every foreign price on a web page in your own currency, at today's live rate, in a small tag right after the price. Its toolbar popup also detects the site's currency and converts any amount into it. It works in Chrome, Edge, Brave, Arc and other Chromium browsers, and in Firefox on desktop and Android.
+
+Key facts:
+
+- Price: free. No paid plan, no ads, no account. Open source under the MIT License.
+- Install: Chrome Web Store (also for Edge, Brave, Arc) or Firefox Add-ons (desktop and Android). Safari is not supported yet.
+- Exchange rates: Coinbase's public API, refreshed every 10 minutes, with open.er-api.com (daily) as a fallback. 150+ currencies.
+- Site currency: a plain "$", "¥", "kr" or "Rs" is resolved from the shop's product data (schema.org priceCurrency), then the country domain (.ca, .com.au, .jp…), then the page language. Explicit symbols (€, C$, US$) and ISO codes are never reinterpreted.
+- Reads prices as people write them: ¥24,000, 1.234,56 €, MX$2,490, USD 45, 14 000 bahts, $5k, including prices split across HTML tags and pages that load content dynamically.
+- Card fee: an optional foreign-transaction fee (for example 2%) is added to every conversion.
+- Languages: 36 interface languages, including Arabic, Hebrew and Persian (right to left).
+- Privacy: page content is read on the device and never sent anywhere. The only network requests fetch exchange rates. Permissions: storage, plus access to the two rate APIs and to pages to find prices.
+- Made by Guillaume Gautier, Senior Full-Stack Engineer & AI Workflow Advisor (freelance, Paris): [website](https://xeewi.cool/), [LinkedIn](https://www.linkedin.com/in/gautierg), [Malt](https://www.malt.fr/profile/xeewi), [GitHub](https://github.com/xeewi).
+
+## Links
+
+- [Website, with a working currency converter and live demo](https://directchange.xeewi.cool/): what the extension does, FAQ, install links
+- [Chrome Web Store listing](https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm): Chrome, Edge, Brave, Arc and other Chromium browsers
+- [Firefox Add-ons listing](https://addons.mozilla.org/firefox/addon/directchange/): Firefox desktop and Android
+- [Privacy policy](https://directchange.xeewi.cool/privacy.html): what is stored and which requests are made
+- [Source code and README](https://github.com/xeewi/directchange): how prices and currencies are detected
+
+## Optional
+
+- [How the site's currency is chosen](https://github.com/xeewi/directchange#which-currency-is-)
+- [Translations](https://github.com/xeewi/directchange#translations)

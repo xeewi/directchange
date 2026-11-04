@@ -15,7 +15,7 @@ const CSS = `
 .pill:focus-visible{outline:2px solid #c2540f;outline-offset:2px}
 .mark{display:block;flex:none;width:1.2em;height:1.2em}
 :host([dark]) .pill{color:#ffdcae;background:linear-gradient(#4b2b12,#3a200b);box-shadow:inset 0 0 0 1px #8c5a2a}
-.card{position:fixed;inset:auto;pointer-events:none;margin:0;padding:12px 14px;min-width:190px;border:0;border-radius:14px;
+.card{position:fixed;inset:auto;cursor:default;margin:0;padding:12px 14px;min-width:190px;border:0;border-radius:14px;
   font:13px/1.4 system-ui,-apple-system,sans-serif;color:#3b220d;background:#fffaf3;
   box-shadow:0 10px 30px rgba(90,45,10,.22),inset 0 3px 0 #e0701c}
 .from{font-size:12px;color:#7a5a40}
@@ -26,6 +26,9 @@ const CSS = `
 :host([dark]) .from,:host([dark]) .meta{color:#c9a07a}:host([dark]) .to{color:#ff9a3d}:host([dark]) .meta{border-color:#3d2a19}`;
 
 let darkCache = new WeakMap();
+// The rate card open right now, if any: one at a time, and Escape closes it wherever focus is.
+let closeCard = null;
+addEventListener('keydown', e => { if (e.key === 'Escape') closeCard?.(); }, true);
 function isDark(el) { // light text color => dark background
   if (!darkCache.has(el)) {
     const [r, g, b] = getComputedStyle(el).color.match(/\d+/g).map(Number);
@@ -67,11 +70,15 @@ function badge(p, near) {
     card.style.top = (r.top - h - 8 < 0 ? r.bottom + 8 : r.top - h - 8) + 'px';
     card.style.left = Math.max(8, Math.min(r.left, innerWidth - w - 8)) + 'px';
   };
-  const hide = () => card.hidePopover();
-  // focus covers keyboard users and taps on touch screens, where there is no hover
-  pill.onmouseenter = pill.onfocus = show;
-  pill.onmouseleave = pill.onblur = hide;
-  pill.onkeydown = e => { if (e.key === 'Escape') hide(); };
+  const hide = () => { clearTimeout(leaving); if (card.matches(':popover-open')) card.hidePopover(); };
+  // focus covers keyboard users and taps on touch screens, where there is no hover.
+  // WCAG 1.4.13: the pointer can cross the 8px gap onto the card and stay there, and Escape closes it.
+  let leaving;
+  const leave = () => { clearTimeout(leaving); leaving = setTimeout(hide, 200); };
+  pill.onmouseenter = pill.onfocus = () => { clearTimeout(leaving); closeCard?.(); show(); closeCard = hide; };
+  pill.onmouseleave = card.onmouseleave = leave;
+  card.onmouseenter = () => clearTimeout(leaving);
+  pill.onblur = hide;
   return host;
 }
 

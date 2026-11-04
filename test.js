@@ -79,5 +79,14 @@ for (const d of dirs) {
   assert.deepStrictEqual(Object.keys(m).sort(), Object.keys(siteEn).sort(), `site ${d}`);
   for (const k in siteEn) for (const p of siteEn[k].match(/\{\w+\}/g) ?? [])
     assert(m[k].includes(p), `site ${d}.${k} misses ${p}`);
+  // the popup rebuilt on the site speaks exactly like the real one
+  const ext = JSON.parse(fs.readFileSync(`_locales/${d}/messages.json`));
+  for (const k in m) if (k.startsWith('p_'))
+    assert.strictEqual(m[k], ext[k.slice(2)].message.replace(/\$(\w+)\$/g, (_, v) => `{${v.toLowerCase()}}`), `site ${d}.${k} differs from _locales`);
 }
+// the structured data's FAQ says exactly what the visible English FAQ says
+const ld = JSON.parse(fs.readFileSync('docs/index.html', 'utf8').match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+const faq = ld.find(x => x['@type'] === 'FAQPage').mainEntity;
+assert.deepStrictEqual(faq.map(q => [q.name, q.acceptedAnswer.text]), faq.map((_, i) => [siteEn[`q${i + 1}`], siteEn[`a${i + 1}`]]));
+assert(!(`q${faq.length + 1}` in siteEn), 'FAQ question missing from the structured data');
 console.log('all good');
