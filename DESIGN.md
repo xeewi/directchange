@@ -161,7 +161,7 @@ components:
 
 **Creative North Star: "Orange Drench"**
 
-The brand orange is no longer an accent; it is the ground. The website opens and closes on solid orange bands, the popup opens on a flat orange header, and the privacy page carries an orange top edge. On the orange, everything is dark roasted ink, and the one cream object is the price tag: on the landing page the hero is a working copy of the popup's converter, a cream card whose result sits in the price tag, with the extension pitch under the question it answers. Between the orange edges, the page sits on plain white (night paper in dark mode) and breathes: rules and text instead of boxes.
+The brand orange is no longer an accent; it is the ground. The website opens and closes on solid orange bands, the popup opens on a flat orange header, and the privacy page carries an orange top edge. On the orange, everything is dark roasted ink, and the one cream object is the price tag: on the landing page the hero says what the extension does and offers it, next to a working copy of the popup's converter, a cream card whose result sits in the price tag. Between the orange edges, the page sits on plain white (night paper in dark mode) and breathes: rules and text instead of boxes.
 
 The register is simple and close to standard. One warm family (orange, cream, roasted brown, toffee), the system rounded face for headings and figures, the system sans for reading, no web fonts. The signature is the price tag: a cream rounded tag led by the app mark (an orange square holding two cream ≈ waves), shared exactly across website, store art and inline badge.
 
@@ -217,7 +217,7 @@ One warm family: a saturated orange ground, cream objects, roasted-brown ink, an
 **Character:** The rounded face gives headings, numbers and buttons their softness; the system sans keeps reading text native and fast. No web fonts load.
 
 ### Hierarchy
-- **Headline Hero** (800, clamp(40px, 5.4vw, 76px), 1.02, -0.035em): the hero question ("What is that price in your currency?"), max 11em wide.
+- **Headline Hero** (800, clamp(40px, 5.4vw, 76px), 1.02, -0.035em): the hero tagline ("Every price on the web, in your own currency."), max 11em wide.
 - **Figure Hero** (700, clamp(24px, 2.6vw, 32px), 1, -0.02em, rounded): the amount and result in the hero converter.
 - **Headline** (700, clamp(30px, 4vw, 46px), 1.15, -0.02em): section titles, max 16em wide. The closing band enlarges it to clamp(34px, 5vw, 60px).
 - **Title** (700, 21px, 1.15): fact and step titles.
@@ -231,11 +231,11 @@ One warm family: a saturated orange ground, cream objects, roasted-brown ink, an
 ### Named Rules
 **The Rounded Numbers Rule.** Prices, amounts and currency symbols are always set in the rounded face.
 
-**The Tool First Rule.** The hero leads with the converter itself; the extension is offered right after it, under a 1.5px ink rule, never before it.
+**The Say It Plainly Rule.** The hero states what the extension does and puts the install button right under it; the working converter sits beside it as the proof, never in place of the pitch.
 
 ## Layout
 
-The website is a single column, at most 1180px wide with 28px gutters (20px at 820px and below). The hero band fills the viewport (up to 900px): nav on top, then a two-column grid (question, lede and extension pitch left; the converter card right, max 480px; stacked question, converter, pitch at 820px and below), and a meta strip at the bottom above a 1.5px ink rule. Sections below are left-aligned and spaced 96px apart (72px on small screens), each opening with a headline and a lead.
+The website is a single column, at most 1180px wide with 28px gutters (20px at 820px and below). The hero band fills the viewport (up to 900px): nav on top, then a two-column grid (tagline, lede and install buttons left; the converter card right, max 480px; stacked text, then converter, at 820px and below), and a meta strip at the bottom above a 1.5px ink rule. Sections below are left-aligned and spaced 96px apart (72px on small screens), each opening with a headline and a lead.
 
 Below the hero, content is grouped by rules and type: facts in a three-column grid (48px column gap) where each item sits under a 1.5px Biscuit Line rule; steps in three columns led by a giant numeral; a 1.2fr / 1fr split pairing a list with the working popup. Demos run full width under their section. At 820px and below every grid collapses to one column and nav links marked `hide-sm` hide. The closing band starts 110px after the last section and holds the privacy promise, the install button and the footer.
 
