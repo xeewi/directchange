@@ -31,7 +31,7 @@ DirectChange is a browser extension that shows every foreign price on a web page
 ## Operating Context
 
 - Used in Chromium browsers (Chrome, Edge, Brave, Arc) and Firefox (desktop and Android) while browsing booking sites, shops and other pages with prices.
-- Three surfaces: the inline badge (`<dc-price>`, `content.js`), the toolbar popup (`popup.html`/`popup.js`: site-currency banner, quick converter, settings), and the website at `docs/` (served at https://directchange.xeewi.cool/): a landing page that leads with a working copy of the popup converter, then offers the extension, plus the privacy policy.
+- Three surfaces: the inline badge (`<dc-price>`, `content.js`), the toolbar popup (`popup.html`/`popup.js`: site-currency banner, quick converter, settings), and the website at `docs/` (served at https://directchange.xeewi.cool/): a landing page that says what the extension does and offers it, next to a working copy of the popup converter, plus the privacy policy.
 - Search and AI discovery files in `docs/`: `robots.txt` (everyone allowed), `sitemap.xml` (the home page in its 36 languages as `?lang=` alternates, plus the privacy page), `llms.txt` (product facts for AI assistants), and JSON-LD in `index.html` (SoftwareApplication + FAQPage, kept equal to the visible English FAQ by `test.js`). Keep their facts in step with the extension.
 - Store assets live in `store/` (screenshots, promo tiles, promo video, in English and French).
 
@@ -57,7 +57,7 @@ DirectChange is a browser extension that shows every foreign price on a web page
 - Demo screenshots: `docs/assets/demo.png` (trip wishlist in 6 currencies), `docs/assets/demo-hover.png`, `docs/assets/popup.png`, used by the README, the store art and the share image. The website itself shows none: it rebuilds the wishlist, badges and popup as working HTML.
 - Store screenshots and promo tiles in `store/out/`, promo video in `store/video/`.
 - Open-source code and tests are the proof of the privacy claim.
-- **Absent, never fabricate:** user counts, ratings, reviews, testimonials, press, store badges implying a live listing.
+- **Absent, never fabricate:** user counts, ratings, reviews, testimonials, press, badges for stores DirectChange is not listed in.
 
 ## Product Principles
 
