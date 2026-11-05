@@ -265,6 +265,10 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   .btn:hover { transform: translateY(-2px); }
   .btn.cream { color: var(--on-orange); background: var(--cream); box-shadow: 0 6px 18px rgba(90, 40, 5, .25); }
   .btn.line { color: var(--on-orange); border: 2px solid var(--on-orange); }
+  /* official store badges: resized, corners softened to match the buttons (a pill would clip the logos) */
+  .store { display: block; border-radius: 12px; overflow: hidden; transition: transform .15s; } .store:hover { transform: translateY(-2px); }
+  .store img { display: block; width: auto; height: 54px; }
+  @media (max-width: 420px) { .store img { height: 46px; } } /* keeps both badges on one line on phones */
   select { font: 600 16px/1.2 system-ui, sans-serif; color: var(--on-orange); background: var(--cream); border: 0; border-radius: 10px; padding: 10px 12px; }
   .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding: 18px 0 22px; font-size: 14px; font-weight: 500;
     border-top: 1.5px solid rgba(59, 34, 13, .25); }
@@ -415,7 +419,7 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   .close footer p { font-size: 14px; } .close footer a { font-weight: 600; }
 
   @media (prefers-reduced-motion: reduce) {
-    .btn, .badge .pill, .swap, .switch, .switch::after { transition: none; }
+    .btn, .store, .badge .pill, .swap, .switch, .switch::after { transition: none; }
     .badge .pill:hover { transform: none; }
     .track { animation: none; flex-wrap: wrap; width: auto; }
     .currencies { -webkit-mask-image: none; mask-image: none; }
@@ -480,14 +484,15 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
         <p class="pitch-title" data-i18n="pitchTitle">Get DirectChange in your browser.</p>
         <p data-i18n="pitchText">The free extension for Chrome, Firefox, Edge and Brave puts your price next to every foreign price, on any website. No more copy-paste.</p>
         <div class="row">
-          <a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Get the free extension</a>
+          <a class="store" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm"><img src="assets/badge-chrome-web-store.png" alt="Available in the Chrome Web Store" width="179" height="54"></a>
+          <a class="store" href="https://addons.mozilla.org/firefox/addon/directchange/"><img src="assets/badge-firefox-addons.svg" alt="Get the add-on for Firefox" width="155" height="54"></a>
           <a class="btn line" href="https://github.com/xeewi/directchange" data-i18n="viewSource">View the source</a>
         </div>
       </div>
     </div>
     <div class="meta">
       <span data-i18n="metaFree">Free, open source, no account, no tracking.</span>
-      <span><span data-i18n="metaBrowsers">Works in Chrome, Firefox, Edge, Brave, Arc and other Chromium browsers.</span> <a href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm">Chrome Web Store</a> · <a href="https://addons.mozilla.org/firefox/addon/directchange/">Firefox Add-ons</a></span>
+      <span><span data-i18n="metaBrowsers">Works in Chrome, Firefox, Edge, Brave, Arc and other Chromium browsers.</span></span>
       <button type="button" id="pause" aria-pressed="false">Pause animations</button>
     </div>
   </div>
@@ -609,7 +614,10 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
   <div class="wrap">
     <h2 id="close-title" data-i18n="closeTitle">Your browsing stays yours</h2>
     <p><span data-i18n="closeText">The DirectChange extension collects nothing. The only requests it makes fetch exchange rates, and they say nothing about you or the pages you visit. The code is open source, so you can check.</span> <a href="privacy.html" data-i18n="privacyLink">Read the privacy policy</a></p>
-    <div class="row"><a class="btn cream" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm" data-store data-i18n="install">Get the free extension</a></div>
+    <div class="row">
+      <a class="store" href="https://chromewebstore.google.com/detail/directchange/jempfanheojijeljdinblbpdhfelojkm"><img src="assets/badge-chrome-web-store.png" alt="Available in the Chrome Web Store" width="179" height="54"></a>
+      <a class="store" href="https://addons.mozilla.org/firefox/addon/directchange/"><img src="assets/badge-firefox-addons.svg" alt="Get the add-on for Firefox" width="155" height="54"></a>
+    </div>
     <footer>
       <nav aria-label="Footer"><a href="https://github.com/xeewi/directchange">GitHub</a><a href="privacy.html" data-i18n="footerPrivacy">Privacy</a><a href="https://github.com/xeewi/directchange/blob/main/LICENSE" data-i18n="footerLicense">MIT License</a></nav>
       <p><span data-i18n="madeBy" id="made-by">Made with care by Guillaume Gautier.</span>
@@ -619,9 +627,6 @@ if (lang !== 'en') { document.documentElement.classList.add('wait'); setTimeout(
 </section>
 
 <script>
-// Install buttons point to the visitor's store: Firefox Add-ons on Firefox, the Chrome Web Store everywhere else.
-if (/Firefox\//.test(navigator.userAgent)) document.querySelectorAll('[data-store]').forEach(a => a.href = 'https://addons.mozilla.org/firefox/addon/directchange/');
-
 // Example prices around the world, converted into the visitor's currency with today's rates.
 const EXAMPLES = [[24000, 'JPY'], [129, 'USD'], [4999, 'INR'], [89, 'GBP'], [2490, 'MXN'], [59000, 'KRW'], [5999, 'ZAR'],
   [699, 'CNY'], [14000, 'THB'], [1250000, 'VND'], [450000, 'IDR'], [2690, 'PHP'], [349, 'MYR'], [129, 'SGD'], [880, 'HKD'], [1990, 'TWD'], [199, 'AUD'],
